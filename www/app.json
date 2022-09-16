@@ -1,0 +1,38 @@
+{
+    "routing":{
+		"routes":{},
+		"options":{
+			"history": true,
+			"bookmark": true,
+            "cache": false,
+            "jail": false,
+            "eval": false          
+        },
+        "cache":[],
+		"errors":{}
+    },
+    "vapps":{
+        
+    },    
+	"preload":{
+       "/html":[],
+	   "/img":[],
+	   "/oml":[],
+	   "/ose":[],
+	   "/snd":[]
+    },
+	"popups":{
+        "width": 300,
+        "height": 400,
+        "anim": "fade"
+    },    
+    "windows":{
+        "head": "back",
+        "width": "100%"      
+    },
+	"views": {},
+    "overlays": {},
+	"rendertime": false,
+    "scope": "public",
+    "jwt": true   
+}
