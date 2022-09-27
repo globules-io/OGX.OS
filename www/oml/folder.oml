@@ -5,7 +5,7 @@
             "default:DynamicList":{
                 "key" : "name",
                 "scroll" : true,
-                "mode" : "multi",
+                "mode" : "multi",                
                 "display" : {"bind":"type"},     
                 "displays" : {                   
                     "file" : {"template":"File", "css":"file"},
