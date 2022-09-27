@@ -1,0 +1,17 @@
+{
+    "default:Views.Folder":{
+        "template" : "Folder",
+        "node:OML" : {
+            "default:DynamicList":{
+                "key" : "name",
+                "scroll" : true,
+                "mode" : "multi",
+                "display" : {"bind":"type"},     
+                "displays" : {                   
+                    "file" : {"template":"File", "css":"file"},
+                    "folder" : {"template":"Folder", "css":"folder"}
+                }
+            }
+        }
+    }
+}
