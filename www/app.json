@@ -13,17 +13,38 @@
     },
     "vapps": {},
     "preload": {
-        "/html": [
-            "template.Folder.html",
-            "template.FolderView.html",
-            "template.FileExplorer.html",
-            "template.File.html"
-        ],
         "/img": [],
-        "/ose": [],
         "/snd": [],
+        "/themes/io-globules-ogx/light/img": [
+            "down.svg",
+            "left.svg",
+            "remove.svg",
+            "right.svg",
+            "up.svg"
+        ],
+        "/themes/io-globules-ogx/dark/img": [
+            "arrow.svg",
+            "down.svg",
+            "file.svg",
+            "folder_closed.svg",
+            "folder_empty.svg",
+            "folder_open.svg",
+            "left.svg",
+            "loading.svg",
+            "loop.svg",
+            "remove.svg",
+            "right.svg",
+            "send.svg",
+            "trash.svg",
+            "up.svg"
+        ],
+        "/html": [
+            "template.File.html",
+            "template.FileExplorer.html",
+            "template.Folder.html"
+        ],
         "/oml": [
-            "folder_view.oml"
+            "file_explorer.oml"
         ]
     },
     "popups": {

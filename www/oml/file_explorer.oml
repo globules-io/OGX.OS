@@ -1,9 +1,17 @@
 {
     "default:Views.FileExplorer":{
-        "template" : "FileExplorer",
+        "template" : "FileExplorer",             
         "node:OML" : {
-            "default .tree:Tree":{
-                
+            "default .tree:Tree":{},
+            "default .list:DynamicList":{
+                "key" : "name",
+                "scroll" : true,
+                "mode" : "multi",                
+                "display" : {"bind":"type"},     
+                "displays" : {                   
+                    "file" : {"template":"File", "css":"file"},
+                    "folder" : {"template":"Folder", "css":"folder"}
+                }
             }
         }
     }
