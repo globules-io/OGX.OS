@@ -2,7 +2,7 @@
     "default:Views.FolderView":{
         "template" : "FolderView",
         "node:OML" : {
-            "default:DynamicList":{
+            "default .list:DynamicList":{
                 "key" : "name",
                 "scroll" : true,
                 "mode" : "multi",                
