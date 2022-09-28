@@ -14,7 +14,8 @@
     "vapps": {},
     "preload": {
         "/html": [
-            "template.Folder.html"
+            "template.Folder.html",
+            "template.FolderView.html"
         ],
         "/img": [],
         "/oml": [],

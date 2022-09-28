@@ -1,6 +1,6 @@
 {
     "default:Views.Folder":{
-        "template" : "Folder",
+        "template" : "FolderView",
         "node:OML" : {
             "default:DynamicList":{
                 "key" : "name",
