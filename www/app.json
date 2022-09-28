@@ -18,9 +18,11 @@
             "template.FolderView.html"
         ],
         "/img": [],
-        "/oml": [],
         "/ose": [],
-        "/snd": []
+        "/snd": [],
+        "/oml": [
+            "folder_view.oml"
+        ]
     },
     "popups": {
         "width": 300,
