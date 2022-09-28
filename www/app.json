@@ -16,7 +16,8 @@
         "/html": [
             "template.Folder.html",
             "template.FolderView.html",
-            "template.FileExplorer.html"
+            "template.FileExplorer.html",
+            "template.File.html"
         ],
         "/img": [],
         "/ose": [],
