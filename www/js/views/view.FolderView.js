@@ -1,6 +1,6 @@
-require('Views.Folder', 'View');
-OGX.Views.Folder = function(__config){
-    construct(this, 'Views.Folder');
+require('Views.FolderView', 'View');
+OGX.Views.FolderView = function(__config){
+    construct(this, 'Views.FolderView');
 	'use strict'; 
     let list;
 

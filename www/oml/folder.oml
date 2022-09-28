@@ -1,5 +1,5 @@
 {
-    "default:Views.Folder":{
+    "default:Views.FolderView":{
         "template" : "FolderView",
         "node:OML" : {
             "default:DynamicList":{
