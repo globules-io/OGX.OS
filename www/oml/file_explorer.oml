@@ -1,0 +1,10 @@
+{
+    "default:Views.FileExplorer":{
+        "template" : "FileExplorer",
+        "node:OML" : {
+            "default .tree:Tree":{
+                
+            }
+        }
+    }
+}

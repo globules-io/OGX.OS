@@ -15,7 +15,8 @@
     "preload": {
         "/html": [
             "template.Folder.html",
-            "template.FolderView.html"
+            "template.FolderView.html",
+            "template.FileExplorer.html"
         ],
         "/img": [],
         "/ose": [],
