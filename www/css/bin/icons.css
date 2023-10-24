@@ -18,3 +18,15 @@
 .icon_file{
     background-image: url('/img/file.svg');
 }
+.icon_monitor{
+    background-image: url('/img/monitor.svg');
+}
+.icon_browser{
+    background-image: url('/img/browser.svg');
+}
+.icon_left{
+    background-image: url('/themes/io-globules-ogx/dark/img/left.svg');
+}
+.icon_right{
+    background-image: url('/themes/io-globules-ogx/dark/img/right.svg');
+}

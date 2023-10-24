@@ -16,6 +16,26 @@
 .main_menu > .middle{
     display: inline-block;
     flex-grow: 1;
+    padding-top: 20px;
+}
+.main_menu > .middle .MenuLetter{
+    font-family: Roboto-Regular;
+    font-size: 13px;
+    margin-bottom: 8px;
+    margin-top: 10px;
+}
+.main_menu > .middle .MenuProgram{
+    font-family: Roboto-Light;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+.main_menu > .middle .MenuProgram > .icon{
+    margin-right: 10px;
+}
+.main_menu > .middle .MenuProgram > .label{
+    display: inline-block;
+    vertical-align: top;
+    padding-top: 4px;
 }
 .main_menu > .right{
     display: inline-block;

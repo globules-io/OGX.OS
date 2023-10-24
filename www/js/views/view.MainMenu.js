@@ -50,6 +50,7 @@ OGX.Views.MainMenu = function(__config){
                     anim: 'scale',
                     drag: true,
                     resize: true,
+                    icon: '/img/'+__item.icon+'.svg',
                     icons: [
                         {icon:'/img/close.svg', callback:() => {
                             app.removePopup(popup.id, false);
@@ -74,7 +75,6 @@ OGX.Views.MainMenu = function(__config){
             template: __item.view,
             css: __item.view
         };
-        console.log(node);
         return node;
     }
 };

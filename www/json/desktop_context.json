@@ -1,4 +1,4 @@
 [
-    {"label" : "Display Settings", "value" : "display", "icon": "display_settings"},
-    {"label" : "Personalize", "value" : "personalize", "icon": "display_custom"}
+    {"label" : "Display Settings", "value" : "display", "icon": "settings"},
+    {"label" : "Personalize", "value" : "personalize", "icon": "monitor"}
 ]
