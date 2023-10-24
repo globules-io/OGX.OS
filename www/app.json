@@ -1,6 +1,12 @@
 {
     "routing": {
-        "routes": {},
+        "routes": {
+            "main/desktop": {
+                "origin": "null,public,error",
+                "oml": "desktop",
+                "scope": "public"
+            }
+        },
         "options": {
             "history": true,
             "bookmark": true,
@@ -11,18 +17,43 @@
         "cache": [],
         "errors": {}
     },
-    "vapps": {},
+    "vapps": {
+        "loader:Stages.Loader": {
+            "use": false,
+            "home": "",
+            "placeholder": ".view",
+            "scope": "public",
+            "theater": false
+        },
+        "main:Stages.Main": {
+            "use": true,
+            "template": "Main",
+            "home": "desktop",
+            "placeholder": ".view",
+            "scope": "public",
+            "theater": false
+        }
+    },
     "preload": {
-        "/img": [],
         "/snd": [],
-        "/themes/io-globules-ogx/light/img": [
-            "down.svg",
-            "left.svg",
-            "remove.svg",
-            "right.svg",
-            "up.svg"
+        "themes/io-globules-ogx/base/fonts": [
+            "Roboto-Black.ttf",
+            "Roboto-BlackItalic.ttf",
+            "Roboto-Bold.ttf",
+            "Roboto-BoldItalic.ttf",
+            "Roboto-Italic.ttf",
+            "Roboto-Light.ttf",
+            "Roboto-LightItalic.ttf",
+            "Roboto-Medium.ttf",
+            "Roboto-MediumItalic.ttf",
+            "Roboto-Regular.ttf",
+            "Roboto-Thin.ttf",
+            "Roboto-ThinItalic.ttf"
         ],
-        "/themes/io-globules-ogx/dark/img": [
+        "/img": [
+            "menu.svg"
+        ],
+        "/themes/io-globules-ogx/base/img": [
             "arrow.svg",
             "down.svg",
             "file.svg",
@@ -38,13 +69,48 @@
             "trash.svg",
             "up.svg"
         ],
-        "/html": [
-            "template.File.html",
-            "template.FileExplorer.html",
-            "template.Folder.html"
+        "/themes/io-globules-ogx/light/img": [
+            "down.svg",
+            "left.svg",
+            "remove.svg",
+            "right.svg",
+            "send.svg",
+            "up.svg"
+        ],
+        "/themes/io-globules-ogx/dark/img": [
+            "arrow.svg",
+            "close.svg",
+            "down.svg",
+            "emoji.svg",
+            "file.svg",
+            "folder_closed.svg",
+            "folder_empty.svg",
+            "folder_open.svg",
+            "left.svg",
+            "loading.svg",
+            "loop.svg",
+            "remove.svg",
+            "right.svg",
+            "send.svg",
+            "trash.svg",
+            "up.svg"
+        ],
+        "/json": [
+            "desktop_context.json"
         ],
         "/oml": [
+            "desktop.oml",
             "file_explorer.oml"
+        ],
+        "/html": [
+            "template.Clock.html",
+            "template.ContextMenu.html",
+            "template.Desktop.html",
+            "template.File.html",
+            "template.FileExplorer.html",
+            "template.Folder.html",
+            "template.Main.html",
+            "template.MainMenu.html"
         ]
     },
     "popups": {
@@ -60,5 +126,5 @@
     "overlays": {},
     "rendertime": false,
     "scope": "public",
-    "jwt": true
+    "jwt": false
 }
