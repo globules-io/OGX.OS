@@ -100,7 +100,8 @@
         ],
         "/json": [
             "desktop_context.json",
-            "main_menu_icons.json"
+            "main_menu_icons.json",
+            "programs.json"
         ],
         "/oml": [
             "desktop.oml",
@@ -108,6 +109,7 @@
             "main_menu.oml"
         ],
         "/html": [
+            "template.Browser.html",
             "template.Clock.html",
             "template.ContextMenu.html",
             "template.Desktop.html",
@@ -116,6 +118,8 @@
             "template.Folder.html",
             "template.Main.html",
             "template.MainMenu.html",
+            "template.MenuLetter.html",
+            "template.MenuProgram.html",
             "template.Settings.html"
         ]
     },
