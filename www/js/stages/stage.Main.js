@@ -57,8 +57,13 @@ OGX.Stages.Main = function(__obj){
                     }, 0);
                 }
             });
+            this.on(this.touch.down, '.icon_menu', (__e) => {
+                __e.stopImmediatePropagation();
+                app.cfind('Window', 'main_menu_win').show(true);
+            });
             this.on(this.touch.down, '.clock', (__e) => {
                 __e.stopImmediatePropagation();
+                //add clock view if not exist
                 if(!this.children('Clock').length){
                     this.create('Views.Clock', {
                         id: 'main_clock',
@@ -75,6 +80,7 @@ OGX.Stages.Main = function(__obj){
             });
         }else{
            this.off(this.touch.down);
+           this.off(this.touch.down, '.icon_menu');
            this.off(this.touch.down, '.clock');
         }
     };

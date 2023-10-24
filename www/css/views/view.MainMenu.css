@@ -1,1 +1,4 @@
-/* CSS */
+.main_menu{
+    display: flex;
+    flex-direction: row;
+}

@@ -1,6 +1,20 @@
 {
     "default:Views.Desktop":{
         "id": "desktop",
-        "template": "Desktop"
+        "template": "Desktop",
+        "node:OML":{
+            "main_menu_win:Window":{
+                "anim": "left",
+                "head": "none", 
+                "width": "400px|70%-",
+                "close_on_click_out": true,                
+                "node:OML": [{
+                    "default:Views.MainMenu":{
+                        "template": "MainMenu",
+                        "css": "main_menu"
+                    }
+                }]
+            }
+        }
     }
 }

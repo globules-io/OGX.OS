@@ -1,0 +1,32 @@
+{
+    "default .left:DynamicList":{
+        "id" : "menu_icons",
+        "scroll": true,
+        "key" : "icon",
+        "display":{
+            "html" : "<span class=\"icon {{$icon}}\"></span>",
+            "css" : "menu_icon"
+        },
+        "list:OSE" : "{{json menu_main_icons}}"
+    },
+    "default .middle:DynamicList":{
+        "id" : "menu_programs",
+        "scroll": true,
+        "key" : "value",
+        "display":{
+            "template" : {
+                "bind" : "type"
+            },
+            "css" : "menu_program"
+        }
+    },
+    "default .right:DynamicList":{
+        "id" : "menu_pins",
+        "scroll": true,
+        "key" : "value",
+        "display":{
+            "html" : "<span class=\"icon {{$icon}}\"></span>",
+            "css" : "menu_pin"
+        }
+    }
+}
