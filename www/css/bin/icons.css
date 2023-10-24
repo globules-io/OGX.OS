@@ -9,3 +9,12 @@
 .icon_menu{
     background-image: url('/img/menu.svg');
 }
+.icon_settings{
+    background-image: url('/img/settings.svg');
+}
+.icon_close{
+    background-image: url('/img/close.svg');
+}
+.icon_file{
+    background-image: url('/img/file.svg');
+}

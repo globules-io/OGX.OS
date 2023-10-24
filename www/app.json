@@ -51,7 +51,10 @@
             "Roboto-ThinItalic.ttf"
         ],
         "/img": [
-            "menu.svg"
+            "close.svg",
+            "file.svg",
+            "menu.svg",
+            "settings.svg"
         ],
         "/themes/io-globules-ogx/base/img": [
             "arrow.svg",
@@ -96,11 +99,13 @@
             "up.svg"
         ],
         "/json": [
-            "desktop_context.json"
+            "desktop_context.json",
+            "main_menu_icons.json"
         ],
         "/oml": [
             "desktop.oml",
-            "file_explorer.oml"
+            "file_explorer.oml",
+            "main_menu.oml"
         ],
         "/html": [
             "template.Clock.html",
@@ -110,7 +115,8 @@
             "template.FileExplorer.html",
             "template.Folder.html",
             "template.Main.html",
-            "template.MainMenu.html"
+            "template.MainMenu.html",
+            "template.Settings.html"
         ]
     },
     "popups": {

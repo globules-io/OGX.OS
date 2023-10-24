@@ -1,18 +1,20 @@
 {
     "default .left:DynamicList":{
         "id" : "menu_icons",
-        "scroll": true,
+        "scroll": false,
         "key" : "icon",
+        "mode" : "static",
         "display":{
-            "html" : "<span class=\"icon {{$icon}}\"></span>",
+            "html" : "<span class=\"icon icon_{{$icon}}\"></span>",
             "css" : "menu_icon"
         },
-        "list:OSE" : "{{json menu_main_icons}}"
+        "list:OSE" : "{{json main_menu_icons}}"
     },
     "default .middle:DynamicList":{
         "id" : "menu_programs",
         "scroll": true,
         "key" : "value",
+        "mode" : "hit",
         "display":{
             "template" : {
                 "bind" : "type"
@@ -24,6 +26,7 @@
         "id" : "menu_pins",
         "scroll": true,
         "key" : "value",
+        "mode" : "hit",
         "display":{
             "html" : "<span class=\"icon {{$icon}}\"></span>",
             "css" : "menu_pin"

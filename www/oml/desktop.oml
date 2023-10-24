@@ -11,7 +11,7 @@
                 "node:OML": [{
                     "default:Views.MainMenu":{
                         "template": "MainMenu",
-                        "css": "main_menu"
+                        "node:OML":"main_menu"
                     }
                 }]
             }
