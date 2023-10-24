@@ -59,7 +59,12 @@ OGX.Stages.Main = function(__obj){
             });
             this.on(this.touch.down, '.icon_menu', (__e) => {
                 __e.stopImmediatePropagation();
-                app.cfind('Window', 'main_menu_win').show(true);
+                const win = app.cfind('Window', 'main_menu_win');
+                if(win.status !== 'WindowClosed'){
+                    win.hide(true);
+                }else{
+                    win.show(true);
+                }
             });
             this.on(this.touch.down, '.clock', (__e) => {
                 __e.stopImmediatePropagation();
