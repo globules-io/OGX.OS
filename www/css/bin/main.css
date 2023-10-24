@@ -1,0 +1,11 @@
+*{
+    box-sizing: border-box;
+}
+.ogx_context_menu_item{
+    font-family: Roboto-Light;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+.ogx_context_menu_item:last-of-type{
+    margin-bottom: 0px;
+}

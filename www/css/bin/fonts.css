@@ -1,0 +1,48 @@
+@font-face {
+    font-family:Roboto-Black;
+    src:url("../../themes/io-globules-ogx/base/fonts/roboto/Roboto-Black.ttf");
+}
+@font-face {
+    font-family:Roboto-BlackItalic;
+    src:url("../../themes/io-globules-ogx/base/fonts/roboto/Roboto-BlackItalic.ttf");
+}
+@font-face {
+    font-family:Roboto-Bold;
+    src:url("../../themes/io-globules-ogx/base/fonts/roboto/Roboto-Bold.ttf");
+}
+@font-face {
+    font-family:Roboto-BoldItalic;
+    src:url("../../themes/io-globules-ogx/base/fonts/roboto/Roboto-BoldItalic.ttf");
+}
+@font-face {
+    font-family:Roboto-Italic;
+    src:url("../../themes/io-globules-ogx/base/fonts/roboto/Roboto-Italic.ttf");
+}
+@font-face {
+    font-family:Roboto-Light;
+    src:url("../../themes/io-globules-ogx/base/fonts/roboto/Roboto-Light.ttf");
+}
+@font-face {
+    font-family:Roboto-LightItalic;
+    src:url("../../themes/io-globules-ogx/base/fonts/roboto/Roboto-LightItalic.ttf");
+}
+@font-face {
+    font-family:Roboto-Medium;
+    src:url("../../themes/io-globules-ogx/base/fonts/roboto/Roboto-Medium.ttf");
+}
+@font-face {
+    font-family:Roboto-MediumItalic;
+    src:url("../../themes/io-globules-ogx/base/fonts/roboto/Roboto-MediumItalic.ttf");
+}
+@font-face {
+    font-family:Roboto-Regular;
+    src:url("../../themes/io-globules-ogx/base/fonts/roboto/Roboto-Regular.ttf");
+}
+@font-face {
+    font-family:Roboto-Thin;
+    src:url("../../themes/io-globules-ogx/base/fonts/roboto/Roboto-Thin.ttf");
+}
+@font-face {
+    font-family:Roboto-ThinItalic;
+    src:url("../../themes/io-globules-ogx/base/fonts/roboto/Roboto-ThinItalic.ttf");
+}
