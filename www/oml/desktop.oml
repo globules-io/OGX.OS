@@ -1,0 +1,6 @@
+{
+    "default:Views.Desktop":{
+        "id": "desktop",
+        "template": "Desktop"
+    }
+}
