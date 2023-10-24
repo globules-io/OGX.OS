@@ -13,14 +13,16 @@
     "default .middle:DynamicList":{
         "id" : "menu_programs",
         "scroll": true,
-        "key" : "value",
         "mode" : "hit",
         "display":{
             "template" : {
                 "bind" : "type"
             },
-            "css" : "menu_program"
-        }
+            "css" : {
+                "bind" : "type"
+            }
+        },
+        "list:OSE" : "{{json programs}}"
     },
     "default .right:DynamicList":{
         "id" : "menu_pins",
