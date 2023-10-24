@@ -1,0 +1,31 @@
+.main_clock{
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 400px;
+    background-color: #222;
+}
+.main_clock > *{
+    display: inline-block;
+}
+.main_clock > .datetime{
+    padding: 15px;
+    border-bottom: 1px solid #444;
+}
+.main_clock > .datetime > .time{
+    display: block;
+    font-family: Roboto-Light;
+    font-size: 36px;
+}
+.main_clock > .datetime > .date{
+    font-family: Roboto-Light;
+    font-size: 13px;
+    margin-bottom: 5px;
+    color:dodgerblue;
+}
+.main_clock > .calendar{
+    flex-grow: 1;
+}
