@@ -1,0 +1,36 @@
+.ogx_stage[data-ogx-id="main"]{
+    display: flex !important;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+.ogx_stage[data-ogx-id="main"] > .view{
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    flex-grow: 1;
+    background-color: cornflowerblue;
+}
+.ogx_stage[data-ogx-id="main"] > .taskbar{
+    display: inline-flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 5px;
+    filter: drop-shadow(2px 0px 2px #000);
+}
+.ogx_stage[data-ogx-id="main"] > .taskbar > .dock{
+    display: inline-flex;
+    flex-direction: row;
+    flex-grow: 1;
+}
+.ogx_stage[data-ogx-id="main"] > .taskbar > .tray{
+    display: inline-flex;
+    flex-direction: row;
+}
+.ogx_stage[data-ogx-id="main"] > .taskbar > .tray > .clock{
+    display: inline-block;
+    vertical-align: top;
+    margin: 3px 5px 0px 0px;
+    font-family: Roboto-Light;
+    font-size: 12px;
+}
