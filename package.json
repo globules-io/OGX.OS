@@ -1,0 +1,27 @@
+{
+    "name": "@globules-io/ogx.os",
+    "version": "0.0.1",
+    "description": "Web based operating system based on OGX.JS",
+    "main": "",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/globules-io/OGX.OS.git"
+    },
+    "keywords": [
+        "javascript",
+        "framework",
+        "OS"
+    ],
+    "author": "globules.io",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/globules-io/OGX.OS/issues"
+    },
+    "homepage": "https://github.com/globules-io/OGX.OS#readme",
+    "dependencies": {
+        "@globules-io/ogx.js": "^1.27.1"
+    }
+}
