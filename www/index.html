@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>    
-<meta http-equiv="Content-Security-Policy" content="default-src 'self' gap://ready file://* 'unsafe-inline' *; style-src 'self' 'unsafe-inline' *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; img-src * data:;">
+<meta http-equiv="Content-Security-Policy" content="
+default-src 'self' gap://ready file://* 'unsafe-inline' *; 
+style-src 'self' 'unsafe-inline' *; 
+script-src 'self' 'unsafe-inline' 'unsafe-eval' *; 
+worker-src 'self' blob: self;
+img-src * data:;
+">
 <meta charset="UTF-8">
 <meta name="format-detection" content="telephone=no">
 <meta name="msapplication-tap-highlight" content="no">
 <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height">
-<title>App</title>
+<title>OGX.OS</title>
 <!--Cordova
 <script type="application/javascript" src="cordova.js"></script>
 -->
@@ -16,6 +22,10 @@
 <link href="themes/io-globules-ogx/base/css/theme.min.css" rel="stylesheet" type="text/css">
 <link href="themes/io-globules-ogx/light/css/theme.min.css" rel="stylesheet" media="(prefers-color-scheme: light)" type="text/css">
 <link href="themes/io-globules-ogx/dark/css/theme.min.css" rel="stylesheet" media="(prefers-color-scheme: no-preference), (prefers-color-scheme: dark)" type="text/css">
+<!--CSS EXTRA COMPONENTS-->
+<link href="css/lib/globules/components.base.min.css" rel="stylesheet" type="text/css">
+<link href="css/lib/globules/components.light.min.css" rel="stylesheet" media="(prefers-color-scheme: light)" type="text/css">
+<link href="css/lib/globules/components.dark.min.css" rel="stylesheet" media="(prefers-color-scheme: no-preference), (prefers-color-scheme: dark)" type="text/css">
 <!--CSS BIN
 <link href="css/bin/..." rel="stylesheet" type="text/css">
 -->
@@ -30,15 +40,31 @@
 <script type="application/javascript" src="js/lib/crypto/aes.min.js"></script>  
 <!--OGX-->
 <script type="application/javascript" src="js/lib/globules/ogx.dev.min.js"></script>
+<script type="application/javascript" src="js/lib/globules/components.min.js" defer></script>
 <!--JS BIN
 <script type="application/javascript" src="js/stages/..."></script>
 <script type="application/javascript" src="js/views/..."></script>
 <script type="application/javascript" src="js/controllers/..."></script>
 -->
-
-
 <script type="application/javascript" src="js/views/view.FileExplorer.js"></script>
 <link rel="stylesheet" href="css/views/view.FileExplorer.css">
+<script type="application/javascript" src="js/views/view.Desktop.js"></script>
+<link rel="stylesheet" href="css/views/view.Desktop.css">
+<script type="application/javascript" src="js/stages/stage.Loader.js"></script>
+<link rel="stylesheet" href="css/stages/stage.Loader.css">
+<script type="application/javascript" src="js/stages/stage.Main.js"></script>
+<link rel="stylesheet" href="css/stages/stage.Main.css">
+<link rel="stylesheet" href="css/views/view.ContextMenu.css">
+<script type="application/javascript" src="js/views/view.ContextMenu.js"></script>
+<link href="css/bin/fonts.css" rel="stylesheet" type="text/css">
+<script type="application/javascript" src="js/views/view.Clock.js"></script>
+<link rel="stylesheet" href="css/views/view.Clock.css">
+<script type="application/javascript" src="js/views/view.MainMenu.js"></script>
+<link rel="stylesheet" href="css/views/view.MainMenu.css">
+<link rel="stylesheet" href="css/bin/fonts.css">
+<link rel="stylesheet" href="css/bin/icons.css">
+<link rel="stylesheet" href="css/bin/main.css">
+<script type="application/javascript" src="js/bin/main.js"></script>
 </head>
 <body>
 </body>
