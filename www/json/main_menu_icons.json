@@ -1,5 +1,5 @@
 [
     {"icon" : "drives", "label" : "Drives", "view": "Drives", "group" : "system", "oml" : "drives"},
-    {"icon" : "file",  "label" : "Files", "view" : "FileExplorer", "group" : "system"},
+    {"icon" : "file",  "label" : "Files", "view" : "FileExplorer", "group" : "system", "oml" : "file_explorer"},
     {"icon" : "settings",  "label" : "Settings", "view" : "Settings", "group" : "system"}
 ]
