@@ -52,6 +52,12 @@
 .icon_x{
     background-image: url('/img/x.svg');
 }
+.icon_add{
+    background-image: url('/img/add.svg');
+}
+.icon_trash{
+    background-image: url('/img/trash.svg');
+}
 .icon_left{
     background-image: url('/themes/io-globules-ogx/dark/img/left.svg');
 }
