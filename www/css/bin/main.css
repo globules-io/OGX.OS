@@ -1,5 +1,62 @@
+/* SHARED */
 *{
     box-sizing: border-box;
+}
+/*TOOLBAR SHARED*/
+.toolbar{
+    display:flex;
+    flex-direction:row;
+    width:100%;    
+    overflow:hidden;
+    background-color:#282828;
+    border-bottom: 1px solid #333;
+    border-radius:6px;
+    box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
+    padding: 10px;
+    margin-bottom:10px !important;
+}
+.toolbar > .title{
+    display:inline-block;
+    vertical-align: top;
+    padding-top:2px;
+}
+.toolbar > .search{
+    display:inline-block;    
+    flex-grow:1;
+    margin-left: 35px;
+    background-repeat: no-repeat;
+    background-position-y:center;
+    background-size:20px;
+    background-image:url('/img/search.svg');
+    padding-left:20px;
+    margin-top:-5px;
+}
+.toolbar > .search  > input{
+    display: inline-block;
+    width:100%;
+}
+.toolbar > .icons{
+    display:inline-block;    
+    flex-grow: 1;
+    text-align: right;
+    padding-right: 5px;
+}
+.toolbar > .icons > .icon{
+    display:inline-block; 
+    width:26px;
+    height:26px;
+    margin-left:15px;
+}
+.toolbar > .tools{
+    display: inline-block;
+    flex-grow: 1;
+    text-align: right;
+}
+.toolbar > .tools > .icon{
+    display:inline-block; 
+    width:26px;
+    height:26px;
+    margin-left:15px;
 }
 /* THEMING OVERRIDE */
 .ogx_context_menu > .ogx_context_menu_body{
@@ -33,3 +90,4 @@
     font-family: Roboto-Light;
     font-size: 13px;
 }
+
