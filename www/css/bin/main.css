@@ -24,3 +24,7 @@
     width: 20px;
     height: 20px;
 }
+.ogx_tabs_tab_label {
+    font-family: Roboto-Light;
+    font-size: 13px;
+}
