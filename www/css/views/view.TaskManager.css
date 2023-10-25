@@ -1,0 +1,44 @@
+.task_manager{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+}
+.task_manager > *{    
+    height: 100%;
+}
+.task_manager > .nodes{
+    display: inline-block;
+    flex-basis: 30%;
+}
+.task_manager > .nodes > .list{
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.task_manager > .nodes > .list .process{
+    font-family: Roboto-Light;
+    font-size: 12px;
+}
+.task_manager > .graph{
+    display: inline-flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+.task_manager > .graph > .fps{
+    display: inline-block;
+    font-family: Roboto-Light;
+    font-size: 13px;
+}
+.task_manager > .graph > .level{
+    display: inline-block;
+    flex-grow: 1;
+    position: relative;
+}
+.task_manager > .graph > .level > .box{
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    background-color: dodgerblue;
+}

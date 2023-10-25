@@ -1,0 +1,16 @@
+{
+    "default:Views.TaskManager":{
+        "template":"TaskManager",
+        "node:OML":{
+            "default .nodes > .list:DynamicList":{
+                "scroll" : true,
+                "mode" : "hit",
+                "key" : "value",
+                "display": {
+                    "html" : "<span class=\"icon icon_program\"></span><span class=\"label\">{{$label}}</span>",
+                    "css" : "process"
+                }
+            }
+        }
+    }    
+}
