@@ -3,7 +3,7 @@
         "id" : "menu_icons",
         "scroll": false,
         "key" : "icon",
-        "mode" : "static",
+        "mode" : "hit",
         "display":{
             "html" : "<span class=\"icon icon_{{$icon}}\"></span>",
             "css" : "menu_icon"
