@@ -41,7 +41,14 @@
                 },
                 {
                     "default .dock:Docker": {
-                        "id" : "docker"
+                        "id" : "docker",
+                        "groups":{
+                            "system":{   
+                                "icon":{
+                                    "default":"/img/settings.svg"
+                                }
+                            }     
+                        }
                     }
                 }
             ]
