@@ -9,7 +9,7 @@
     position: relative;
     width: 100%;
     flex-grow: 1;
-    background-color: cornflowerblue;
+    background-color: #2d5cb4;
 }
 .ogx_stage[data-ogx-id="main"] > .taskbar{
     display: inline-flex;
