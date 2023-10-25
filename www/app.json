@@ -31,7 +31,10 @@
             "home": "desktop",
             "placeholder": ".view",
             "scope": "public",
-            "theater": false
+            "theater": false,
+            "node:OML": {
+                "program_manager:Controllers.ProgramManager": {}
+            }
         }
     },
     "preload": {
@@ -53,9 +56,12 @@
         "/img": [
             "browser.svg",
             "close.svg",
+            "drives.svg",
             "file.svg",
+            "maximize.svg",
             "menu.svg",
             "monitor.svg",
+            "normalize.svg",
             "settings.svg"
         ],
         "/themes/io-globules-ogx/base/img": [
@@ -108,7 +114,8 @@
         "/oml": [
             "desktop.oml",
             "file_explorer.oml",
-            "main_menu.oml"
+            "main_menu.oml",
+            "task_manager.oml"
         ],
         "/html": [
             "template.Browser.html",
@@ -122,7 +129,8 @@
             "template.MainMenu.html",
             "template.MenuLetter.html",
             "template.MenuProgram.html",
-            "template.Settings.html"
+            "template.Settings.html",
+            "template.TaskManager.html"
         ]
     },
     "popups": {
