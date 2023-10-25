@@ -67,16 +67,16 @@ OGX.Controllers.ProgramManager = function(){
     function maximizePopup(__popup){    
         __popup.maximize();        
         let icons = __popup.icons();
-        icons[0].icon = '/img/normalize.svg';
-        icons[0].callback = normalizePopup;
+        icons[1].icon = '/img/normalize.svg';
+        icons[1].callback = normalizePopup;
         __popup.icons(icons);
     };    
 
     function normalizePopup(__popup){       
         __popup.normalize();        
         let icons = __popup.icons();
-        icons[0].icon = '/img/maximize.svg';
-        icons[0].callback = maximizePopup;
+        icons[1].icon = '/img/maximize.svg';
+        icons[1].callback = maximizePopup;
         __popup.icons(icons);
     };
 
