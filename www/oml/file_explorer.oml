@@ -2,16 +2,26 @@
     "default:Views.FileExplorer":{
         "template" : "FileExplorer",             
         "node:OML" : {
-            "default .tree:Tree":{},
-            "default .list:DynamicList":{
-                "key" : "name",
-                "scroll" : true,
-                "mode" : "multi",                
-                "display" : {"bind":"type"},     
-                "displays" : {                   
-                    "file" : {"template":"File", "css":"file"},
-                    "folder" : {"template":"Folder", "css":"folder"}
-                }
+            "default .split:FlexCells":{
+                "axis" : "x",
+                "min" : 10,
+                "children" : ["40%", "60%"],
+                "node:OML":[
+                    {"default:Tree":{
+                        "show_root" : false,
+                        "scroll": true
+                    }},
+                    {"default:DynamicList":{
+                        "key" : "name",
+                        "scroll" : true,
+                        "mode" : "multi",                
+                        "display" : {"bind":"type"},     
+                        "displays" : {                   
+                            "file" : {"template":"File", "css":"file"},
+                            "folder" : {"template":"Folder", "css":"folder"}
+                        }
+                    }}
+                ]
             }
         }
     }

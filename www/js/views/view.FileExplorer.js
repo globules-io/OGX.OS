@@ -28,4 +28,8 @@ OGX.Views.FileExplorer = function(__config){
     //@Override
     this.destroy = function(){};
 
+    function getDrivesTree(){
+        
+    }
+
 };
