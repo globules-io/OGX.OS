@@ -1,5 +1,5 @@
 [
     {"icon" : "drive"},
     {"icon" : "file"},
-    {"icon" : "settings"}
+    {"icon" : "settings",  "label" : "Settings", "view" : "Settings"}
 ]

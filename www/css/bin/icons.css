@@ -12,6 +12,9 @@
 .icon_settings{
     background-image: url('/img/settings.svg');
 }
+.icon_maximize{
+    background-image: url('/img/maximize.svg');
+}
 .icon_close{
     background-image: url('/img/close.svg');
 }

@@ -1,8 +1,26 @@
 *{
     box-sizing: border-box;
 }
+/* THEMING OVERRIDE */
 .ogx_context_menu_item{
     font-family: Roboto-Light;
     font-size: 14px;
     margin-bottom: 5px;
+}
+.ogx_popup_title {
+    font-family: Roboto-Light;
+    font-size: 13px;
+}
+.ogx_popup_icon{
+    width: 20px;
+    height: 20px;
+    top: 8px;
+}
+.ogx_popup_icons {
+    padding-top: 8px;
+    padding-right: 8px;
+}
+.ogx_popup_icons_icon {
+    width: 20px;
+    height: 20px;
 }

@@ -51,9 +51,11 @@
             "Roboto-ThinItalic.ttf"
         ],
         "/img": [
+            "browser.svg",
             "close.svg",
             "file.svg",
             "menu.svg",
+            "monitor.svg",
             "settings.svg"
         ],
         "/themes/io-globules-ogx/base/img": [
