@@ -1,15 +1,24 @@
 {
-    "default:Views.TaskManager":{
-        "template":"TaskManager",
+    "default:Views.TaskManager":{    
+        "css" : "task_manager",    
         "node:OML":{
-            "default .nodes > .list:DynamicList":{
-                "scroll" : true,
-                "mode" : "hit",
-                "key" : "value",
-                "display": {
-                    "html" : "<span class=\"icon icon_program\"></span><span class=\"label\">{{$label}}</span>",
-                    "css" : "process"
-                }
+            "default:FlexCells":{
+                "axis" : "x",
+                "min" : 10,
+                "children" : ["40%", "60%"],
+                "template": "TaskManager",
+                "node:OML":[                    
+                    {"default:DynamicList":{
+                        "scroll" : true,
+                        "mode" : "hit",
+                        "key" : "value",
+                        "display": {
+                            "html" : "<span class=\"icon icon_program\"></span><span class=\"label\">{{$label}}</span>",
+                            "css" : "process"
+                        }
+                    }},
+                    {}
+                ]
             }
         }
     }    

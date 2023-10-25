@@ -8,7 +8,7 @@ OGX.Views.TaskManager = function(__config){
 
     //@Override
 	this.construct = function(){
-        list = this.children('DynamicList')[0];
+        list = this.gather('DynamicList')[0];
         fps_el = this.el.find('.graph > .fps');
         graph_el = this.el.find('.graph > .level > .box');
         calcFPS();
