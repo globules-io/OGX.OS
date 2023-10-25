@@ -1,3 +1,9 @@
+.ogx_window[data-ogx-id="main_menu_win"]{
+    background-color: rgba(33, 33, 33, 0.8);
+}
+.ogx_window[data-ogx-id="main_menu_win"] .ogx_view{
+    background-color: rgba(33, 33, 33, 0.8);
+}
 .main_menu{
     display: flex;
     flex-direction: row;
