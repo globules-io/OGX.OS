@@ -1,5 +1,5 @@
 [
     {"label" : "Display Settings", "value" : "display", "icon": "settings"},
     {"label" : "Personalize", "value" : "personalize", "icon": "monitor"},
-    {"label" : "Task Manager", "value" : "tmanager", "view": "TaskManager", "icon": "graph", "oml" : "task_manager"}
+    {"label" : "Task Manager", "value" : "tmanager", "view": "TaskManager", "icon": "tmanager", "oml" : "task_manager"}
 ]

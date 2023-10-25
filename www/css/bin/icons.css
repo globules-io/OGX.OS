@@ -58,6 +58,9 @@
 .icon_trash{
     background-image: url('/img/trash.svg');
 }
+.icon_tmanager{
+    background-image: url('/img/tmanager.svg');
+}
 .icon_left{
     background-image: url('/themes/io-globules-ogx/dark/img/left.svg');
 }

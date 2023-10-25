@@ -40,7 +40,7 @@ OGX.Stages.Main = function(__obj){
                             y: __e.pageY,
                             //overwrite default display to include icons
                             display:{
-                                html:'<span class="icon {{$icon}}"></span><span class="label">{{$label}}</span>',
+                                html:'<span class="icon icon_{{$icon}}"></span><span class="label">{{$label}}</span>',
                                 css:'ogx_context_menu_item'
                             },
                             //on list select callback

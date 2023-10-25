@@ -13,7 +13,7 @@
     border-radius:6px;
     box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
     padding: 10px;
-    margin-bottom:10px !important;
+    margin-bottom: 5px !important;
 }
 .toolbar > .title{
     display:inline-block;
@@ -59,15 +59,19 @@
     margin-left:15px;
 }
 /* THEMING OVERRIDE */
+.ogx_context_menu_list{
+    padding: 2px;
+}
 .ogx_context_menu > .ogx_context_menu_body{
     padding: 5px;
 }
-.ogx_context_menu_item{
-    margin-bottom: 5px;
-}
 .ogx_context_menu_item > .label{
+    display: inline-block;
     font-family: Roboto-Light;
     font-size: 13px;
+    vertical-align: top;
+    margin-left: 5px;
+    padding-top: 3px;
 }
 .ogx_popup_title {
     font-family: Roboto-Light;
