@@ -2,10 +2,15 @@
     box-sizing: border-box;
 }
 /* THEMING OVERRIDE */
+.ogx_context_menu > .ogx_context_menu_body{
+    padding: 5px;
+}
 .ogx_context_menu_item{
-    font-family: Roboto-Light;
-    font-size: 14px;
     margin-bottom: 5px;
+}
+.ogx_context_menu_item > .label{
+    font-family: Roboto-Light;
+    font-size: 13px;
 }
 .ogx_popup_title {
     font-family: Roboto-Light;
