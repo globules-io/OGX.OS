@@ -32,26 +32,7 @@
             "placeholder": ".view",
             "scope": "public",
             "theater": false,
-            "node:OML": [
-                {
-                    "program_manager:Controllers.ProgramManager": {}
-                },
-                {
-                    "data_manager:Controllers.DataManager": {}
-                },
-                {
-                    "default .dock:Docker": {
-                        "id" : "docker",
-                        "groups":{
-                            "system":{   
-                                "icon":{
-                                    "default":"/img/settings.svg"
-                                }
-                            }     
-                        }
-                    }
-                }
-            ]
+            "node:OML": "main_stage"
         }
     },
     "preload": {
@@ -83,6 +64,7 @@
             "insta.svg",
             "maximize.svg",
             "menu.svg",
+            "minimize.svg",
             "monitor.svg",
             "normalize.svg",
             "settings.svg",
@@ -146,6 +128,7 @@
             "drives.oml",
             "file_explorer.oml",
             "main_menu.oml",
+            "main_stage.oml",
             "task_manager.oml"
         ],
         "/html": [
