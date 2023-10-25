@@ -56,14 +56,18 @@
         ],
         "/img": [
             "browser.svg",
+            "calc.svg",
             "close.svg",
             "drives.svg",
             "file.svg",
+            "grid.svg",
+            "image.svg",
             "maximize.svg",
             "menu.svg",
             "monitor.svg",
             "normalize.svg",
-            "settings.svg"
+            "settings.svg",
+            "text.svg"
         ],
         "/themes/io-globules-ogx/base/img": [
             "arrow.svg",
@@ -109,6 +113,8 @@
         ],
         "/json": [
             "desktop_context.json",
+            "drives.json",
+            "extensions.json",
             "main_menu_icons.json",
             "programs.json"
         ],
@@ -120,21 +126,21 @@
         ],
         "/html": [
             "template.Browser.html",
+            "template.Calculator.html",
             "template.Clock.html",
             "template.ContextMenu.html",
             "template.Desktop.html",
             "template.File.html",
             "template.FileExplorer.html",
             "template.Folder.html",
+            "template.ImageViewer.html",
             "template.Main.html",
             "template.MainMenu.html",
             "template.MenuLetter.html",
             "template.MenuProgram.html",
             "template.Settings.html",
             "template.TaskManager.html",
-            "template.ImageViewer.html",
-            "template.TextEditor.html",
-            "template.Calculator.html"
+            "template.TextEditor.html"
         ]
     },
     "popups": {

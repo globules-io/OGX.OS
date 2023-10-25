@@ -5,7 +5,14 @@ OGX.Controllers.DataManager = function(){
 
     //@Override
 	this.construct = function(){
-        initMongo();
+        initMongo();     
+        const drives = this.getDrives();
+        if(!drives.length){
+            const json = app.getJSON('drives');
+            json.forEach(__drive => {
+                mongogx.insert(__drive);
+            });
+        }   
     };
 	
     //@Override
@@ -26,10 +33,16 @@ OGX.Controllers.DataManager = function(){
     //@Override
     this.destroy = function(){};
 
+    this.getDrives = function(){
+        mongogx.setCollection('drives');
+        return mongogx.find({});
+    };
+
     function initMongo(){
 		let options = {encryption:{scheme:OGX.Mongogx.ENCRYPTION_AES, key:'ogx'}};		
         mongogx = new OGX.Mongogx(null, null, options);
         mongogx.createDatabase('system');
-        mongogx.setDatabase('drives');	
+        mongogx.setDatabase('system');	
+        mongogx.createCollection('drives');
 	} 	
 };
