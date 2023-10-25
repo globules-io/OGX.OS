@@ -67,6 +67,7 @@ OGX.Views.MainMenu = function(__config){
 
     function genPopup(__item){
         const node = makeProgramNode(__item);
+        !__item.hasOwnProperty('group') ? __item.group = false : null;
         const popup = app.addPopup({
             title: __item.label,
             width: '60%',
@@ -74,6 +75,7 @@ OGX.Views.MainMenu = function(__config){
             anim: 'scale',
             drag: true,
             resize: true,
+            group: __item.group,
             maximize: true,
             maximize_dbc: (__max) => {
                 if(__max){
@@ -90,7 +92,7 @@ OGX.Views.MainMenu = function(__config){
                 }}
             ],
             'node:OML':[node]
-        }, app.getStage().children('View')[0]);
+        }, app.getStage().gather('Views.Desktop')[0]);
         popup.show(true);
     }    
 };
