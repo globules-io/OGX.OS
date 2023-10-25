@@ -1,37 +1,42 @@
 {
-    "default .left:DynamicList":{
-        "id" : "menu_icons",
-        "scroll": false,
-        "key" : "icon",
-        "mode" : "hit",
-        "display":{
-            "html" : "<span class=\"icon icon_{{$icon}}\"></span>",
-            "css" : "menu_icon"
-        },
-        "list:OSE" : "{{json main_menu_icons}}"
-    },
-    "default .middle:DynamicList":{
-        "id" : "menu_programs",
-        "scroll": true,
-        "mode" : "hit",
-        "display":{
-            "template" : {
-                "bind" : "type"
+    "default:Views.MainMenu":{
+        "template": "MainMenu",
+        "node:OML":{   
+            "default .left:DynamicList":{
+                "id" : "menu_icons",
+                "scroll": false,
+                "key" : "icon",
+                "mode" : "hit",
+                "display":{
+                    "html" : "<span class=\"icon icon_{{$icon}}\"></span>",
+                    "css" : "menu_icon"
+                },
+                "list:OSE" : "{{json main_menu_icons}}"
             },
-            "css" : {
-                "bind" : "type"
+            "default .middle:DynamicList":{
+                "id" : "menu_programs",
+                "scroll": true,
+                "mode" : "hit",
+                "display":{
+                    "template" : {
+                        "bind" : "type"
+                    },
+                    "css" : {
+                        "bind" : "type"
+                    }
+                },
+                "list:OSE" : "{{json programs}}"
+            },
+            "default .right:DynamicList":{
+                "id" : "menu_pins",
+                "scroll": true,
+                "key" : "value",
+                "mode" : "hit",
+                "display":{
+                    "html" : "<span class=\"icon {{$icon}}\"></span>",
+                    "css" : "menu_pin"
+                }
             }
-        },
-        "list:OSE" : "{{json programs}}"
-    },
-    "default .right:DynamicList":{
-        "id" : "menu_pins",
-        "scroll": true,
-        "key" : "value",
-        "mode" : "hit",
-        "display":{
-            "html" : "<span class=\"icon {{$icon}}\"></span>",
-            "css" : "menu_pin"
         }
     }
 }
