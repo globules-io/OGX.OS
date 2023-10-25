@@ -67,7 +67,6 @@ OGX.Views.MainMenu = function(__config){
 
     function genPopup(__item){
         const node = makeProgramNode(__item);
-        console.log(node);
         const popup = app.addPopup({
             title: __item.label,
             width: '60%',
