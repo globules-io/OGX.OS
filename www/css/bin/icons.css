@@ -31,6 +31,18 @@
 .icon_browser{
     background-image: url('/img/browser.svg');
 }
+.icon_image{
+    background-image: url('/img/image.svg');
+}
+.icon_text{
+    background-image: url('/img/text.svg');
+}
+.icon_calc{
+    background-image: url('/img/calc.svg');
+}
+.icon_text{
+    background-image: url('/img/text.svg');
+}
 .icon_left{
     background-image: url('/themes/io-globules-ogx/dark/img/left.svg');
 }
