@@ -87,8 +87,8 @@ OGX.Views.MainMenu = function(__config){
             icon: '/img/'+__item.icon+'.svg',
             icons: [
                 {icon:'/img/maximize.svg', callback:maximizePopup},
-                {icon:'/img/close.svg', callback:() => {
-                    app.removePopup(popup.id, false);
+                {icon:'/img/close.svg', callback:(__popup) => {
+                    app.removePopup(__popup.id, false);
                 }}
             ],
             'node:OML':[node]
