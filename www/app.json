@@ -130,7 +130,10 @@
             "template.MenuLetter.html",
             "template.MenuProgram.html",
             "template.Settings.html",
-            "template.TaskManager.html"
+            "template.TaskManager.html",
+            "template.ImageViewer.html",
+            "template.TextEditor.html",
+            "template.Calculator.html"
         ]
     },
     "popups": {
