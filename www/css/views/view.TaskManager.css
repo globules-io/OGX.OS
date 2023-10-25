@@ -25,16 +25,21 @@
     display: inline-flex;
     flex-direction: column;
     flex-grow: 1;
+    border-left: 1px solid #333;
 }
 .task_manager > .graph > .fps{
     display: inline-block;
     font-family: Roboto-Light;
     font-size: 13px;
+    padding: 5px;
 }
 .task_manager > .graph > .level{
     display: inline-block;
     flex-grow: 1;
     position: relative;
+    background-image: url('/img/grid.svg');
+    background-repeat: repeat;
+    background-size: 10%;
 }
 .task_manager > .graph > .level > .box{
     position: absolute;
