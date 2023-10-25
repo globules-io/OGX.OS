@@ -22,6 +22,9 @@
 .icon_file{
     background-image: url('/img/file.svg');
 }
+.icon_drives{
+    background-image: url('/img/drives.svg');
+}
 .icon_monitor{
     background-image: url('/img/monitor.svg');
 }
