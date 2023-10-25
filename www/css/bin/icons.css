@@ -16,6 +16,9 @@
 .icon_maximize{
     background-image: url('/img/maximize.svg');
 }
+.icon_minimize{
+    background-image: url('/img/minimize.svg');
+}
 .icon_close{
     background-image: url('/img/close.svg');
 }

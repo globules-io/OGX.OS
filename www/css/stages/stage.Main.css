@@ -22,6 +22,8 @@
     display: inline-flex;
     flex-direction: row;
     flex-grow: 1;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 .ogx_stage[data-ogx-id="main"] > .taskbar > .tray{
     display: inline-flex;

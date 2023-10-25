@@ -2,9 +2,12 @@ require('Controllers.ProgramManager', 'Controller');
 OGX.Controllers.ProgramManager = function(){
     construct(this, 'Controllers.ProgramManager');
     'use strict';
+    let docker;
 
     //@Override
-	this.construct = function(){};
+	this.construct = function(){
+        docker = app.cfind('Docker', 'docker');
+    };
 	
     //@Override
 	this.onFocus = function(){};
@@ -45,6 +48,7 @@ OGX.Controllers.ProgramManager = function(){
             },
             icon: '/img/'+__item.icon+'.svg',
             icons: [
+                {icon:'/img/minimize.svg', callback:minimizePopup},
                 {icon:'/img/maximize.svg', callback:maximizePopup},
                 {icon:'/img/close.svg', callback:(__popup) => {
                     app.removePopup(__popup.id, false);
@@ -52,8 +56,13 @@ OGX.Controllers.ProgramManager = function(){
             ],
             'node:OML':[node]
         }, app.getStage().gather('Views.Desktop')[0]);
+        docker.addItem(popup, {icon: popup.icon()});
         popup.show(true);
     }    
+
+    function minimizePopup(__popup){
+        __popup.hide(false);        
+    }
 
     function maximizePopup(__popup){    
         __popup.maximize();        

@@ -40,7 +40,9 @@
                     "data_manager:Controllers.DataManager": {}
                 },
                 {
-                    "default .dock:Docker": {}
+                    "default .dock:Docker": {
+                        "id" : "docker"
+                    }
                 }
             ]
         }
