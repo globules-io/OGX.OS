@@ -33,7 +33,8 @@
             "scope": "public",
             "theater": false,
             "node:OML": {
-                "program_manager:Controllers.ProgramManager": {}
+                "program_manager:Controllers.ProgramManager": {},
+                "data_manager:Controllers.DataManager": {}
             }
         }
     },

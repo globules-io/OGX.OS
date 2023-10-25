@@ -7,6 +7,7 @@
                 "anim": "left",
                 "head": "none", 
                 "width": "400px|70%-",
+                "resize": true,
                 "close_on_click_out": true,                
                 "node:OML": ["main_menu"]
             }
