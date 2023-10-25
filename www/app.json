@@ -32,10 +32,11 @@
             "placeholder": ".view",
             "scope": "public",
             "theater": false,
-            "node:OML": {
-                "program_manager:Controllers.ProgramManager": {},
-                "data_manager:Controllers.DataManager": {}
-            }
+            "node:OML": [
+                {"program_manager:Controllers.ProgramManager": {}},
+                {"data_manager:Controllers.DataManager": {}},
+                {"default .dock:Docker":{}}
+            ]
         }
     },
     "preload": {
