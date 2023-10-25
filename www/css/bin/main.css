@@ -95,10 +95,10 @@
     font-size: 13px;
 }
 .ogx_docker_item_icon{
-    width: 13px;
-    height: 13px;
+    width: 13px !important;
+    height: 13px !important;
 }
 .ogx_docker_item_line{
-    width: 13px;
+    width: 13px !important;
 }
 
