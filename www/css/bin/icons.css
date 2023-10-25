@@ -46,6 +46,12 @@
 .icon_text{
     background-image: url('/img/text.svg');
 }
+.icon_insta{
+    background-image: url('/img/insta.svg');
+}
+.icon_x{
+    background-image: url('/img/x.svg');
+}
 .icon_left{
     background-image: url('/themes/io-globules-ogx/dark/img/left.svg');
 }

@@ -63,12 +63,14 @@
             "file.svg",
             "grid.svg",
             "image.svg",
+            "insta.svg",
             "maximize.svg",
             "menu.svg",
             "monitor.svg",
             "normalize.svg",
             "settings.svg",
-            "text.svg"
+            "text.svg",
+            "x.svg"
         ],
         "/themes/io-globules-ogx/base/img": [
             "arrow.svg",
@@ -117,6 +119,7 @@
             "drives.json",
             "extensions.json",
             "main_menu_icons.json",
+            "pins.json",
             "programs.json"
         ],
         "/oml": [
@@ -143,7 +146,8 @@
             "template.MenuProgram.html",
             "template.Settings.html",
             "template.TaskManager.html",
-            "template.TextEditor.html"
+            "template.TextEditor.html",
+            "template.WebApp.html"
         ]
     },
     "popups": {

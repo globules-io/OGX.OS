@@ -38,6 +38,22 @@
     vertical-align: top;
     padding-top: 4px;
 }
+.main_menu > .right .menu_pin{
+    display: inline-block;
+    padding-top: 20px;
+}
+.main_menu > .right .menu_pin > .icon{
+    display: block;
+    width: 80px;
+    height: 80px;
+}
+.main_menu > .right .menu_pin > .label{
+    display: block;
+    font-family: Roboto-Regular;
+    font-size: 13px;
+    width: 100%;
+    text-align: center;
+}
 .main_menu > .right{
     display: inline-block;
     flex-grow: 2;

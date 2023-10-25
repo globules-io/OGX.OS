@@ -1,0 +1,4 @@
+[
+    {"label" : "Instagram", "icon" : "insta", "ext" : "web", "url" : "://instagram.com"},
+    {"label" : "X (Twitter)", "icon" : "x", "ext" : "web", "url" : "://x.com"}
+]

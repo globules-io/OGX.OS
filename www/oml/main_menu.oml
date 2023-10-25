@@ -30,12 +30,13 @@
             "default .right:DynamicList":{
                 "id" : "menu_pins",
                 "scroll": true,
-                "key" : "value",
+                "key" : "icon",
                 "mode" : "hit",
                 "display":{
-                    "html" : "<span class=\"icon {{$icon}}\"></span>",
+                    "html" : "<span class=\"icon icon_{{$icon}}\"></span><span class=\"label\">{{$label}}</span>",
                     "css" : "menu_pin"
-                }
+                },
+                "list:OSE" : "{{json pins}}"
             }
         }
     }

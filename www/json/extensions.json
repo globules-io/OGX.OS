@@ -1,5 +1,6 @@
 {
     "jpg": "ImageViewer",
     "gif": "ImageViewer",
-    "png": "ImageViewer"
+    "png": "ImageViewer",
+    "web": "WebApp"
 }
