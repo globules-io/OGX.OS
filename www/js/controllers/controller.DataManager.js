@@ -66,6 +66,10 @@ OGX.Controllers.DataManager = function(){
         return mongogx.find({});
     };
 
+    this.getDriveTree = function(__drive){
+
+    };
+
     function initMongo(){
 		let options = {encryption:{scheme:OGX.Mongogx.ENCRYPTION_AES, key:'ogx'}};		
         mongogx = new OGX.Mongogx(null, null, options);

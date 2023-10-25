@@ -77,8 +77,7 @@ OGX.Controllers.ProgramManager = function(){
         }
         let node = {};
         node['default:Views.'+__item.view] = {
-            template: __item.view,
-            css: __item.view
+            template: __item.view
         };
         return node;
     }    
