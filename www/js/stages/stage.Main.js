@@ -2,11 +2,12 @@ require('Stages.Main', 'Stage');
 OGX.Stages.Main = function(__obj){
     construct(this, 'Stages.Main');
 	'use strict';
-    let clock_intv;
+    let clock_intv, program_manager;
 
     //@Override
 	this.construct = function(){
         this.updateClock();
+        program_manager = app.cfind('Controller', 'program_manager');
     };
 	
     //@Override
@@ -27,33 +28,28 @@ OGX.Stages.Main = function(__obj){
                 let clock = this.find('View', 'main_clock');
                 if(clock){
                     app.remove('View', clock.id);
-                }
-                //if context exists in this, remove it
-                let ctx = this.children('ContextMenu');
-                if(ctx.length){
-                    app.remove('ContextMenu', ctx[0].id);
-                }
+                }               
                 //show context on right click
                 if(this.touch.isRightClick(__e)){
                     __e.preventDefault();
                     __e = this.event(__e);  
-                    setTimeout(() => {
+                    setTimeout(() => {                        
                         this.create('ContextMenu', {
                             id: 'desktop_context_list',
                             x: __e.pageX,
                             y: __e.pageY,
                             //overwrite default display to include icons
                             display:{
-                                html:'<span class="icon {{$icon}}"></span><span>{{$label}}</span>',
+                                html:'<span class="icon {{$icon}}"></span><span class="label">{{$label}}</span>',
                                 css:'ogx_context_menu_item'
                             },
                             //on list select callback
-                            callback: () => {
-                               
+                            callback: (__item) => {
+                                program_manager.genPopup(__item);
                             },
                             //set list from cached json
                             list: app.getJSON('desktop_context')
-                        });
+                        });                        
                     }, 0);
                 }
             });
