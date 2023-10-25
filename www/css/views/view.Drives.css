@@ -1,0 +1,29 @@
+.drives{
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+}
+.drives > .list{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.drives > .list .ogx_dynamic_list{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 100%;
+}
+.drives > .list .ogx_dynamic_list .drive{
+    display: inline-block;
+}
+.drives > .list .ogx_dynamic_list .drive > .icon_drive{
+    display: block;
+    width: 60px;
+    height: 60px;
+}
+.drives > .list .ogx_dynamic_list .drive > .label{
+    display: block;
+    width: 100%;
+    text-align: center;
+}

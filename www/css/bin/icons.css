@@ -5,7 +5,7 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    cursor: unset;
+    cursor: unset !important;
 }
 .icon_menu{
     background-image: url('/img/menu.svg');
@@ -21,6 +21,9 @@
 }
 .icon_file{
     background-image: url('/img/file.svg');
+}
+.icon_drive{
+    background-image: url('/img/drive.svg');
 }
 .icon_drives{
     background-image: url('/img/drives.svg');

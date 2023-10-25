@@ -1,0 +1,16 @@
+{
+    "default:Views.Drives":{
+        "template" : "Drives",
+        "css" : "drives",
+        "node:OML":{
+            "default .list:DynamicList":{
+                "mode": "hit",
+                "key": "label",
+                "display": {
+                    "html": "<span class=\"icon icon_drive\"></span><span class=\"label\">{{$label}}:</span>",
+                    "css": "drive"
+                }
+            }
+        }
+    }
+}

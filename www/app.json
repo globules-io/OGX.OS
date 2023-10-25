@@ -58,6 +58,7 @@
             "browser.svg",
             "calc.svg",
             "close.svg",
+            "drive.svg",
             "drives.svg",
             "file.svg",
             "grid.svg",
@@ -120,6 +121,7 @@
         ],
         "/oml": [
             "desktop.oml",
+            "drives.oml",
             "file_explorer.oml",
             "main_menu.oml",
             "task_manager.oml"
@@ -130,6 +132,7 @@
             "template.Clock.html",
             "template.ContextMenu.html",
             "template.Desktop.html",
+            "template.Drives.html",
             "template.File.html",
             "template.FileExplorer.html",
             "template.Folder.html",
