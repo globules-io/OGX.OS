@@ -33,9 +33,15 @@
             "scope": "public",
             "theater": false,
             "node:OML": [
-                {"program_manager:Controllers.ProgramManager": {}},
-                {"data_manager:Controllers.DataManager": {}},
-                {"default .dock:Docker":{}}
+                {
+                    "program_manager:Controllers.ProgramManager": {}
+                },
+                {
+                    "data_manager:Controllers.DataManager": {}
+                },
+                {
+                    "default .dock:Docker": {}
+                }
             ]
         }
     },
@@ -56,6 +62,7 @@
             "Roboto-ThinItalic.ttf"
         ],
         "/img": [
+            "add.svg",
             "browser.svg",
             "calc.svg",
             "close.svg",
@@ -71,6 +78,7 @@
             "normalize.svg",
             "settings.svg",
             "text.svg",
+            "trash.svg",
             "x.svg"
         ],
         "/themes/io-globules-ogx/base/img": [
