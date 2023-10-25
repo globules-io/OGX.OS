@@ -67,7 +67,7 @@ OGX.Views.TaskManager = function(__config){
                 prevTime = time;
                 frames = 0;
             }
-            fps_el.html(fps);
+            fps_el.html(fps+'FPS');
             pc = 100 - fps * 100 / 60;
             !pc ? pc = 1 : null;
             graph_el.css('height', pc+'%');
