@@ -2,5 +2,7 @@
     "jpg": "ImageViewer",
     "gif": "ImageViewer",
     "png": "ImageViewer",
+    "mp3": "SoundPlayer",
+    "webm": "VideoPlayer",
     "web": "WebApp"
 }
