@@ -2,6 +2,9 @@
 *{
     box-sizing: border-box;
 }
+.off{
+    opacity: 0.3;
+}
 /*TOOLBAR SHARED*/
 .toolbar{
     display:flex;
