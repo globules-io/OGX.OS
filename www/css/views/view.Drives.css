@@ -13,17 +13,52 @@
     flex-direction: row;
     flex-wrap: wrap;
     height: 100%;
+    align-items:flex-start;
+    align-content:flex-start;
 }
 .drives > .list .ogx_dynamic_list .drive{
+    display: inline-flex;
+    flex-direction: row;
+}
+.drives > .list .ogx_dynamic_list .drive > .col{
     display: inline-block;
 }
-.drives > .list .ogx_dynamic_list .drive > .icon_drive{
+.drives > .list .ogx_dynamic_list .drive > .left{
+    margin-right: 10px;
+}
+.drives > .list .ogx_dynamic_list .drive > .right{
+    padding-top: 5px;
+}
+.drives > .list .ogx_dynamic_list .drive  > .left > .icon_drive{
     display: block;
     width: 60px;
     height: 60px;
 }
-.drives > .list .ogx_dynamic_list .drive > .label{
+.drives > .list .ogx_dynamic_list .drive  > .right > .label{
     display: block;
     width: 100%;
-    text-align: center;
+    font-family: Roboto-Light;
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+.drives > .list .ogx_dynamic_list .drive  > .right > .size{
+    display: block;
+}
+.drives > .list .ogx_dynamic_list .drive  > .right > .size > .bar{
+    display: block;
+    width: 150px;
+    height: 15px;
+    border: 1px solid #444;
+    border-radius: 2px;
+    margin-bottom: 5px;
+}
+.drives > .list .ogx_dynamic_list .drive  > .right > .size > .bar > span{
+    display: inline-block;
+    height: 100%;
+    background-color: dodgerblue;
+}
+.drives > .list .ogx_dynamic_list .drive  > .right > .size > .amount{
+    display: block;
+    font-family: Roboto-Light;
+    font-size: 10px;
 }

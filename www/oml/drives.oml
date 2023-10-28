@@ -7,7 +7,7 @@
                 "mode": "hit",
                 "key": "label",
                 "display": {
-                    "html": "<span class=\"icon icon_drive\"></span><span class=\"label\">{{$label}}:</span>",
+                    "template": "Drive",
                     "css": "drive"
                 }
             }
