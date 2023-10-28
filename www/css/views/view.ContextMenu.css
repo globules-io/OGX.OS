@@ -1,1 +1,7 @@
-/* CSS */
+.ContextLine{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-top: 1px solid #444;
+    border-bottom: 1px solid #333;
+    height: 1px;
+}
