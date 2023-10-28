@@ -61,7 +61,6 @@
             "file.svg",
             "grid.svg",
             "image.svg",
-            "insta.svg",
             "maximize.svg",
             "menu.svg",
             "minimize.svg",
@@ -71,8 +70,7 @@
             "settings.svg",
             "text.svg",
             "tmanager.svg",
-            "trash.svg",
-            "x.svg"
+            "trash.svg"
         ],
         "/themes/io-globules-ogx/base/img": [
             "arrow.svg",
@@ -118,7 +116,6 @@
         ],
         "/json": [
             "desktop_context.json",
-            "drives.json",
             "extensions.json",
             "main_menu_icons.json",
             "pins.json",
@@ -138,6 +135,7 @@
             "template.Clock.html",
             "template.ContextMenu.html",
             "template.Desktop.html",
+            "template.Drive.html",
             "template.Drives.html",
             "template.File.html",
             "template.FileExplorer.html",
