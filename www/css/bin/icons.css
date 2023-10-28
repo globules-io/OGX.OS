@@ -22,9 +22,6 @@
 .icon_close{
     background-image: url('/img/close.svg');
 }
-.icon_file{
-    background-image: url('/img/file.svg');
-}
 .icon_drive{
     background-image: url('/img/drive.svg');
 }
@@ -49,12 +46,6 @@
 .icon_text{
     background-image: url('/img/text.svg');
 }
-.icon_insta{
-    background-image: url('/img/insta.svg');
-}
-.icon_x{
-    background-image: url('/img/x.svg');
-}
 .icon_add{
     background-image: url('/img/add.svg');
 }
@@ -66,6 +57,18 @@
 }
 .icon_tmanager{
     background-image: url('/img/tmanager.svg');
+}
+.icon_camera{
+    background-image: url('/img/camera.svg');
+}
+.icon_sketch{
+    background-image: url('/img/sketch.svg');
+}
+.icon_folder{
+    background-image: url('/themes/io-globules-ogx/dark/img/folder_closed.svg');
+}
+.icon_file{
+    background-image: url('/themes/io-globules-ogx/dark/img/file.svg');
 }
 .icon_left{
     background-image: url('/themes/io-globules-ogx/dark/img/left.svg');
