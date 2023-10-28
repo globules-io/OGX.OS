@@ -55,10 +55,10 @@
             "add.svg",
             "browser.svg",
             "calc.svg",
+            "camera.svg",
             "close.svg",
             "drive.svg",
             "drives.svg",
-            "file.svg",
             "grid.svg",
             "image.svg",
             "maximize.svg",
@@ -68,25 +68,11 @@
             "normalize.svg",
             "reload.svg",
             "settings.svg",
+            "sketch.svg",
             "text.svg",
             "tmanager.svg",
-            "trash.svg"
-        ],
-        "/themes/io-globules-ogx/base/img": [
-            "arrow.svg",
-            "down.svg",
-            "file.svg",
-            "folder_closed.svg",
-            "folder_empty.svg",
-            "folder_open.svg",
-            "left.svg",
-            "loading.svg",
-            "loop.svg",
-            "remove.svg",
-            "right.svg",
-            "send.svg",
             "trash.svg",
-            "up.svg"
+            "video.svg"
         ],
         "/themes/io-globules-ogx/light/img": [
             "down.svg",
@@ -117,8 +103,8 @@
         "/json": [
             "desktop_context.json",
             "extensions.json",
-            "main_menu_icons.json",
-            "pins.json",
+            "menu_icons.json",
+            "menu_pins.json",
             "programs.json"
         ],
         "/oml": [
@@ -133,6 +119,8 @@
             "template.Browser.html",
             "template.Calculator.html",
             "template.Clock.html",
+            "template.ContextItem.html",
+            "template.ContextLine.html",
             "template.ContextMenu.html",
             "template.Desktop.html",
             "template.Drive.html",
