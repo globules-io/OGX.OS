@@ -1,5 +1,8 @@
 [
-    {"label" : "Display Settings", "value" : "display", "icon": "settings"},
-    {"label" : "Personalize", "value" : "personalize", "icon": "monitor"},
-    {"label" : "Task Manager", "value" : "tmanager", "view": "TaskManager", "icon": "tmanager", "oml" : "task_manager"}
+    {"label" : "New Folder", "value" : "folder", "icon": "folder", "type" : "ContextItem"},
+    {"label" : "New File", "value" : "file", "icon": "file", "type" : "ContextItem"},
+    {"type" : "ContextLine"},
+    {"label" : "Display Settings", "value" : "display", "icon": "settings", "type" : "ContextItem"},
+    {"label" : "Personalize", "value" : "personalize", "icon": "monitor", "type" : "ContextItem"},
+    {"label" : "Task Manager", "value" : "tmanager", "view": "TaskManager", "icon": "tmanager", "type" : "ContextItem", "oml" : "task_manager"}
 ]

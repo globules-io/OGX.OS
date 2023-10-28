@@ -3,8 +3,13 @@
     {"label" : "Browser", "icon" : "browser", "view" : "Browser", "type" : "MenuProgram"},
     {"label" : "C", "type" : "MenuLetter"},
     {"label" : "Calculator", "icon" : "calc", "view" : "Calculator", "type" : "MenuProgram"},
+    {"label" : "Camera", "icon" : "camera", "view" : "Camera", "type" : "MenuProgram"},
+    {"label" : "D", "type" : "MenuLetter"},
+    {"label" : "Sketch", "icon" : "sketch", "view" : "Sketch", "type" : "MenuProgram"},
     {"label" : "I", "type" : "MenuLetter"},
     {"label" : "Image Viewer", "icon" : "image", "view" : "ImageViewer", "type" : "MenuProgram"},
     {"label" : "T", "type" : "MenuLetter"},
-    {"label" : "Text Editor", "icon" : "text", "view" : "TextEditor", "type" : "MenuProgram"}            
+    {"label" : "Text Editor", "icon" : "text", "view" : "TextEditor", "type" : "MenuProgram"},          
+    {"label" : "V", "type" : "MenuLetter"},
+    {"label" : "Video Player", "icon" : "text", "view" : "VideoPlayer", "type" : "MenuProgram"}
 ]
