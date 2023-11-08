@@ -28,7 +28,7 @@
     gap: 5px 5px; 
     grid-template-areas: 
         "MC MR MS MP MM"
-        "DEL CE C PM SQ"
+        "DL CE BC PM SQ"
         "B7 B8 B9 DV PC"
         "B4 B5 B6 MT X1"
         "B1 B2 B3 MN EQ"
@@ -52,9 +52,9 @@
 .MS { grid-area: MS; }
 .MP { grid-area: MP; }
 .MM { grid-area: MM; }
-.DEL { grid-area: DEL; }
+.DL { grid-area: DL; }
 .CE { grid-area: CE; }
-.C { grid-area: C; }
+.BC { grid-area: BC; }
 .PM { grid-area: PM; }
 .SQ { grid-area: SQ; }
 .B7 { grid-area: B7; }
