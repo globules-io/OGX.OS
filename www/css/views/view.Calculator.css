@@ -1,1 +1,75 @@
-/* CSS */
+.Calculator{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+}
+.Calculator > .operation{
+    display: inline-flex;
+    width: 100%;
+    height: 60px;
+    border: 1px solid #333;
+    border-radius: 1px;
+    margin-bottom: 5px;
+    font-family: Roboto-Regular;
+    font-size: 30px;
+    align-items: center;
+    justify-content: right;
+    padding-right: 10px;
+    overflow: hidden;
+}
+.Calculator > .buttons{
+    display: grid; 
+    width: 100%;
+    height: 100%;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr; 
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr; 
+    gap: 5px 5px; 
+    grid-template-areas: 
+        "MC MR MS MP MM"
+        "DEL CE C PM SQ"
+        "B7 B8 B9 DV PC"
+        "B4 B5 B6 MT X1"
+        "B1 B2 B3 MN EQ"
+        "ZR ZR BD BP EQ"; 
+    align-items: center;
+    justify-items: center;
+}
+.Calculator > .buttons > *{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #333;
+    border-radius: 1px;
+    width: 100%;
+    height: 100%;
+}
+.ZR { grid-area: ZR; }
+.EQ { grid-area: EQ; }
+.MC { grid-area: MC; }
+.MR { grid-area: MR; }
+.MS { grid-area: MS; }
+.MP { grid-area: MP; }
+.MM { grid-area: MM; }
+.DEL { grid-area: DEL; }
+.CE { grid-area: CE; }
+.C { grid-area: C; }
+.PM { grid-area: PM; }
+.SQ { grid-area: SQ; }
+.B7 { grid-area: B7; }
+.B8 { grid-area: B8; }
+.B9 { grid-area: B9; }
+.DV { grid-area: DV; }
+.PC { grid-area: PC; }
+.B4 { grid-area: B4; }
+.B5 { grid-area: B5; }
+.B6 { grid-area: B6; }
+.MT { grid-area: MT; }
+.X1 { grid-area: X1; }
+.B1 { grid-area: B1; }
+.B2 { grid-area: B2; }
+.B3 { grid-area: B3; }
+.MN { grid-area: MN; }
+.BD { grid-area: BD; }
+.BP { grid-area: BP; }
