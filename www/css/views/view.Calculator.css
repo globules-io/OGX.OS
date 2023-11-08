@@ -5,19 +5,31 @@
     height: 100%;
     padding: 10px;
 }
-.Calculator > .operation{
+.Calculator > .screen{
     display: inline-flex;
+    flex-direction: column;
     width: 100%;
-    height: 60px;
     border: 1px solid #333;
     border-radius: 1px;
-    margin-bottom: 5px;
-    font-family: Roboto-Regular;
-    font-size: 30px;
-    align-items: center;
-    justify-content: right;
+    margin-bottom: 5px;    
     padding-right: 10px;
     overflow: hidden;
+}
+.Calculator > .screen > *{
+    display: inline-flex;
+    align-items: center;
+    justify-content: right;
+}
+.Calculator > .screen > .operation{
+    font-family: Roboto-Regular;
+    font-size: 12px;
+    margin-top: 5px;
+    min-height: 15px;
+}
+.Calculator > .screen > .result{
+    font-family: Roboto-Regular;
+    font-size: 30px;
+    margin-bottom: 5px;
 }
 .Calculator > .buttons{
     display: grid; 
