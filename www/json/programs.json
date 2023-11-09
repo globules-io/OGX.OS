@@ -1,9 +1,20 @@
 [
     {"label" : "B", "type" : "MenuLetter"},
-    {"label" : "Browser", "icon" : "browser", "view" : "Browser", "type" : "MenuProgram"},
+    {"label" : "Browser", "icon" : "browser", "view" : "Browser", "type" : "MenuProgram", "config" : {
+        "width": "60%",
+        "height" : "70%"
+    }},
     {"label" : "C", "type" : "MenuLetter"},
-    {"label" : "Calculator", "icon" : "calc", "view" : "Calculator", "type" : "MenuProgram"},
-    {"label" : "Camera", "icon" : "camera", "view" : "Camera", "type" : "MenuProgram"},
+    {"label" : "Calculator", "icon" : "calc", "view" : "Calculator", "type" : "MenuProgram", "config" : {
+        "keep_ratio": true,
+        "width": 400,
+        "height": 400
+    }},
+    {"label" : "Camera", "icon" : "camera", "view" : "Camera", "type" : "MenuProgram", "config" : {
+        "keep_ratio": true,
+        "width": 400,
+        "height": 400
+    }},
     {"label" : "D", "type" : "MenuLetter"},
     {"label" : "Sketch", "icon" : "sketch", "view" : "Sketch", "type" : "MenuProgram"},
     {"label" : "I", "type" : "MenuLetter"},
