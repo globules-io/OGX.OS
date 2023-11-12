@@ -104,4 +104,15 @@
 .ogx_docker_item_line{
     width: 13px !important;
 }
-
+/* POPUP MESSAGE */
+.popup_message{
+    display: flex;
+    width: 100%;
+    height: 100%; 
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    font-family: Roboto-Regular;
+    font-size: 17px; 
+    padding: 20px;
+}
