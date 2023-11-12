@@ -1,0 +1,42 @@
+{"default:Views.Sketch": {
+    "id": "draw",
+    "template": "Sketch",
+    "node:OML": {
+        "default .controls:DynamicList": {
+            "id": "sketch_controls",
+            "key": "id",
+            "mode": "hit",
+            "list": [
+                {"id" : "clear"},
+                {"id" : "save"}
+            ],
+            "display": {
+                "html": "<span class=\"icon\"></span>",
+                "css": {
+                    "bind": "id",
+                    "add": "control"
+                }
+            }
+        },
+        "default .colors:DynamicList": {
+            "id": "sketch_colors",
+            "key": "color",
+            "scroll": true,
+            "list:OSE": "{{json sketch_colors}}",
+            "display": {
+                "html": "<span class=\"icon\" style=\"background-color:{{$color}};\"></span>",
+                "css": "color"
+            }
+        },
+        "default .brushes:DynamicList": {
+            "id": "sketch_brushes",
+            "key": "size",
+            "scroll": true,
+            "list:OSE": "{{json sketch_brushes}}",
+            "display": {
+                "template": "SketchBrush",
+                "css": "brush"
+            }
+        }
+    }
+}}
