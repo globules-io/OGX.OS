@@ -105,7 +105,9 @@
             "extensions.json",
             "menu_icons.json",
             "menu_pins.json",
-            "programs.json"
+            "programs.json",
+            "sketch_brushes.json",
+            "sketch_colors.json"
         ],
         "/oml": [
             "desktop.oml",
@@ -113,6 +115,7 @@
             "file_explorer.oml",
             "main_menu.oml",
             "main_stage.oml",
+            "sketch.oml",
             "task_manager.oml"
         ],
         "/html": [
@@ -134,6 +137,8 @@
             "template.MenuLetter.html",
             "template.MenuProgram.html",
             "template.Settings.html",
+            "template.Sketch.html",
+            "template.SketchBrush.html",
             "template.TaskManager.html",
             "template.TextEditor.html",
             "template.WebApp.html"
