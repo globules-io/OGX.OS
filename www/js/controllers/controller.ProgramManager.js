@@ -29,14 +29,25 @@ OGX.Controllers.ProgramManager = function(){
 
     this.genPopup = function(__item){
         const node = makeProgramNode(__item);
+        
+        //test uniqueness       
+        if(__item.config.hasOwnProperty('unique') && __item.config.unique){
+            const cls = OGX.OML.getNodeClass(node);
+            const instance = app.gather(cls);
+            if(instance.length){
+                instance[0].reveal();
+                return;
+            }
+        }
+
         !__item.hasOwnProperty('group') ? __item.group = false : null;        
         let w = '60%';
         let h = '60%';
         let r = false;
-        if(__item.hasOwnProperty('config')){
+        if(__item.hasOwnProperty('config')){            
             __item.config.hasOwnProperty('width') ? w = __item.config.width : null;
             __item.config.hasOwnProperty('height') ? h = __item.config.height : null;
-            __item.config.hasOwnProperty('keep_ratio') ? r = __item.config.keep_ratio : null;
+            __item.config.hasOwnProperty('keep_ratio') ? r = __item.config.keep_ratio : null;            
         }
         const popup = app.addPopup({
             title: __item.label,
