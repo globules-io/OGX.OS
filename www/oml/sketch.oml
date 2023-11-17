@@ -1,5 +1,4 @@
 {"default:Views.Sketch": {
-    "id": "draw",
     "template": "Sketch",
     "node:OML": {
         "default .controls:DynamicList": {
