@@ -11,6 +11,7 @@
         "height" : "400[=300,800]"
     }},
     {"label" : "Camera", "icon" : "camera", "view" : "Camera", "type" : "MenuProgram", "config" : {
+        "unique" : true,
         "keep_ratio" : true,
         "width" : "711[=300]",
         "height" : "400[=300]"
