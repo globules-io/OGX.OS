@@ -16,7 +16,7 @@
     flex-direction: row;
     width: 100%;
     padding: 5px;
-    max-height: 30px;
+    height: 35px;
     filter: drop-shadow(2px 0px 2px #000);
 }
 .ogx_stage[data-ogx-id="main"] > .taskbar > .dock{
@@ -25,6 +25,7 @@
     flex-grow: 1;
     margin-left: 20px;
     margin-right: 20px;
+    margin-top: 2px;
 }
 .ogx_stage[data-ogx-id="main"] > .taskbar > .tray{
     display: inline-flex;
@@ -35,5 +36,5 @@
     vertical-align: top;
     margin: 3px 5px 0px 0px;
     font-family: Roboto-Light;
-    font-size: 12px;
+    font-size: 14px;
 }

@@ -26,14 +26,14 @@
 }
 .main_menu > .middle .MenuLetter{
     font-family: Roboto-Regular;
-    font-size: 13px;
+    font-size: 14px;
     margin-bottom: 8px;
     margin-top: 10px;
     margin-left: 5px;
 }
 .main_menu > .middle .MenuProgram{
     font-family: Roboto-Light;
-    font-size: 12px;
+    font-size: 13px;
     margin-bottom: 5px;
 }
 .main_menu > .middle .MenuProgram > .icon{

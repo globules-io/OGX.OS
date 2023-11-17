@@ -56,10 +56,10 @@
     text-align: right;
 }
 .toolbar > .tools > .icon{
-    display:inline-block; 
-    width:26px;
-    height:26px;
-    margin-left:15px;
+    display: inline-block; 
+    width: 26px;
+    height: 26px;
+    margin-left: 15px;
 }
 /* THEMING OVERRIDE */
 .ogx_context_menu_list{
@@ -98,11 +98,11 @@
     font-size: 13px;
 }
 .ogx_docker_item_icon{
-    width: 13px !important;
-    height: 13px !important;
+    width: 16px !important;
+    height: 16px !important;
 }
 .ogx_docker_item_line{
-    width: 13px !important;
+    width: 16px !important;
 }
 /* POPUP MESSAGE */
 .popup_message{
