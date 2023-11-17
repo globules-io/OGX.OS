@@ -31,7 +31,7 @@ OGX.Controllers.ProgramManager = function(){
         const node = makeProgramNode(__item);
         
         //test uniqueness       
-        if(__item.config.hasOwnProperty('unique') && __item.config.unique){
+        if(__item.hasOwnProperty('config') && __item.config.hasOwnProperty('unique') && __item.config.unique){
             const cls = OGX.OML.getNodeClass(node);
             const instance = app.gather(cls);
             if(instance.length){
