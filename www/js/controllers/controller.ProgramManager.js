@@ -40,24 +40,20 @@ OGX.Controllers.ProgramManager = function(){
             }
         }
 
-        !__item.hasOwnProperty('group') ? __item.group = false : null;        
-        let w = '60%';
-        let h = '60%';
-        let r = false;
+        let options = {width:'60%', height:'60%', keep_ratio:false, group:false};
         if(__item.hasOwnProperty('config')){            
-            __item.config.hasOwnProperty('width') ? w = __item.config.width : null;
-            __item.config.hasOwnProperty('height') ? h = __item.config.height : null;
-            __item.config.hasOwnProperty('keep_ratio') ? r = __item.config.keep_ratio : null;            
+            OGX.Data.merge(options, __item.config, true);
         }
+        console.log(options);
         const popup = app.addPopup({
             title: __item.label,
-            width: w,
-            height: h,
-            keep_ratio: r,
+            width: options.width,
+            height: options.height,
+            keep_ratio: options.keep_ratio,
+            group: options.group,            
             anim: 'scale',
             drag: true,
-            resize: true,
-            group: __item.group,
+            resize: true,           
             maximize: true,
             maximize_dbc: (__max) => {
                 if(__max){

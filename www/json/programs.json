@@ -6,6 +6,7 @@
     }},
     {"label" : "C", "type" : "MenuLetter"},
     {"label" : "Calculator", "icon" : "calc", "view" : "Calculator", "type" : "MenuProgram", "config" : {
+        "group" : "calc",
         "keep_ratio" : true,
         "width" : "400[=300,800]",
         "height" : "400[=300,800]"
