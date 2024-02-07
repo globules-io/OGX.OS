@@ -1,11 +1,7 @@
 [
     {
-        "program_manager:Controllers.ProgramManager": {}
-    },
-    {
-        "data_manager:Controllers.DataManager": {}
-    },
-    {
+        "program_manager:Controllers.ProgramManager": {},    
+        "data_manager:Controllers.DataManager": {},    
         "default .dock:Docker": {
             "id" : "docker",
             "groups":{
