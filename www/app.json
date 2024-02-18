@@ -155,6 +155,14 @@
     },
     "views": {},
     "overlays": {},
+    "splash": {
+        "enabled": true,
+        "image": "/img/logo.svg",
+        "color": "#2d5cb4",
+        "progess": true,
+        "auto_hide": true,
+        "hide_timeout": 1000
+    },
     "rendertime": false,
     "scope": "public",
     "jwt": false

@@ -104,6 +104,9 @@
 .ogx_docker_item_line{
     width: 16px !important;
 }
+.ogx_splash_image{
+    height: 414px !important;
+}
 /* POPUP MESSAGE */
 .popup_message{
     display: flex;
