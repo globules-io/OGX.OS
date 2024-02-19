@@ -1,11 +1,16 @@
 {
     "routing": {
         "routes": {
+            "plain/login": {
+                "origin": "null,plain,error",
+                "oml": "login",
+                "scope": "public"
+            },
             "main/desktop": {
-                "origin": "null,public,error",
+                "origin": "null,plain,error",
                 "oml": "desktop",
                 "scope": "public"
-            }
+            }            
         },
         "options": {
             "history": true,
@@ -18,15 +23,15 @@
         "errors": {}
     },
     "vapps": {
-        "loader:Stages.Loader": {
-            "use": false,
-            "home": "",
-            "placeholder": ".view",
+        "plain:Stages.Plain": {
+            "use": true,
+            "home": "login",
+            "placeholder": "default",
             "scope": "public",
             "theater": false
         },
         "main:Stages.Main": {
-            "use": true,
+            "use": false,
             "template": "Main",
             "home": "desktop",
             "placeholder": ".view",
@@ -56,17 +61,20 @@
             "browser.svg",
             "calc.svg",
             "camera.svg",
+            "clear.svg",
             "close.svg",
             "drive.svg",
             "drives.svg",
             "grid.svg",
             "image.svg",
+            "logo.svg",
             "maximize.svg",
             "menu.svg",
             "minimize.svg",
             "monitor.svg",
             "normalize.svg",
             "reload.svg",
+            "save.svg",
             "settings.svg",
             "sketch.svg",
             "text.svg",
@@ -75,30 +83,63 @@
             "video.svg"
         ],
         "/themes/io-globules-ogx/light/img": [
-            "down.svg",
-            "left.svg",
-            "remove.svg",
-            "right.svg",
-            "send.svg",
-            "up.svg"
-        ],
-        "/themes/io-globules-ogx/dark/img": [
+            "about.svg",
+            "add.svg",
             "arrow.svg",
+            "attach.svg",
             "close.svg",
+            "copy.svg",
             "down.svg",
+            "edit.svg",
+            "edit_off.svg",
             "emoji.svg",
             "file.svg",
+            "folder_close.svg",
             "folder_closed.svg",
             "folder_empty.svg",
             "folder_open.svg",
+            "key.svg",
             "left.svg",
             "loading.svg",
             "loop.svg",
             "remove.svg",
             "right.svg",
             "send.svg",
+            "settings.svg",
             "trash.svg",
-            "up.svg"
+            "up.svg",
+            "view.svg",
+            "view_off.svg"
+        ],
+        "/themes/io-globules-ogx/dark/img": [
+            "about.svg",
+            "add.svg",
+            "arrow.svg",
+            "attach.svg",
+            "close.svg",
+            "copy.svg",
+            "down.svg",
+            "edit.svg",
+            "edit_off.svg",
+            "emoji.svg",
+            "file.svg",
+            "folder_close.svg",
+            "folder_closed.svg",
+            "folder_empty.svg",
+            "folder_open.svg",
+            "globules.svg",
+            "key.svg",
+            "left.svg",
+            "loading.svg",
+            "loop.svg",
+            "remove.svg",
+            "right.svg",
+            "send.svg",
+            "settings.svg",
+            "trash.svg",
+            "up.svg",
+            "view.svg",
+            "view_off.svg"
         ],
         "/json": [
             "desktop_context.json",
@@ -113,6 +154,7 @@
             "desktop.oml",
             "drives.oml",
             "file_explorer.oml",
+            "login.oml",
             "main_menu.oml",
             "main_stage.oml",
             "sketch.oml",
@@ -132,6 +174,7 @@
             "template.FileExplorer.html",
             "template.Folder.html",
             "template.ImageViewer.html",
+            "template.Login.html",
             "template.Main.html",
             "template.MainMenu.html",
             "template.MenuLetter.html",

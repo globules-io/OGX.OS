@@ -1,6 +1,6 @@
-require('Stages.Loader', 'Stage');
-OGX.Stages.Loader = function(__obj){
-    construct(this, 'Stages.Loader');
+require('Stages.Plain', 'Stage');
+OGX.Stages.Plain = function(__obj){
+    construct(this, 'Stages.Plain');
 	'use strict';
 
     //@Override
@@ -11,6 +11,9 @@ OGX.Stages.Loader = function(__obj){
 	
     //@Override
 	this.onBlur = function(){};
+
+    //@Override
+	this.onResize = function(){};
 	
     //@Override
 	this.ux = function(__bool){

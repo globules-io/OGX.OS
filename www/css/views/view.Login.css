@@ -1,0 +1,41 @@
+#login{
+    display: table;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+#login > .center{
+    display: table-cell;
+    vertical-align: middle;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+#login > .hide{
+    opacity: 0;
+}
+#login > .center > .user{
+    display: inline-block;
+    width: 140px;
+    height: 140px;
+    margin-bottom: 10px;
+    border-radius: 70px;
+    background-color: #EEE;
+    border: 1px solid #282828;   
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-image: url('/img/user.png');
+    box-shadow: 0px 1px 2px 1px rgb(0 0 0 / 30%);
+}
+#login > .center > .name{
+    display: block;
+    margin-bottom: 30px;
+    font-family: Roboto-Light;
+    text-shadow: 1px 1px #000;
+}
+#login > .center > form > input{
+    padding: 10px;
+    background-color: #999;
+    border-radius: 6px;
+    box-shadow: 0px 1px 2px 1px rgb(0 0 0 / 30%);
+}

@@ -1,0 +1,5 @@
+{
+    "default:Views.Login":{
+        "template" : "Login"
+    }
+}
