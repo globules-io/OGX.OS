@@ -2,13 +2,14 @@ require('Views.MainMenu', 'View');
 OGX.Views.MainMenu = function(__config){
     construct(this, 'Views.MainMenu');
 	'use strict'; 
-    let icon_list, program_list, program_manager;
+    let icon_list, program_list, program_manager, window;
 
     //@Override
 	this.construct = function(){
         icon_list = app.cfind('DynamicList', 'menu_icons');
         program_list = app.cfind('DynamicList', 'menu_programs');
         program_manager = app.cfind('Controller', 'program_manager');
+        window = app.findWindow(this);
     };
 	
     //@Override
@@ -33,9 +34,14 @@ OGX.Views.MainMenu = function(__config){
                 this.parent.hide(true);                
                 program_manager.genPopup(__item);
             });
+            this.on(this.touch.down, '.search', function(__e){
+                window.disable();            
+                setTimeout(() => {window.enable()}, 1000);
+            });
         }else{
             icon_list.off(OGX.DynamicList.SELECT);
             program_list.off(OGX.DynamicList.SELECT);
+            this.off(this.touch.down, '.search');
         }
     };
 

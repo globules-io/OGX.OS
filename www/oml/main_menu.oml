@@ -13,7 +13,7 @@
                 },
                 "list:OSE" : "{{ json menu_icons }}"
             },
-            "default .middle:DynamicList":{
+            "default .middle > .list:DynamicList":{
                 "id" : "menu_programs",
                 "scroll": true,
                 "mode" : "hit",
@@ -25,7 +25,11 @@
                         "bind" : "type"
                     }
                 },
-                "list:OSE" : "{{ json programs }}"
+                "list:OSE" : "{{ json programs }}",
+                "label:Bind" : {
+                    "object": ".main_menu input[name=\"search\"]",
+                    "mode": "in"
+                }
             },
             "default .right:DynamicList":{
                 "id" : "menu_pins",

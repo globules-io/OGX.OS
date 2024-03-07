@@ -20,26 +20,37 @@
     margin-bottom: 10px;
 }
 .main_menu > .middle{
-    display: inline-block;
+    display: inline-flex;
+    flex-direction: column;
     flex-grow: 1;
     padding-top: 20px;
 }
-.main_menu > .middle .MenuLetter{
+.main_menu > .middle > *{
+    display: inline-block;
+}
+.main_menu > .middle > .list{
+    position: relative;
+    flex-grow: 1;
+}
+.main_menu > .middle > .search{
+    
+}
+.main_menu > .middle > .list .MenuLetter{
     font-family: Roboto-Regular;
     font-size: 14px;
     margin-bottom: 8px;
     margin-top: 10px;
     margin-left: 5px;
 }
-.main_menu > .middle .MenuProgram{
+.main_menu > .middle > .list .MenuProgram{
     font-family: Roboto-Light;
     font-size: 13px;
     margin-bottom: 5px;
 }
-.main_menu > .middle .MenuProgram > .icon{
+.main_menu > .middle > .list .MenuProgram > .icon{
     margin-right: 10px;
 }
-.main_menu > .middle .MenuProgram > .label{
+.main_menu > .middle > .list .MenuProgram > .label{
     display: inline-block;
     vertical-align: top;
     padding-top: 4px;
