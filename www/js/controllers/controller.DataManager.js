@@ -53,11 +53,26 @@ OGX.Controllers.DataManager = function(){
     };
 
     this.getDriveTree = function(__drive){
-
+        return this.getTree();
     };
 
     this.getFiles = function(__drive, __path){
+        return new OGX.List();
+    };
 
+    this.getTree = function(__drive, __path){
+        //return bogus data for dev
+        const o = {date: moment().format('YYYY-MM-DD HH:mm:ss'), unix: Date.now()};
+        let tree_tmp = {type:'root', label: __drive.letter, items:[
+           {type:'folder', label:'docs', created:o, modified:o, items:[
+                {type:'file', label:'doc.txt', created:o, modified:o,},
+                {type:'folder', label:'tmp', created:o, modified:o,}
+           ]},
+           {type:'folder', label:'images', created:o, modified:o, items:[
+                {type:'file', label:'sea.webm', created:o, modified:o,}
+           ]}
+        ]};
+        return tree_tmp;
     };
 
     //fetch everything from localStorage that is not mongoogx
