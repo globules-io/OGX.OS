@@ -4,8 +4,8 @@
         "css" : "drives",
         "node:OML":{
             "default .list:DynamicList":{
-                "mode": "hit",
-                "key": "label",
+                "mode": "single",
+                "key": "_id",
                 "display": {
                     "template": "Drive",
                     "css": "drive"

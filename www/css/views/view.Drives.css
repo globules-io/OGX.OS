@@ -62,3 +62,7 @@
     font-family: Roboto-Light;
     font-size: 10px;
 }
+.drives > .list .ogx_dynamic_list .ogx_dynamic_list_selected_item{
+    background-color: rgba(30, 144, 255, 0.5);
+    border-radius: 2px;
+}
