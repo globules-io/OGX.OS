@@ -55,13 +55,7 @@ OGX.Controllers.ProgramManager = function(){
             drag: true,
             resize: true,           
             maximize: true,
-            maximize_dbc: (__max) => {
-                if(__max){
-                    maximizePopup(popup);
-                }else{
-                    normalizePopup(popup);
-                }
-            },
+            maximize_dbc: true,
             icon: '/img/'+__item.icon+'.svg',
             icons: [
                 {icon:'/img/minimize.svg', callback:minimizePopup},
