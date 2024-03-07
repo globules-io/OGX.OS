@@ -3,11 +3,16 @@ OGX.Views.FileExplorer = function(__config){
     construct(this, 'Views.FileExplorer');
 	'use strict'; 
     let tree, list;
+    let tree_item = null;
+    let list_item = null;
 
     //@Override
-    this.construct = function(__data, __route_data){
-        tree = this.children('Tree')[0];
-        list = this.children('DynamicList')[0];
+    this.construct = function(__data){
+        tree = this.gather('Tree')[0];
+        list = this.gather('DynamicList')[0];
+        data_manager = app.cfind('Controller', 'data_manager');
+        list.val(data_manager.getFiles(this.data.drive, this.data.path));
+        tree.setTree(data_manager.getTree(this.data.drive, this.data.path));
     };
     
     //@Override
@@ -19,17 +24,22 @@ OGX.Views.FileExplorer = function(__config){
     //@Override
 	this.ux = function(__bool){
         if(__bool){
-          
+            tree.on(OGX.Tree.SELECT, function(__e, __item){
+                tree_item = __item;
+                if(['root', 'folder'].includes(__item.item.type)){
+                    list.val(__item.item.items);
+                }else{
+                    list.wipe();
+                }
+            });
         }else{
-            
+            tree.off(OGX.Tree.SELECT);
         }
     }; 
     
     //@Override
     this.destroy = function(){};
 
-    function getDrivesTree(){
-        
-    }
+    
 
 };

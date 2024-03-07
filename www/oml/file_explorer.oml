@@ -1,6 +1,7 @@
 {
     "default:Views.FileExplorer":{
-        "template" : "FileExplorer",             
+        "name" : "file_explorer",
+        "template" : "FileExplorer",         
         "node:OML" : {
             "default .split:FlexCells":{
                 "axis" : "x",
@@ -8,17 +9,20 @@
                 "children" : ["40%", "60%"],
                 "node:OML":[
                     {"default:Tree":{
-                        "show_root" : false,
-                        "scroll": true
+                        "name" : "tree",      
+                        "root_label" : "drive",
+                        "scroll" : true,          
+                        "toggle" : false                        
                     }},
                     {"default:DynamicList":{
-                        "key" : "name",
+                        "key" : "_id",
                         "scroll" : true,
-                        "mode" : "multi",                
+                        "mode" : "multi",  
+                        "css" : "list",              
                         "display" : {"bind":"type"},     
                         "displays" : {                   
-                            "file" : {"template":"File", "css":"file"},
-                            "folder" : {"template":"Folder", "css":"folder"}
+                            "file" : {"template":"File", "css":"file item"},
+                            "folder" : {"template":"Folder", "css":"folder item"}
                         }
                     }}
                 ]

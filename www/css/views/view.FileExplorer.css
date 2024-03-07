@@ -5,9 +5,133 @@
     height: 100%;
     padding: 5px;
 }
+.FileExplorer > .toolbar{
+    padding: 15px 10px 5px 10px;
+}
+.FileExplorer > .toolbar > .col{
+    display: inline-block;
+}
+.FileExplorer > .toolbar > .col > .icon{
+    margin-right: 5px;
+}
+.FileExplorer > .toolbar > .col > .icon_trash{
+    margin-left: 3px;
+}
+.FileExplorer > .toolbar > .spacer{
+    flex-grow: 1;
+}
 .FileExplorer > .split{
     display: inline-flex;
     flex-direction: row;
     width: 100%;
     flex-grow: 1;
+}
+.FileExplorer .ogx_tree_item[data-compound="root-open"] .ogx_tree_item_icon {
+    background-image: url('../../themes/io-globules-ogx/dark/img/folder_open.svg');
+}
+.FileExplorer .ogx_tree_item[data-compound="root-closed"] .ogx_tree_item_icon {
+    background-image: url('../../themes/io-globules-ogx/dark/img/folder_closed.svg');
+}
+.FileExplorer .ogx_tree_item[data-compound="folder-open"] .ogx_tree_item_icon {
+    background-image: url('../../themes/io-globules-ogx/dark/img/folder_open.svg');
+}
+.FileExplorer .ogx_tree_item[data-compound="folder-closed"] .ogx_tree_item_icon {
+    background-image: url('../../themes/io-globules-ogx/dark/img/folder_closed.svg');
+}
+.FileExplorer .ogx_tree_item[data-type="file"] .ogx_tree_item_icon {
+    background-image: url('../../themes/io-globules-ogx/dark/img/file.svg');
+}
+.FileExplorer .list{
+    padding: 5px 10px;
+}
+.FileExplorer .item{
+    display: inline-flex;    
+    padding: 5px;
+}
+.FileExplorer .item > .icon{
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+}
+.FileExplorer .item > .info{
+    display: inline-block;
+}
+.FileExplorer .item > .info > *{
+    display: inline-block;
+    margin-right: 5px;
+    font-size: 16px;
+}
+.FileExplorer .item > .info > .label{
+    font-family: Roboto-Regular;
+}
+.FileExplorer .item > .info > .size{
+    font-family: Roboto-Light;
+}
+.FileExplorer .item > .info > .created{
+    font-family: Roboto-Light;
+}
+.FileExplorer .item > .info > .modified{
+    font-family: Roboto-Light;  
+}
+/*LIST VIEW*/
+.FileExplorer .list .item{
+    flex-direction: row;
+    min-width: 150px;
+    margin: 5px 5px 0px 0px;
+}
+.FileExplorer .list .item > .icon{
+    width: 20px;
+    height: 20px;
+}
+.FileExplorer .list .item > .info > .size{
+    display: none;
+}
+.FileExplorer .list .item > .info > .created{
+    display: none;
+}
+.FileExplorer .list .item > .info > .modified{
+    display: none;
+}
+.FileExplorer .list .file > .info > .type{
+    display: none;
+}
+/*DETAIL VIEW*/
+.FileExplorer .details .item{
+    flex-direction: row;
+}
+/*ICON VIEW*/
+.FileExplorer .icon .item{
+    flex-direction: column;
+}
+.FileExplorer .icon_s .item > .icon{
+    width: 20px;
+    height: 20px;
+}
+.FileExplorer .icon_m .item > .icon{
+    width: 40px;
+    height: 40px;
+}
+.FileExplorer .icon_l .item > .icon{
+    width: 60px;
+    height: 60px;
+}
+.FileExplorer .icon_xl .item > .icon{
+    width: 100px;
+    height: 100px;
+}
+.FileExplorer .icon .item{
+    flex-direction: column;
+}
+.FileExplorer .icon .item > .info > .size{
+    display: none;
+}
+.FileExplorer .icon .item > .info > .created{
+    display: none;
+}
+.FileExplorer .icon .item > .info > .modified{
+    display: none;
+}
+.FileExplorer .icon .file > .info > .type{
+    display: none;
 }
