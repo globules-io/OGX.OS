@@ -107,6 +107,12 @@
 .ogx_splash_image{
     height: 414px !important;
 }
+.ogx_splash{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-image: url('/img/bg.jpg');
+}
 /* POPUP MESSAGE */
 .popup_message{
     display: flex;

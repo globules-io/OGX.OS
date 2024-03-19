@@ -13,6 +13,7 @@
         "height" : "400[=300,800]"
     }},
     {"label" : "Camera", "icon" : "camera", "view" : "Camera", "type" : "MenuProgram", "config" : {
+        "group" : "media",
         "unique" : true,
         "keep_ratio" : true,
         "width" : "711[=300]",
@@ -27,7 +28,11 @@
         "height" : "70%[=300]"
     }},
     {"label" : "T", "type" : "MenuLetter"},
-    {"label" : "Text Editor", "icon" : "text", "view" : "TextEditor", "type" : "MenuProgram"},          
+    {"label" : "Text Editor", "icon" : "text", "view" : "TextEditor", "type" : "MenuProgram", "config" : {
+        "group" : "text"
+    }},          
     {"label" : "V", "type" : "MenuLetter"},
-    {"label" : "Video Player", "icon" : "text", "view" : "VideoPlayer", "type" : "MenuProgram"}
+    {"label" : "Video Player", "icon" : "text", "view" : "VideoPlayer", "type" : "MenuProgram", "config" : {
+        "group" : "media"
+    }}
 ]

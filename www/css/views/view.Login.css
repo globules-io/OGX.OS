@@ -3,6 +3,10 @@
     width: 100%;
     height: 100%;
     text-align: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-image: url('/img/bg.jpg');
 }
 #login > .center{
     display: table-cell;
