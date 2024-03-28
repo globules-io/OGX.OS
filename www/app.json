@@ -190,7 +190,7 @@
     "popups": {
         "width": 300,
         "height": 400,
-        "anim": "fade"
+        "anim": "fade scale"
     },
     "windows": {
         "head": "back",
