@@ -25,6 +25,7 @@
     "vapps": {
         "plain:Stages.Plain": {
             "use": true,
+            "anim": "swap flip",
             "home": "login",
             "placeholder": "default",
             "scope": "public",
@@ -32,6 +33,7 @@
         },
         "main:Stages.Main": {
             "use": false,
+            "anim": "shuffle",
             "template": "Main",
             "home": "desktop",
             "placeholder": ".view",
