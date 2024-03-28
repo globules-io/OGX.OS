@@ -44,14 +44,13 @@ OGX.Controllers.ProgramManager = function(){
         if(__item.hasOwnProperty('config')){            
             OGX.Data.merge(options, __item.config, true);
         }
-        console.log(options);
         const popup = app.addPopup({
             title: __item.label,
             width: options.width,
             height: options.height,
             keep_ratio: options.keep_ratio,
             group: options.group,            
-            anim: 'scale',
+            anim: 'fade scale',
             drag: true,
             resize: true,           
             maximize: true,
