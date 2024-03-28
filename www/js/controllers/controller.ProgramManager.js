@@ -70,7 +70,7 @@ OGX.Controllers.ProgramManager = function(){
     }    
 
     function minimizePopup(__popup){
-        __popup.hide(false);        
+        __popup.hide('fade slide');        
     }
 
     function maximizePopup(__popup){    
