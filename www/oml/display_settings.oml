@@ -1,0 +1,6 @@
+{
+    "default:Views.DisplaySettings":{
+        "template" : "DisplaySettings",
+        "data:OSE" : "{{Helper.getDisplaySettings()}}" 
+    }
+}

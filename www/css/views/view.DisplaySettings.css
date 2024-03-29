@@ -1,0 +1,21 @@
+#display_settings{
+    display: block;
+    padding: 10px;
+}
+#display_settings > .settings{
+    display: block;
+    padding: 10px;
+}
+#display_settings > .settings > .row{
+    display: flex;
+    flex-direction: row;
+}
+#display_settings > .settings > .row > .label{
+    display: inline-block;
+    min-width: 80px;
+}
+#display_settings > .settings > .row > .value{
+    display: inline-block;
+    flex-grow: 1;
+    text-align: right;
+}
