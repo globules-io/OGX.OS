@@ -153,10 +153,13 @@
             "menu_pins.json",
             "programs.json",
             "sketch_brushes.json",
-            "sketch_colors.json"
+            "sketch_colors.json",
+            "swatches.json"
         ],
         "/oml": [
             "desktop.oml",
+            "display_preferences.oml",
+            "display_settings.oml",
             "drives.oml",
             "file_explorer.oml",
             "login.oml",
@@ -173,6 +176,8 @@
             "template.ContextLine.html",
             "template.ContextMenu.html",
             "template.Desktop.html",
+            "template.DisplayPreferences.html",
+            "template.DisplaySettings.html",
             "template.Drive.html",
             "template.Drives.html",
             "template.File.html",
