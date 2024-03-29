@@ -1,7 +1,11 @@
 {
     "default:Views.Desktop":{
-        "id": "desktop",
+        "name": "desktop",
         "template": "Desktop",
+        "css" : "desktop",
+        "data" : {
+            "background" : {"color" : "#2d5cb4"}
+        }, 
         "node:OML":{
             "main_menu_win:Window":{
                 "anim": "left",

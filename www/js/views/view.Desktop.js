@@ -23,4 +23,12 @@ OGX.Views.Desktop = function(__config){
 
     //@Override
     this.destroy = function(){};
+
+    this.color = function(__val){
+        if(typeof __val === 'undefined'){
+            return this.data.background.color;
+        }
+        this.data.background.color = __val;
+        this.el.css('background-color', __val);
+    };
 };
