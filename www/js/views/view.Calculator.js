@@ -1,4 +1,4 @@
-require('Views.Calculator', 'View');
+require('Views.Calculator', 'Program', 'View');
 OGX.Views.Calculator = function(__config){
     construct(this, 'Views.Calculator');
 	'use strict'; 

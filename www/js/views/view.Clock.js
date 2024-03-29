@@ -1,4 +1,4 @@
-require('Views.Clock', 'View');
+require('Views.Clock', 'Program', 'View');
 OGX.Views.Clock = function(__config){
     construct(this, 'Views.Clock');
 	'use strict'; 

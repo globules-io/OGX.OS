@@ -1,4 +1,4 @@
-require('Views.Sketch', 'View');
+require('Views.Sketch', 'Program', 'View');
 OGX.Views.Sketch = function(){
     construct(this, 'Views.Sketch');
 	'use strict';

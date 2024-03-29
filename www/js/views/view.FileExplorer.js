@@ -1,4 +1,4 @@
-require('Views.FileExplorer', 'View');
+require('Views.FileExplorer',  'Program', 'View');
 OGX.Views.FileExplorer = function(__config){
     construct(this, 'Views.FileExplorer');
 	'use strict'; 

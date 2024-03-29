@@ -1,4 +1,4 @@
-require('Views.Browser', 'View');
+require('Views.Browser', 'Program', 'View');
 OGX.Views.Browser = function(__config){
     construct(this, 'Views.Browser');
 	'use strict'; 

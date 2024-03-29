@@ -1,4 +1,4 @@
-require('Views.ImageViewer', 'View');
+require('Views.ImageViewer', 'Program', 'View');
 OGX.Views.ImageViewer = function(__config){
     construct(this, 'Views.ImageViewer');
 	'use strict'; 

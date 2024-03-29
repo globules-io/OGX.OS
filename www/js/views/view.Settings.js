@@ -1,4 +1,4 @@
-require('Views.Settings', 'View');
+require('Views.Settings', 'Program', 'View');
 OGX.Views.Settings = function(__config){
     construct(this, 'Views.Settings');
 	'use strict'; 

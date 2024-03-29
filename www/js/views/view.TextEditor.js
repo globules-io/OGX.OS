@@ -1,4 +1,4 @@
-require('Views.TextEditor', 'View');
+require('Views.TextEditor', 'Program', 'View');
 OGX.Views.TextEditor = function(__config){
     construct(this, 'Views.TextEditor');
 	'use strict'; 
