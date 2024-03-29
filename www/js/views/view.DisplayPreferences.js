@@ -1,4 +1,4 @@
-require('Views.DisplayPreferences', 'View');
+require('Views.DisplayPreferences', 'Program', 'View');
 OGX.Views.DisplayPreferences = function(__config){
     construct(this, 'Views.DisplayPreferences');
 	'use strict'; 
