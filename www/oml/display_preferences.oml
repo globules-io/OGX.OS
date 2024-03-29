@@ -1,0 +1,31 @@
+{
+    "default:Views.DisplayPreferences":{
+        "scroll" : true,
+        "template" : "DisplayPreferences",
+        "data:OSE" : "{{Helper.getDisplayPreferences()}}",
+        "node:OML" : {
+            "default .roulette:Roulette":{
+                "id" : "background_mode",
+                "icon" : true,
+                "key" : "value",
+                "list" : [
+                    {"label" : "System Color", "value" : "swatches"}, 
+                    {"label" : "Custom Color", "value" : "color"}, 
+                    {"label" : "Image", "value" : "image"}
+                ],
+                "value:OSE" : "{{Helper.getDisplayPreferences().background.mode}}"
+            },
+            "default .swatch_list:DynamicList":{
+                "id" : "swatch_list",
+                "key" : "color",
+                "mode" : "single",
+                "display" : {
+                    "html" : "<span style=\"background-color:{{$color}}; border-color:{{$color}}\"></span>",
+                    "css" : "swatch"
+                },
+                "list:OSE" : "{{json swatches}}",
+                "selection:OSE" : "{{Helper.getDisplayPreferences().background.value.split()}}"
+            }
+        }
+    }
+}

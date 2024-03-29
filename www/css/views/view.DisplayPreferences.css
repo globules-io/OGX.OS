@@ -1,0 +1,48 @@
+#display_preferences{
+    display: block;
+    padding: 10px;
+}
+#display_preferences h3{
+    font-size: 16px;
+}
+#display_preferences > .preferences{
+    display: block;
+    padding: 10px;
+}
+#display_preferences > .preferences > .row{
+    display: flex;
+    flex-direction: row;
+}
+#display_preferences > .preferences > .row > .label{
+    display: inline-block;
+    vertical-align: top;
+    padding-top: 12px;
+    min-width: 200px;
+}
+#display_preferences > .preferences > .row > .roulette{
+    display: inline-block;
+    vertical-align: top;
+    flex-grow: 1;
+    text-align: right;
+}
+#display_preferences > .preferences > .swatches{
+    display: block;
+    margin-top: 10px;
+}
+#display_preferences > .preferences > .swatches > .swatch_list{
+    display: block;
+}
+#display_preferences > .preferences > .swatches > .swatch_list .swatch{
+    display: inline-block;   
+    margin: 0px 10px 10px 0px;
+}
+#display_preferences > .preferences > .swatches > .swatch_list .swatch > span{
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-radius: 2px;
+    border: 1px solid;
+}
+#display_preferences > .preferences > .swatches > .swatch_list .ogx_dynamic_list_selected_item > span{
+    border-color: #DDD !important;
+}

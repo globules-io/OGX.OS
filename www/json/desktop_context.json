@@ -2,9 +2,13 @@
     {"label" : "New Folder", "value" : "folder", "icon": "folder", "type" : "ContextItem"},
     {"label" : "New File", "value" : "file", "icon": "file", "type" : "ContextItem"},
     {"type" : "ContextLine"},
-    {"label" : "Display Settings", "value" : "display", "icon": "settings", "type" : "ContextItem"},
-    {"label" : "Personalize", "value" : "personalize", "icon": "monitor", "type" : "ContextItem"},
+    {"label" : "Display Settings", "value" : "sdisplay", "icon": "settings", "type" : "ContextItem", "oml": "display_settings", "config":{
+        "unique" : true
+    }},
+    {"label" : "Personalize", "value" : "personalize", "icon": "monitor", "type" : "ContextItem",  "oml": "display_preferences", "config":{
+        "unique" : true
+    }},
     {"label" : "Task Manager", "value" : "tmanager", "view": "TaskManager", "icon": "tmanager", "type" : "ContextItem", "oml" : "task_manager", "config":{
-        "unique" : true}
-    }
+        "unique" : true
+    }}
 ]
