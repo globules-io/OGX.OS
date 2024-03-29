@@ -7,9 +7,26 @@
 .task_manager .nodes{
     position: relative;
 }
+.task_manager .nodes > .tree{
+    display: block;
+}
+.task_manager .nodes > .list{
+    display: block;
+}
 .task_manager .nodes .process{
+    padding-left: 0px;
     font-family: Roboto-Light;
     font-size: 12px;
+    background-image: url('/img/settings.svg');
+    background-repeat: no-repeat;
+    background-size: 14px;
+    background-position-x: 5px;
+    background-position-y: center;
+}
+.task_manager .nodes .process > *{
+    display: inline-block;
+    vertical-align: top;
+    padding-top: 5px;
 }
 .task_manager .graph{
     display: inline-flex !important;
@@ -36,4 +53,19 @@
     width: 100%;
     bottom: 0;
     background-color: dodgerblue;
+}
+/* THEME OVERRIDE */
+.task_manager .ogx_tree_item_arrow span {
+    width: 14px;
+    height: 14px;
+}
+.task_manager .ogx_tree_item_label {
+    font-size: 14px;
+}
+.task_manager .ogx_tree_item_icon {
+    background-image: url('/img/settings.svg');
+}
+.task_manager .ogx_tree_selected_item {
+    background-color: unset;
+    box-shadow: unset;
 }

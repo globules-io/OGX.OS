@@ -1,14 +1,17 @@
-require('Views.TaskManager', 'View');
+require('Views.TaskManager', 'Program', 'View');
 OGX.Views.TaskManager = function(__config){
     construct(this, 'Views.TaskManager');
 	'use strict'; 
     let fps = 0;
     let request = null;
-    let list, list_intv, fps_el, graph_el;
+    let docker, list, list_intv, fps_el, graph_el;
+    let cache = null;
 
     //@Override
 	this.construct = function(){
+        docker = app.cfind('Docker', 'docker');
         list = this.gather('DynamicList')[0];
+        tree = this.gather('Tree')[0];
         fps_el = this.el.find('.graph > .fps');
         graph_el = this.el.find('.graph > .level > .box');
         calcFPS();
@@ -40,18 +43,71 @@ OGX.Views.TaskManager = function(__config){
         }
     };
 
-    function listInterval(){
-        const nodes = app.gather();
-        let arr = [];
-        let idx = 1;
-        let label;
-        nodes.forEach(__node => {           
-            label = __node._NAME_;
-            typeof __node._CLASS_ !== 'undefined' ? label += '.'+__node._CLASS_ : null;
-            arr.push({label:label, value:idx});
-            idx++;
-        });
-        list.val(arr);
+    function nodeToLabel(__node, __short){
+        typeof __short === 'undefined' ? __short = false : null;
+        let label = __node._NAME_;     
+        if(typeof __node._CLASS_ !== 'undefined'){
+            if(!__short){
+                label += '.'+__node._CLASS_;
+            }else{
+                label = __node._CLASS_;
+            }
+        }         
+        return label;
+    }
+
+    //convert views to tree item
+    function nodeToTree(__node){
+        let t = {label: nodeToLabel(__node, true), type:'folder', state: 'closed', id:__node.id, items:new OGX.List()};
+        let type;
+        
+        function cycle(__item, __n){
+            __n.children().forEach((__child) => {
+                type = 'folder';                   
+                !__child.nodes.length ? type = 'file' : null;
+                __item.items.push({label: nodeToLabel(__child, true), state: 'closed', type: type, id: __child.id, items: new OGX.List()});
+                if(__child.nodes.length){
+                    cycle(__item.items.last(), __child);
+                }
+            });           
+        }
+    
+        cycle(t, __node);
+        return t;
+    }
+
+    //set tree
+    function appsToTree(__list){    
+        //only refresh if has changed       
+        if(cache && __list.unique('id', false).sort().join(' ') === cache){
+            return;
+        }  
+        let root = {_id:0, type:'root', state:'closed', label: '', items:[]};       
+        let t;     
+
+        //this is a list of programs
+        __list.forEach((__app) => {
+            t = nodeToTree(__app);
+            root.items.push(t);
+        });  
+
+        tree.setTree(root);
+        cache = __list.unique('id', false).sort().join(' ');
+    }
+
+    function listInterval(){    
+        let sel = list.getSelection();      
+        let arr = new OGX.List();
+        const nodes = app.getStage().gather();
+        nodes.forEach(__node => {             
+            arr.push({label: nodeToLabel(__node), value:__node.id});        
+        });    
+        list.val(arr);      
+        if(sel){
+            list.select('value', sel.value);    
+        } 
+        const apps = app.getStage().gather('View').get({isProgram:true});             
+        appsToTree(apps);              
     }
 
     function calcFPS() {

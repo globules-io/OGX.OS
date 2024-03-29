@@ -7,14 +7,21 @@
                 "min" : 10,
                 "children" : ["40%", "60%"],
                 "template": "TaskManager",
-                "node:OML":[                    
-                    {"default:DynamicList":{
-                        "scroll" : true,
-                        "mode" : "hit",
-                        "key" : "value",
-                        "display": {
-                            "html" : "<span class=\"icon icon_program\"></span><span class=\"label\">{{$label}}</span>",
-                            "css" : "process"
+                "node:OML":[           
+                    {"default:Scroller":{
+                        "node:OML":{
+                            "default .tree:Tree":{
+                                "key" : "id",
+                                "show_root": false
+                            },
+                            "default .list:DynamicList":{                            
+                                "mode" : "single",
+                                "key" : "value",
+                                "display": {
+                                    "html" : "<span class=\"icon icon_program\"></span><span class=\"label\">{{$label}}</span>",
+                                    "css" : "process"
+                                }
+                            }
                         }
                     }},
                     {}
