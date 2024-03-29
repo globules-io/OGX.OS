@@ -113,6 +113,9 @@
     background-position: center;
     background-image: url('/img/bg.jpg');
 }
+.hidden{
+    display: none !important;
+}
 /* POPUP MESSAGE */
 .popup_message{
     display: flex;

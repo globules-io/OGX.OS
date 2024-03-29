@@ -8,8 +8,7 @@
     display: inline-block;
     position: relative;
     width: 100%;
-    flex-grow: 1;
-    background-color: #2d5cb4;
+    flex-grow: 1;   
 }
 .ogx_stage[data-ogx-id="main"] > .taskbar{
     display: inline-flex;
