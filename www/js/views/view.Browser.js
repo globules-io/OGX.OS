@@ -26,10 +26,14 @@ OGX.Views.Browser = function(__config){
     };
 	
     //@Override
-	this.onFocus = function(){};
+	this.onFocus = function(){
+        this.el.find('iframe').removeClass('noevent');
+    };
 	
     //@Override
-	this.onBlur = function(){};
+	this.onBlur = function(){
+        this.el.find('iframe').addClass('noevent');
+    };
 	
     //@Override
 	this.ux = function(__bool){
