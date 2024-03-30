@@ -1,4 +1,4 @@
-require('Views.Drives',  'Program', 'View');
+require('Views.Drives', 'View');
 OGX.Views.Drives = function(__config){
     construct(this, 'Views.Drives');
 	'use strict'; 
