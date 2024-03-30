@@ -1,3 +1,31 @@
 .desktop{
     background-color: #2d5cb4;
 }
+.desktop > .flex{
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;    
+}
+.desktop > .flex > .ogx_flex_cells > .ogx_flex_cell{
+    position: relative;
+}
+.desktop > .flex > .ogx_flex_cells .ogx_view{
+    background-color: #222;
+}
+.desktop .flex .ogx_ghost{
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+.desktop .flex .lite{
+    transition: all 0.3s ease;
+    box-shadow: inset 0px 0px 0px 5px rgb(255,255,255, 0.3);
+}
+.desktop .flex .litetop{
+    border-top: 5px solid #EEE;
+}
+.desktop .flex .litebottom{
+    border-bottom: 5px solid #EEE;
+}
