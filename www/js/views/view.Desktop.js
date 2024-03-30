@@ -37,7 +37,7 @@ OGX.Views.Desktop = function(__config){
                 add_flex = false;
                 remove_flex = false;
                 popup_w = __popup.el.width();                
-                popup_in = (__pt.x > desktop_w - zone || __pt.x / 3 < zone);
+                popup_in = (__pt.x > desktop_w - zone || __pt.x < zone);
                 add_flex = popup_in && !flex;    
                 remove_flex = !popup_in && flex && !snapped_programs.length;    
                 if(add_flex){
