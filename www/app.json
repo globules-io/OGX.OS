@@ -90,6 +90,7 @@
         "/html": [
             "template.Browser.html",
             "template.Calculator.html",
+            "template.Camera.html",
             "template.Clock.html",
             "template.ContextItem.html",
             "template.ContextLine.html",
@@ -113,8 +114,7 @@
             "template.SketchBrush.html",
             "template.TaskManager.html",
             "template.TextEditor.html",
-            "template.WebApp.html",
-            "template.Camera.html"
+            "template.WebApp.html"
         ]
     },
     "popups": {
