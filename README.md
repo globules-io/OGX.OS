@@ -26,7 +26,7 @@
 
 > Navigate to `http://localhost`
 >
-> Note that if you are hosting on IIS, you need to add a `MIME type` of value `text/plain`
+> Note that if you are hosting on IIS, you need to add a `MIME type` of value `text/plain` for `.pak` files
 
 ### Participating
 > Anybody can participate by creating programs for OGX.OS. Just check out how basics programs are built and create your owns!
