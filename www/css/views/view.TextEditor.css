@@ -1,1 +1,16 @@
-/* CSS */
+.text_editor{
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    position: relative;
+}
+.text_editor > .editor{
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+.text_editor > .editor > .application{
+    height: 100% !important;
+}
