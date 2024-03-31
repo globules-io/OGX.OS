@@ -65,6 +65,7 @@ OGX.Controllers.ProgramManager = function(){
             OGX.Data.merge(options, __item.config, true);
         }
         options.icon = '/img/'+__item.icon+'.svg';
+        options.title = __item.label;
 
         const popup = app.addPopup(options, app.getStage().gather('Views.Desktop')[0]);
         docker.addItem(popup, {icon: popup.icon()});
