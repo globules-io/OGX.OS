@@ -113,7 +113,8 @@
             "template.SketchBrush.html",
             "template.TaskManager.html",
             "template.TextEditor.html",
-            "template.WebApp.html"
+            "template.WebApp.html",
+            "template.Camera.html"
         ]
     },
     "popups": {
