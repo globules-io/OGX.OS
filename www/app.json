@@ -114,6 +114,7 @@
             "template.SketchBrush.html",
             "template.TaskManager.html",
             "template.TextEditor.html",
+            "template.VideoPlayer.html",
             "template.WebApp.html"
         ]
     },
