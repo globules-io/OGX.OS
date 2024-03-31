@@ -6,9 +6,10 @@ OGX.Views.TextEditor = function(__config){
    
     //@Override
 	this.construct = function(){
+        console.log(this.selector+' textarea.editor');
         popup = app.findPopup(this);
         tinymce.init({
-            selector:'textarea.editor',
+            selector: this.selector+' textarea.editor',
             plugins: 'image lists',
             menubar:'',
             toolbar:'undo redo | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | bullist | customimage customvideo customlink customtag',
@@ -59,7 +60,7 @@ OGX.Views.TextEditor = function(__config){
 
     //@Override
     this.destroy = function(){
-        tinymce.remove('textarea.editor');
+        tinymce.remove(this.selector+' textarea.editor');
     };
 
     this.val = function(__string){
