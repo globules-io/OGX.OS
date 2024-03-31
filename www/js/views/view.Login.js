@@ -15,6 +15,9 @@ OGX.Views.Login = function(__config){
                 }
             }
         });
+        app.version((__version) => {
+            this.el.find('.version').html('ogx.os version '+__version);
+        });
     };
 	
     //@Override

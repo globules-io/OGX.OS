@@ -43,3 +43,13 @@
     border-radius: 6px;
     box-shadow: 0px 1px 2px 1px rgb(0 0 0 / 30%);
 }
+#login > .version{
+    display: block;
+    position: absolute;
+    font-family: Roboto-Light;
+    text-transform: uppercase;
+    font-size: 10px;
+    text-shadow: 1px 1px #000;
+    bottom: 10px;
+    right: 10px;
+}
