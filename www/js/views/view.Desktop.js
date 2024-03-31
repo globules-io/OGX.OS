@@ -93,7 +93,8 @@ OGX.Views.Desktop = function(__config){
                         }else{                            
                             //flex, row, rowel;
                             //need to calculate where to lite, top or bottom
-                            if(__popup.y > __popup.el.height() / 2){
+                            //bad, need cell height
+                            if(__popup.y > cell.rowel.height() / 2){
                                 cell.rowel.removeClass('litetop').addClass('litebottom');
                                 cell.drop = 'bottom';
                             }else{
@@ -185,27 +186,38 @@ OGX.Views.Desktop = function(__config){
     };
 
     this.unsnap = function(__popup){
-        let cell = getCellAtPoint(__popup.x +10, __popup.y +10);        
+        let cell = getCellAtPoint(__popup.el.offset().left +10,__popup.el.offset().top +10);  
+        let ghost = __popup.parent;
         __popup.detach(); 
+        ghost.kill();
 
         //remove cell or change display
         if(cell.flex.nodes.length > 2){
             cell.flex.removeCell(cell.row);
-        }else{
-            cell.flex.nodes[cell.row].kill();
+        }else{           
+
             //depends which
             let size = ['100%', '0%'];
             !cell.row ? size.reverse() : null;
             cell.flex.cellSize(size);            
         }
 
+        snapped_programs.findDelete('id', __popup.id);
+
         __popup.icons(__popup.old_icons);
         delete __popup.old_icons;
-        __popup.attach(this);
+        __popup.attach(this);        
         __popup.uresize(true);
         __popup.drag(true);  
         __popup.maximize(true);
-        __popup.normalize();   
+        __popup.normalize();  
+        __popup.center(); 
+
+        //remove flex if empty
+        if(!snapped_programs.length){
+            flex.kill();
+            flex = null;
+        }  
         
     };
 
