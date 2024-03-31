@@ -11,6 +11,6 @@
     height: 100%;
     position: absolute;
 }
-.text_editor > .editor > .application{
+.text_editor .tox{
     height: 100% !important;
 }
