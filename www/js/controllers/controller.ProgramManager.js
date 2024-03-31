@@ -93,13 +93,14 @@ OGX.Controllers.ProgramManager = function(){
 
     function makeProgramNode(__item, __data){
         if(__item.hasOwnProperty('oml')){
-            let oml = app.getOML(__item.oml);
+            let oml = app.getOML(__item.oml);           
             if(__data){
                 for(let n in oml){
                     n.data = __data;
                     break;
                 }
-            }                 
+            }   
+            return oml;           
         }
         let node = {};
         node['default:Views.'+__item.view] = {
