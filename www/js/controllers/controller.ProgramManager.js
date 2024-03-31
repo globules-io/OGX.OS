@@ -27,8 +27,9 @@ OGX.Controllers.ProgramManager = function(){
     //@Override
     this.destroy = function(){};
 
-    this.genPopup = function(__item){
-        const node = makeProgramNode(__item);
+    this.genPopup = function(__item, __data){
+        typeof __data === 'undefined' ? __data = {} : null;
+        const node = makeProgramNode(__item, __data);        
         
         //test uniqueness       
         if(__item.hasOwnProperty('config') && __item.config.hasOwnProperty('unique') && __item.config.unique){
@@ -40,22 +41,16 @@ OGX.Controllers.ProgramManager = function(){
             }
         }
 
-        let options = {width:'60%', height:'60%', keep_ratio:false, group:false};
-        if(__item.hasOwnProperty('config')){            
-            OGX.Data.merge(options, __item.config, true);
-        }
-        const popup = app.addPopup({
-            title: __item.label,
-            width: options.width,
-            height: options.height,
-            keep_ratio: options.keep_ratio,
-            group: options.group,            
-            anim: 'fade scale',
+        let options = {
+            width:'60%', 
+            height:'60%', 
+            keep_ratio:false, 
+            group:false,
             drag: true,
             resize: true,           
             maximize: true,
             maximize_dbc: true,
-            icon: '/img/'+__item.icon+'.svg',
+            icon: null,
             icons: [
                 {icon:'/img/minimize.svg', callback:minimizePopup},
                 {icon:'/img/maximize.svg', callback:maximizePopup},
@@ -64,7 +59,14 @@ OGX.Controllers.ProgramManager = function(){
                 }}
             ],
             'node:OML':[node]
-        }, app.getStage().gather('Views.Desktop')[0]);
+        };
+        
+        if(__item.hasOwnProperty('config')){            
+            OGX.Data.merge(options, __item.config, true);
+        }
+        options.icon = '/img/'+__item.icon+'.svg';
+
+        const popup = app.addPopup(options, app.getStage().gather('Views.Desktop')[0]);
         docker.addItem(popup, {icon: popup.icon()});
         popup.show(true);
     }    
@@ -89,13 +91,20 @@ OGX.Controllers.ProgramManager = function(){
         __popup.icons(icons);
     };
 
-    function makeProgramNode(__item){
+    function makeProgramNode(__item, __data){
         if(__item.hasOwnProperty('oml')){
-            return app.getOML(__item.oml);
+            let oml = app.getOML(__item.oml);
+            if(__data){
+                for(let n in oml){
+                    n.data = __data;
+                    break;
+                }
+            }                 
         }
         let node = {};
         node['default:Views.'+__item.view] = {
-            template: __item.view
+            template: __item.view,
+            data: __data
         };
         return node;
     }    
