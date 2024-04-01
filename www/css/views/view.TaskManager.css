@@ -32,9 +32,10 @@
     display: inline-flex !important;
     flex-direction: column;
     flex-grow: 1;
+    flex-basis: 50%;
     border-left: 1px solid #333;
 }
-.task_manager .graph > .fps{
+.task_manager .graph > .label{
     display: inline-block;
     font-family: Roboto-Light;
     font-size: 13px;
@@ -52,7 +53,15 @@
     position: absolute;
     width: 100%;
     bottom: 0;
+}
+.task_manager .graph > .frames > .box{
     background-color: dodgerblue;
+}
+.task_manager .graph > .memory > .box{
+    border-top: 1px solid dodgerblue;
+}
+.task_manager .graph > .memory{
+    border-bottom: 5px solid #282828;
 }
 /* THEME OVERRIDE */
 .task_manager .ogx_tree_item_arrow span {
