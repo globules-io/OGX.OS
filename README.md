@@ -32,6 +32,23 @@
 > Anybody can participate by creating programs for OGX.OS. Just check out how basis programs are built and create your own!
 > Then create an issue explaining the motivations and if it checks out, we'll merge it as official program and link you up here.
 
+#### Getting Started
+> Create your program view + template by typing
+
+     ogx create MyProgram MyProgram
+
+> Open the files in VSCODE
+
+     ogx open MyProgram
+
+> Add `Program` to the `require` of the view (first line)
+
+     require('Views.MyProgram', 'Program', 'View');
+
+> Add a reference to your progam in `www/json/programs.json`, such as
+
+     {"label" : "MyProgram", "icon" : "some_icon", "view" : "MyProgram", "type" : "MenuProgram"}
+
 ### Why
 > OGX.OS brings the ultimate benchmark and test project for OGX.JS, the Javascript framework behind OGX.OS. This also showcases the power of OGX.JS and how you can build enterprise grade apps with ease.
 
