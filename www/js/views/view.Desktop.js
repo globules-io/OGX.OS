@@ -113,9 +113,9 @@ OGX.Views.Desktop = function(__config){
             });
             this.on(OGX.Popup.MOVED, (__e, __popup) => {        
                 //need to know if I drop it on top or bottom
-                if(flex && popup_in && cell){   
-                    __popup.uresize(false);
-                    __popup.drag(false);   
+                if(flex && popup_in && cell){  
+                    
+
                     __popup.detach(); 
 
                     //save and override icons
@@ -162,7 +162,9 @@ OGX.Views.Desktop = function(__config){
                         'node:OML':{'default:Uxi': __popup}  
                     });  
                     cell.rowel.removeClass('litebottom litetop'); 
-                    cell = null;                                
+                    cell = null;          
+                    __popup.uresize(false);             
+                    __popup.drag(false);                         
                     __popup.maximize();     
                     __popup.maximize(false);  
                     snapped_programs.push(__popup);                          
@@ -212,6 +214,8 @@ OGX.Views.Desktop = function(__config){
         __popup.maximize(true);
         __popup.normalize();  
         __popup.center(); 
+
+        
 
         //remove flex if empty
         if(!snapped_programs.length){
