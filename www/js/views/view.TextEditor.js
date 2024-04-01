@@ -6,7 +6,12 @@ OGX.Views.TextEditor = function(__config){
    
     //@Override
 	this.construct = function(){
-        console.log(this.selector+' textarea.editor');
+        this.parent.on(OGX.Resize.RESIZING, (__e) => {
+            this.el.find('iframe').addClass('noevent');
+        }); 
+        this.parent.on(OGX.Resize.RESIZED, (__e) => {
+            this.el.find('iframe').removeClass('noevent');
+        });
         popup = app.findPopup(this);
         tinymce.init({
             selector: this.selector+' textarea.editor',
@@ -44,10 +49,14 @@ OGX.Views.TextEditor = function(__config){
     };
 	
     //@Override
-	this.onFocus = function(){};
+	this.onFocus = function(){
+        this.el.find('iframe').removeClass('noevent');
+    };
 	
     //@Override
-	this.onBlur = function(){};
+	this.onBlur = function(){
+        this.el.find('iframe').addClass('noevent');
+    };
 	
     //@Override
 	this.ux = function(__bool){

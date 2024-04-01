@@ -113,6 +113,9 @@
     background-position: center;
     background-image: url('/img/bg.jpg');
 }
+.noevent{
+    pointer-events: none;
+}
 .hidden{
     display: none !important;
 }
