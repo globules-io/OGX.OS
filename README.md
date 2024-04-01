@@ -29,8 +29,8 @@
 > Note that if you are hosting on IIS, you need to add a `MIME type` of value `text/plain` for `.pak` files
 
 ### Participating
-> Anybody can participate by creating programs for OGX.OS. Just check out how basics programs are built and create your owns!
-> Then create an issue explaining the motivations and if it checks out, we'll merge it as official program.
+> Anybody can participate by creating programs for OGX.OS. Just check out how basis programs are built and create your own!
+> Then create an issue explaining the motivations and if it checks out, we'll merge it as official program and link you up here.
 
 ### Why
 > OGX.OS brings the ultimate benchmark and test project for OGX.JS, the Javascript framework behind OGX.OS. This also showcases the power of OGX.JS and how you can build enterprise grade apps with ease.
