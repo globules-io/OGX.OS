@@ -1,8 +1,8 @@
-
-
-
 # OGX.OS
 > Experimental browser based operating system based on OGX.JS
+
+![screenshot-os ogx local-2024 04 01-11_29_35](https://github.com/globules-io/OGX.OS/assets/13317159/a7ab5925-1abb-4c11-a92f-cd6668b541cd)
+
 
 ### Videos
 
