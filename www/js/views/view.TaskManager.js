@@ -138,7 +138,6 @@ OGX.Views.TaskManager = function(__config){
             pc = window.performance.memory.totalJSHeapSize * 100 / max_mem;
             !pc ? pc = 1 : null;
             mem_graph_el.css('height', pc+'%');
-            console.log(pc, window.performance.memory.totalJSHeapSize, max_mem);
             mem_el.html(Math.round((window.performance.memory.totalJSHeapSize / (1024 * 1024)*100)/100)+'/'+(Math.round(max_mem/(1024 * 1024)*100)/100)+'MB');
 
             request = requestAnimationFrame(run);
