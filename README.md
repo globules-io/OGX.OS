@@ -24,7 +24,7 @@
 > Navigate to `http://localhost`
 
 #### Optional Step
-> You can also reduce the app file by doing
+> You can also reduce the app footprint (files) by doing
 
     ogx pack all
     ogx prepare
