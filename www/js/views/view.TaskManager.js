@@ -4,8 +4,9 @@ OGX.Views.TaskManager = function(__config){
 	'use strict'; 
     let fps = 0;
     let request = null;
-    let docker, list, list_intv, fps_el, graph_el;
+    let docker, list, list_intv, fps_el, fps_graph_el, mem_el, mem_graph_el;
     let cache = null;
+    let max_mem = 1024 * 1024 * 1024;
 
     //@Override
 	this.construct = function(){
@@ -13,7 +14,9 @@ OGX.Views.TaskManager = function(__config){
         list = this.gather('DynamicList')[0];
         tree = this.gather('Tree')[0];
         fps_el = this.el.find('.graph > .fps');
-        graph_el = this.el.find('.graph > .level > .box');
+        mem_el = this.el.find('.graph > .mem');
+        fps_graph_el = this.el.find('.graph > .frames > .box');
+        mem_graph_el = this.el.find('.graph > .memory > .box');
         calcFPS();
     };
 	
@@ -116,6 +119,7 @@ OGX.Views.TaskManager = function(__config){
         let time, pc; 
            
         function run(){
+            //fps
             time = Date.now();
             frames++;
             if (time > prevTime + 1000) {
@@ -126,7 +130,17 @@ OGX.Views.TaskManager = function(__config){
             fps_el.html(fps+'FPS');
             pc = 100 - fps * 100 / 60;
             !pc ? pc = 1 : null;
-            graph_el.css('height', pc+'%');
+            fps_graph_el.css('height', pc+'%');
+
+            //mem
+            max_mem < window.performance.memory.totalJSHeapSize ? max_mem = window.performance.memory.totalJSHeapSize : null;
+            !max_mem ? max_mem = window.performance.memory.totalJSHeapSize : null;
+            pc = window.performance.memory.totalJSHeapSize * 100 / max_mem;
+            !pc ? pc = 1 : null;
+            mem_graph_el.css('height', pc+'%');
+            console.log(pc, window.performance.memory.totalJSHeapSize, max_mem);
+            mem_el.html(Math.round((window.performance.memory.totalJSHeapSize / (1024 * 1024)*100)/100)+'/'+(Math.round(max_mem/(1024 * 1024)*100)/100)+'MB');
+
             request = requestAnimationFrame(run);
         }
 
