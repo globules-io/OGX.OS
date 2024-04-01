@@ -22,7 +22,20 @@
      ogx prepare
 
 > Navigate to `http://localhost`
->
+
+#### Optional Step
+> You can also reduce the app file by doing
+
+    ogx pack all
+    ogx prepare
+    ogx compress
+
+> To restore
+
+    ogx restore
+    ogx unpack all
+    ogx prepare
+    
 > Note that if you are hosting on IIS, you need to add a `MIME type` of value `text/plain` for `.pak` files
 
 ### Participating
