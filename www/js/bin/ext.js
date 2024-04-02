@@ -65,6 +65,20 @@ OGX.OS = function(__config){
         });
         return new OGX.List(nodes);
     };
+
+    /* DISPLAY */
+    this.SYSTEM.DISPLAY = {};
+    this.SYSTEM.DISPLAY.settings = function(){
+        let o = {};
+        o.hardware = {brand:'Nguyen', model:'@AtWork', driver:{version:'Nguyen XperienceMaxx 0.0.1'}}
+        o.resolution = [window.innerWidth, window.innerHeight];
+        return o;
+    };
+    this.SYSTEM.DISPLAY.preferences = function(){
+        let o = {};   
+        o.background = {mode:'swatch', value:'#2d5cb4'};
+        return o;
+    };
 };
 
 /* PROGRAM */
