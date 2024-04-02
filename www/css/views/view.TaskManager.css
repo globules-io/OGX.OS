@@ -2,11 +2,10 @@
     display: flex;
     flex-direction: row;
     width: 100%;
-    height: 100%;    
+    height: 100%;
 }
 .task_manager .nodes{
     position: relative;
-    padding: 10px;
 }
 .task_manager .nodes > .tree{
     display: block;

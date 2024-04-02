@@ -2,10 +2,9 @@ require('Views.TaskManager', 'Program', 'View');
 OGX.Views.TaskManager = function(__config){
     construct(this, 'Views.TaskManager');
 	'use strict'; 
-    let stage = null;
     let fps = 0;
     let request = null;
-    let docker, list, fps_el, mem_el;
+    let docker, list, list_intv, fps_el, mem_el;
     let mem_chart, fps_chart;
     let cache = null;
     let max_mem = 0;
@@ -56,7 +55,6 @@ OGX.Views.TaskManager = function(__config){
 
     //@Override
 	this.construct = function(){
-        stage = app.getStage();
         docker = app.cfind('Docker', 'docker');
         list = this.gather('DynamicList')[0];
         tree = this.gather('Tree')[0];
@@ -72,19 +70,21 @@ OGX.Views.TaskManager = function(__config){
     };
 	
     //@Override
-	this.onFocus = function(){};
+	this.onFocus = function(){
+        list_intv = setInterval(listInterval, 1000);
+    };
 	
     //@Override
-	this.onBlur = function(){};
+	this.onBlur = function(){
+        clearInterval(list_intv);
+    };
 	
     //@Override
 	this.ux = function(__bool){
         if(__bool){
-            app.on(app.SYSTEM.PROCESS.STARTED+' '+app.SYSTEM.PROCESS.KILLED, (__e, __process_id) => {
-                update();
-            });
+            
         }else{
-           app.off(app.SYSTEM.PROCESS.STARTED+' '+app.SYSTEM.PROCESS.KILLED);
+           
         }
     };
     
@@ -149,18 +149,19 @@ OGX.Views.TaskManager = function(__config){
         cache = __list.unique('id', false).sort().join(' ');
     }
 
-    function update(){    
+    function listInterval(){    
         let sel = list.getSelection();      
         let arr = new OGX.List();
-        const nodes = app.SYSTEM.PROCESS.get();
+        const nodes = app.getStage().gather();
         nodes.forEach(__node => {             
             arr.push({label: nodeToLabel(__node), value:__node.id});        
         });    
         list.val(arr);      
         if(sel){
             list.select('value', sel.value);    
-        }            
-        appsToTree(nodes.get({isProgram:true}));              
+        } 
+        const apps = app.getStage().gather('View').get({isProgram:true});             
+        appsToTree(apps);              
     }
 
     function fillArray(__val){

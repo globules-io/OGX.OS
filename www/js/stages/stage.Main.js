@@ -33,8 +33,7 @@ OGX.Stages.Main = function(__obj){
                 if(this.touch.isRightClick(__e)){
                     __e.preventDefault();
                     __e = this.event(__e);  
-                    setTimeout(() => {       
-                        const desktop = this.children('Desktop')[0];                 
+                    setTimeout(() => {                        
                         this.create('ContextMenu', {
                             id: 'desktop_context_list',
                             x: __e.pageX,
@@ -51,7 +50,7 @@ OGX.Stages.Main = function(__obj){
                             },
                             //on list select callback
                             callback: (__item) => {
-                                app.SYSTEM.PROCESS.start(desktop, __item);
+                                program_manager.genPopup(__item);
                             },
                             //set list from cached json
                             list: app.getJSON('desktop_context')

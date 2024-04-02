@@ -1,5 +1,8 @@
 [
-    {   
+    {
+        "program_manager:Controllers.ProgramManager": {
+            "id" : "program_manager"
+        },    
         "data_manager:Controllers.DataManager": {
             "id" : "data_manager"
         },    

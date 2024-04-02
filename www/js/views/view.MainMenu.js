@@ -2,11 +2,10 @@ require('Views.MainMenu', 'View');
 OGX.Views.MainMenu = function(__config){
     construct(this, 'Views.MainMenu');
 	'use strict'; 
-    let desktop, icon_list, program_list, program_manager, window;
+    let icon_list, program_list, program_manager, window;
 
     //@Override
 	this.construct = function(){
-        desktop = app.getStage().gather('Views.Desktop')[0]; 
         icon_list = app.cfind('DynamicList', 'menu_icons');
         program_list = app.cfind('DynamicList', 'menu_programs');
         program_manager = app.cfind('Controller', 'program_manager');
@@ -25,15 +24,15 @@ OGX.Views.MainMenu = function(__config){
             icon_list.on(OGX.DynamicList.SELECT, (__e, __item) => {
                 __e.stopImmediatePropagation();
                 this.parent.hide(true);
-                app.SYSTEM.PROCESS.start(desktop, __item);
+                program_manager.genPopup(__item);
             });
             program_list.on(OGX.DynamicList.SELECT, (__e, __item) => {
                 __e.stopImmediatePropagation();
                 if(__item.type === 'MenuLetter'){
                     return;
                 }
-                this.parent.hide(true);   
-                app.SYSTEM.PROCESS.start(desktop, __item);
+                this.parent.hide(true);                
+                program_manager.genPopup(__item);
             });
             this.on(this.touch.down, '.search', function(__e){
                 window.disable();            

@@ -2,9 +2,12 @@ require('Controllers.ProgramManager', 'Controller');
 OGX.Controllers.ProgramManager = function(){
     construct(this, 'Controllers.ProgramManager');
     'use strict';
+    let docker;
 
     //@Override
-	this.construct = function(){};
+	this.construct = function(){
+        docker = app.cfind('Docker', 'docker');
+    };
 	
     //@Override
 	this.onFocus = function(){};
@@ -24,7 +27,7 @@ OGX.Controllers.ProgramManager = function(){
     //@Override
     this.destroy = function(){};
 
-    this.genPopup = function(__desktop, __item, __data){
+    this.genPopup = function(__item, __data){
         typeof __data === 'undefined' ? __data = {} : null;
         const node = makeProgramNode(__item, __data);        
         
@@ -52,7 +55,7 @@ OGX.Controllers.ProgramManager = function(){
                 {icon:'/img/minimize.svg', callback:minimizePopup},
                 {icon:'/img/maximize.svg', callback:maximizePopup},
                 {icon:'/img/close.svg', callback:(__popup) => {
-                    app.SYSTEM.PROCESS.stop(__popup.id);
+                    app.removePopup(__popup.id, false);
                 }}
             ],
             'node:OML':[node]
@@ -63,10 +66,10 @@ OGX.Controllers.ProgramManager = function(){
         }
         options.icon = '/img/'+__item.icon+'.svg';
         options.title = __item.label;
-        const popup = app.addPopup(options, __desktop);
-        app.cfind('Docker', 'docker').addItem(popup, {icon: popup.icon()});
+
+        const popup = app.addPopup(options, app.getStage().gather('Views.Desktop')[0]);
+        docker.addItem(popup, {icon: popup.icon()});
         popup.show(true);
-        return popup;
     }    
 
     function minimizePopup(__popup){
