@@ -69,6 +69,7 @@
     },
     "TaskManager" : {
         "config" : {
+            "always_on": true,
             "unique" : true
         },
         "oml" : "task_manager"
