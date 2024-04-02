@@ -1,0 +1,17 @@
+[
+    {"label" : "B", "type" : "MenuLetter"},
+    {"label" : "Browser", "icon" : "browser", "app" : "Browser", "type" : "MenuProgram"},
+    {"label" : "C", "type" : "MenuLetter"},
+    {"label" : "Calculator", "icon" : "calc", "app" : "Calculator", "type" : "MenuProgram"},
+    {"label" : "Camera", "icon" : "camera", "app" : "Camera", "type" : "MenuProgram"},    
+    {"label" : "I", "type" : "MenuLetter"},
+    {"label" : "Image Viewer", "icon" : "image", "app" : "ImageViewer", "type" : "MenuProgram"},
+    {"label" : "M", "type" : "MenuLetter"},
+    {"label" : "Mental Studio Code", "icon" : "text", "app" : "MsCode", "type" : "MenuProgram"},
+    {"label" : "S", "type" : "MenuLetter"},
+    {"label" : "Sketch", "icon" : "sketch", "app" : "Sketch", "type" : "MenuProgram"},
+    {"label" : "T", "type" : "MenuLetter"},
+    {"label" : "Text Editor", "icon" : "text", "app" : "TextEditor", "type" : "MenuProgram"},          
+    {"label" : "V", "type" : "MenuLetter"},
+    {"label" : "Video Player", "icon" : "text", "app" : "VideoPlayer", "type" : "MenuProgram"}
+]

@@ -5,6 +5,11 @@ OGX.OS = function(__config){
     construct(this, 'OS');
     'use strict';   
 
+    this.construct = function(){
+        data_manager = this.create('Controllers.DataManager', {id : 'data_manager'});
+        program_manager = this.create('Controllers.ProgramManager', {id : 'program_manager'});
+    };
+
     /* NAME SPACE */
     this.SYSTEM = {};
 
@@ -16,9 +21,13 @@ OGX.OS = function(__config){
     this.SYSTEM.FOLDER.create = function(__path, __name){};
     this.SYSTEM.FOLDER.delete = function(__path){};
 
+    /* DATA MANAGER*/
+    let data_manager;
+
     /* PROCESS MANAGER */
     let processes = new OGX.List();
-    let program_manager = this.create('Controllers.ProgramManager', {id : 'program_manager'});    
+    let program_manager;    
+
     this.SYSTEM.PROCESS = {
         KILLED: 'processKilled',
         STARTED: 'processStarted'
@@ -31,13 +40,24 @@ OGX.OS = function(__config){
         processes.push(process);
         app.el.trigger(app.SYSTEM.PROCESS.STARTED, process.id);
     };
+    //this is popup_id
     this.SYSTEM.PROCESS.stop = function(__process_id){
+        console.log('KILL PROCESS', __process_id);
+        //if we pass a whole container instead, kill all its processes
+        if(typeof __process_id !== 'string'){            
+            __process_id.gather('View').get({isProgram:true}).forEach((__app) => {
+                app.SYSTEM.PROCESS.stop(__app.parent.id);
+            });
+            app.removePopup(__process_id.id, false);
+            return;
+        }
+
         const process = processes.get({id:__process_id}, null, 1);
-        if(!process){
+        if(!process){            
             return;
         }
         let id = process.id;
-        app.removePopup(id, false);
+        app.removePopup(process.parent.id, false);
         processes.findDelete('id', id, 1);
         app.el.trigger(app.SYSTEM.PROCESS.KILLED, id);
     };    

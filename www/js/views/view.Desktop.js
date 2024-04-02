@@ -31,8 +31,8 @@ OGX.Views.Desktop = function(__config){
 	
     //@Override
 	this.ux = function(__bool){
-        if(__bool){
-            this.on(OGX.Popup.MOVE, (__e, __popup, __pt) => {
+        if(__bool){     
+            app.on(OGX.Popup.MOVE, (__e, __popup, __pt) => {                
                 popup_in = false;
                 add_flex = false;
                 remove_flex = false;
@@ -111,7 +111,7 @@ OGX.Views.Desktop = function(__config){
                     }
                 }               
             });
-            this.on(OGX.Popup.MOVED, (__e, __popup) => {        
+            app.on(OGX.Popup.MOVED, (__e, __popup) => {        
                 //need to know if I drop it on top or bottom
                 if(flex && popup_in && cell){  
                     
@@ -171,8 +171,8 @@ OGX.Views.Desktop = function(__config){
                 }
             });
         }else{
-           this.off(OGX.Popup.MOVE);
-           this.off(OGX.Popup.MOVED);
+           app.off(OGX.Popup.MOVE);
+           app.off(OGX.Popup.MOVED);
         }
     };
 
