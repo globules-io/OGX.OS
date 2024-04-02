@@ -57,7 +57,11 @@
 
 > Add a reference to your progam in `www/json/programs.json`, such as
 
-     {"label" : "MyProgram", "icon" : "some_icon", "view" : "MyProgram", "type" : "MenuProgram"}
+     "MyProgram" : { options }
+
+> Add a reference to your program in the main menu in `www/json/menu_programs.json`, such as
+
+     {"label" : "MyProgram", "icon" : "some_icon", "app" : "MyProgram", "type" : "MenuProgram"}
 
 ### Why
 > OGX.OS brings the ultimate benchmark and test project for OGX.JS, the Javascript framework behind OGX.OS. This also showcases the power of OGX.JS and how you can build enterprise grade apps with ease.
