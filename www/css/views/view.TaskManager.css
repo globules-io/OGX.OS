@@ -29,12 +29,14 @@
     padding-top: 5px;
 }
 .task_manager .graph{
-    display: inline-flex !important;
+    display: inline-flex !important;   
     flex-direction: column;
     flex-grow: 1;
+    flex-basis: 50%;
     border-left: 1px solid #333;
+    min-width: 0;
 }
-.task_manager .graph > .fps{
+.task_manager .graph > .label{
     display: inline-block;
     font-family: Roboto-Light;
     font-size: 13px;
@@ -43,17 +45,21 @@
 .task_manager .graph > .level{
     display: inline-block;
     flex-grow: 1;
-    position: relative;
-    background-image: url('/img/grid.svg');
-    background-repeat: repeat;
-    background-size: 20px;
+    position: relative;  
+    max-height: 50%;
 }
-.task_manager .graph > .level > .box{
-    position: absolute;
+.task_manager .graph > .level > canvas{
+    display: block;
     width: 100%;
-    bottom: 0;
-    background-color: dodgerblue;
+    height: 100%;
 }
+.task_manager .graph > .memory{
+    max-height: 50%;
+}
+.task_manager .graph > .memory{
+    border-bottom: 5px solid #282828;
+}
+
 /* THEME OVERRIDE */
 .task_manager .ogx_tree_item_arrow span {
     width: 14px;

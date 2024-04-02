@@ -171,6 +171,14 @@ OGX.Views.TaskManager = function(__config){
         return arr;
     }
 
+    function fillArray(__val){
+        let arr = [];
+        for(let i = 0; i < max_values; i++){
+            arr.push(__val);
+        }
+        return arr;
+    }
+
     function calcFPS() {
         let prevTime = Date.now();
         let frames = 0;   
