@@ -1,4 +1,4 @@
-require('Views.VideoPlayer', 'View');
+require('Views.VideoPlayer', 'Program', 'View');
 OGX.Views.VideoPlayer = function(__config){
     construct(this, 'Views.VideoPlayer');
 	'use strict'; 
