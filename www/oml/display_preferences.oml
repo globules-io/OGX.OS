@@ -2,7 +2,7 @@
     "default:Views.DisplayPreferences":{
         "scroll" : true,
         "template" : "DisplayPreferences",
-        "data:OSE" : "{{Helper.getDisplayPreferences()}}",
+        "data:OSE" : "{{app.SYSTEM.DISPLAY.preferences()}}",
         "node:OML" : {
             "default .roulette:Roulette":{
                 "id" : "background_mode",
@@ -13,7 +13,7 @@
                     {"label" : "Custom Color", "value" : "color"}, 
                     {"label" : "Image", "value" : "image"}
                 ],
-                "value:OSE" : "{{Helper.getDisplayPreferences().background.mode}}"
+                "value:OSE" : "{{app.SYSTEM.DISPLAY.preferences().background.mode}}"
             },
             "default .swatch_list:DynamicList":{
                 "id" : "swatch_list",
@@ -24,7 +24,7 @@
                     "css" : "swatch"
                 },
                 "list:OSE" : "{{json swatches}}",
-                "selection:OSE" : "{{Helper.getDisplayPreferences().background.value.split()}}"
+                "selection:OSE" : "{{app.SYSTEM.DISPLAY.preferences().background.value.split()}}"
             }
         }
     }
