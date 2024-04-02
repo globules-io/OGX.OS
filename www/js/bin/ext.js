@@ -42,7 +42,6 @@ OGX.OS = function(__config){
     };
     //this is popup_id
     this.SYSTEM.PROCESS.stop = function(__process_id){
-        console.log('KILL PROCESS', __process_id);
         //if we pass a whole container instead, kill all its processes
         if(typeof __process_id !== 'string'){            
             __process_id.gather('View').get({isProgram:true}).forEach((__app) => {
@@ -68,6 +67,7 @@ OGX.OS = function(__config){
         }
         let nodes = [];
         processes.forEach(__process => {
+            nodes.push(__process);
             nodes = nodes.concat(__process.gather());
         });
         return new OGX.List(nodes);

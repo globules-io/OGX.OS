@@ -84,7 +84,7 @@ OGX.Views.TaskManager = function(__config){
                 update();
             });
         }else{
-           app.off(app.SYSTEM.PROCESS.STARTED+' '+app.SYSTEM.PROCESS.KILLED);
+            app.off(app.SYSTEM.PROCESS.STARTED+' '+app.SYSTEM.PROCESS.KILLED);
         }
     };
     
