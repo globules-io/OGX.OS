@@ -1,8 +1,5 @@
 [
-    {   
-        "data_manager:Controllers.DataManager": {
-            "id" : "data_manager"
-        },    
+    {      
         "default .dock:Docker": {
             "id" : "docker",
             "groups":{
