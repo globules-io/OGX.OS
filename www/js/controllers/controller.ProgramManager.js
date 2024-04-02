@@ -28,10 +28,12 @@ OGX.Controllers.ProgramManager = function(){
         const node = makeProgramNode(__item, __data);  
         if(!node){
             return;
-        }      
+        }  
+
+        const reg = registered_programs[__item.app];
         
         //test uniqueness       
-        if(__item.hasOwnProperty('config') && __item.config.hasOwnProperty('unique') && __item.config.unique){
+        if(reg.hasOwnProperty('config') && reg.config.hasOwnProperty('unique') && reg.config.unique){
             const cls = OGX.OML.getNodeClass(node);
             //process
             const instance = app.gather(cls);
@@ -61,8 +63,8 @@ OGX.Controllers.ProgramManager = function(){
             'node:OML':[node]
         };
         
-        if(registered_programs[__item.app].hasOwnProperty('config')){            
-            OGX.Data.merge(options, registered_programs[__item.app].config, true);
+        if(reg.hasOwnProperty('config')){            
+            OGX.Data.merge(options, reg.config, true);
         }
         options.icon = '/img/'+__item.icon+'.svg';
         options.title = __item.label;
