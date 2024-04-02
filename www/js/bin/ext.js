@@ -4,34 +4,26 @@ require('OS', 'Core');
 OGX.OS = function(__config){
     construct(this, 'OS');
     'use strict';   
+    let data_manager;  
+    let program_manager;    
 
     this.construct = function(){
-        data_manager = this.create('Controllers.DataManager', {id : 'data_manager'});
+        this.SYSTEM.FILE = this.create('Controllers.FileManager', {id : 'file_manager'});
+        this.SYSTEM.DATA = this.create('Controllers.DataManager', {id : 'data_manager'});
         program_manager = this.create('Controllers.ProgramManager', {id : 'program_manager'});
     };
 
     /* NAME SPACE */
-    this.SYSTEM = {};
-
-    /* FILE MANAGER */
-    this.SYSTEM.FILE = {};
-    this.SYSTEM.FILE.create = function(__path, __name){};
-    this.SYSTEM.FILE.delete = function(__path){};
-    this.SYSTEM.FOLDER = {};
-    this.SYSTEM.FOLDER.create = function(__path, __name){};
-    this.SYSTEM.FOLDER.delete = function(__path){};
-
-    /* DATA MANAGER*/
-    let data_manager;
+    this.SYSTEM = {};  
 
     /* PROCESS MANAGER */
-    let processes = new OGX.List();
-    let program_manager;    
+    let processes = new OGX.List();    
 
     this.SYSTEM.PROCESS = {
         KILLED: 'processKilled',
         STARTED: 'processStarted'
     };
+
     this.SYSTEM.PROCESS.start = function(__desktop, __item, __data){
         const process = program_manager.genPopup(__desktop, __item, __data);
         if(!process){
@@ -40,6 +32,7 @@ OGX.OS = function(__config){
         processes.push(process);
         app.el.trigger(app.SYSTEM.PROCESS.STARTED, process.id);
     };
+
     //this is popup_id
     this.SYSTEM.PROCESS.stop = function(__process_id){
         //if we pass a whole container instead, kill all its processes
