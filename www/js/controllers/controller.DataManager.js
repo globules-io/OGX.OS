@@ -22,24 +22,6 @@ OGX.Controllers.DataManager = function(){
             });
         }        
     };
-	
-    //@Override
-	this.onFocus = function(){};
-	
-    //@Override
-	this.onBlur = function(){};
-	
-    //@Override
-	this.ux = function(__bool){
-        if(__bool){
-            
-        }else{
-           
-        }
-    };
-
-    //@Override
-    this.destroy = function(){};
 
     /* DRIVES */
     this.getDrives = function(){
