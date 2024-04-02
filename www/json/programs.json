@@ -21,6 +21,8 @@
     }},    
     {"label" : "I", "type" : "MenuLetter"},
     {"label" : "Image Viewer", "icon" : "image", "view" : "ImageViewer", "type" : "MenuProgram"},
+    {"label" : "M", "type" : "MenuLetter"},
+    {"label" : "Mental Studio Code", "icon" : "text", "view" : "MsCode", "type" : "MenuProgram"},
     {"label" : "S", "type" : "MenuLetter"},
     {"label" : "Sketch", "icon" : "sketch", "view" : "Sketch", "type" : "MenuProgram", "oml" : "sketch", "config" : {
         "unique" : true,
