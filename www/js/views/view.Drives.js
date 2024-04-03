@@ -9,9 +9,9 @@ OGX.Views.Drives = function(__config){
 
     //@Override
 	this.construct = function(){
-        popup = app.findPopup(this);
+        popup = OS.findPopup(this);
         list = this.children('DynamicList')[0];
-        list.val(app.cfind('Controller', 'data_manager').getDrives());
+        list.val(OS.cfind('Controller', 'data_manager').getDrives());
     };
 	
     //@Override
@@ -36,7 +36,7 @@ OGX.Views.Drives = function(__config){
                 }else{                   
                     if(now - drive.selected < dbto){                   
                         view.el.empty();
-                        let oml = app.getOML('file_explorer');
+                        let oml = OS.getOML('file_explorer');
                         OGX.OML.getNodeByName(oml, 'file_explorer').data = {drive: drive, path: ''};
                         console.log(oml);
                         view.parse(oml);

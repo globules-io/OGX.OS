@@ -30,7 +30,7 @@ OGX.OS = function(__config){
             return;
         }
         processes.push(process);
-        app.el.trigger(app.SYSTEM.PROCESS.STARTED, process.id);
+        OS.el.trigger(OS.SYSTEM.PROCESS.STARTED, process.id);
     };
 
     //this is popup_id
@@ -38,9 +38,9 @@ OGX.OS = function(__config){
         //if we pass a whole container instead, kill all its processes
         if(typeof __process_id !== 'string'){            
             __process_id.gather('View').get({isProgram:true}).forEach((__app) => {
-                app.SYSTEM.PROCESS.stop(__app.parent.id);
+                OS.SYSTEM.PROCESS.stop(__OS.parent.id);
             });
-            app.removePopup(__process_id.id, false);
+            OS.removePopup(__process_id.id, false);
             return;
         }
 
@@ -49,9 +49,9 @@ OGX.OS = function(__config){
             return;
         }
         let id = process.id;
-        app.removePopup(process.parent.id, false);
+        OS.removePopup(process.parent.id, false);
         processes.findDelete('id', id, 1);
-        app.el.trigger(app.SYSTEM.PROCESS.KILLED, id);
+        OS.el.trigger(OS.SYSTEM.PROCESS.KILLED, id);
     };    
     this.SYSTEM.PROCESS.get = function(__deep){
         typeof __deep === 'undefined' ? __deep = true : null;

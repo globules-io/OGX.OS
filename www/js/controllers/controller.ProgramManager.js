@@ -6,18 +6,18 @@ OGX.Controllers.ProgramManager = function(){
 
     //@Override
 	this.construct = function(){
-        registered_programs = app.getJSON('programs');
+        registered_programs = OS.getJSON('programs');
 
-        app.on(OGX.Popup.GROUP, (__e, __o) => {
+        OS.on(OGX.Popup.GROUP, (__e, __o) => {
             let icons = __o.popup.icons();
-            icons[icons.length-1].callback = app.SYSTEM.PROCESS.stop;
+            icons[icons.length-1].callback = OS.SYSTEM.PROCESS.stop;
             icons[icons.length-1].params = __o.popup;
             __o.popup.icons(icons);
         });
-        app.on(OGX.Popup.UNGROUP, (__e, __o) => {
-            const new_popup = app.cfind('Popup', __o.to_popup);
+        OS.on(OGX.Popup.UNGROUP, (__e, __o) => {
+            const new_popup = OS.cfind('Popup', __o.to_popup);
             let icons = new_popup.icons();
-            icons[icons.length-1].callback = app.SYSTEM.PROCESS.stop;
+            icons[icons.length-1].callback = OS.SYSTEM.PROCESS.stop;
             icons[icons.length-1].params = new_popup.children()[0].id;
             new_popup.icons(icons);
         });
@@ -36,7 +36,7 @@ OGX.Controllers.ProgramManager = function(){
         if(reg.hasOwnProperty('config') && reg.config.hasOwnProperty('unique') && reg.config.unique){
             const cls = OGX.OML.getNodeClass(node);
             //process
-            const instance = app.gather(cls);
+            const instance = OS.gather(cls);
             if(instance.length){
                 instance[0].reveal();
                 return;
@@ -58,7 +58,7 @@ OGX.Controllers.ProgramManager = function(){
                 {icon:'/img/maximize.svg', callback:maximizePopup},
                 //would be better to set process id from App and not popup because grouping
                 //I don't know yet the id of the process cause it's in popup after creating
-                {icon:'/img/close.svg', callback: app.SYSTEM.PROCESS.stop}
+                {icon:'/img/close.svg', callback: OS.SYSTEM.PROCESS.stop}
             ],
             'node:OML':[node]
         };
@@ -68,12 +68,12 @@ OGX.Controllers.ProgramManager = function(){
         }
         options.icon = '/img/'+__item.icon+'.svg';
         options.title = __item.label;
-        const popup = app.addPopup(options, __desktop);
+        const popup = OS.addPopup(options, __desktop);
         const process = popup.children('View')[0];
         let icons = popup.icons();
         icons[icons.length-1].params = process.id;
         popup.icons(icons)
-        app.cfind('Docker', 'docker').addItem(popup, {icon: popup.icon()});
+        OS.cfind('Docker', 'docker').addItem(popup, {icon: popup.icon()});
         popup.show(true);
         return process;
     }    
@@ -104,7 +104,7 @@ OGX.Controllers.ProgramManager = function(){
         }
         let conf = registered_programs[__item.app];             
         if(conf.hasOwnProperty('oml')){
-            let oml = app.getOML(conf.oml);           
+            let oml = OS.getOML(conf.oml);           
             if(__data){
                 for(let n in oml){
                     n.data = __data;

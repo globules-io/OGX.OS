@@ -10,7 +10,7 @@ OGX.Views.FileExplorer = function(__config){
     this.construct = function(__data){
         tree = this.gather('Tree')[0];
         list = this.gather('DynamicList')[0];
-        data_manager = app.cfind('Controller', 'data_manager');
+        data_manager = OS.cfind('Controller', 'data_manager');
         list.val(data_manager.getFiles(this.data.drive, this.data.path));
         tree.setTree(data_manager.getTree(this.data.drive, this.data.path));
     };

@@ -6,11 +6,11 @@ OGX.Views.MainMenu = function(__config){
 
     //@Override
 	this.construct = function(){
-        desktop = app.getStage().gather('Views.Desktop')[0]; 
-        icon_list = app.cfind('DynamicList', 'menu_icons');
-        program_list = app.cfind('DynamicList', 'menu_programs');
-        program_manager = app.cfind('Controller', 'program_manager');
-        window = app.findWindow(this);
+        desktop = OS.getStage().gather('Views.Desktop')[0]; 
+        icon_list = OS.cfind('DynamicList', 'menu_icons');
+        program_list = OS.cfind('DynamicList', 'menu_programs');
+        program_manager = OS.cfind('Controller', 'program_manager');
+        window = OS.findWindow(this);
     };
 	
     //@Override
@@ -25,7 +25,7 @@ OGX.Views.MainMenu = function(__config){
             icon_list.on(OGX.DynamicList.SELECT, (__e, __item) => {
                 __e.stopImmediatePropagation();
                 this.parent.hide(true);
-                app.SYSTEM.PROCESS.start(desktop, __item);
+                OS.SYSTEM.PROCESS.start(desktop, __item);
             });
             program_list.on(OGX.DynamicList.SELECT, (__e, __item) => {
                 __e.stopImmediatePropagation();
@@ -33,7 +33,7 @@ OGX.Views.MainMenu = function(__config){
                     return;
                 }
                 this.parent.hide(true);   
-                app.SYSTEM.PROCESS.start(desktop, __item);
+                OS.SYSTEM.PROCESS.start(desktop, __item);
             });
             this.on(this.touch.down, '.search', function(__e){
                 window.disable();            

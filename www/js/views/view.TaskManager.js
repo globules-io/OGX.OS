@@ -56,8 +56,8 @@ OGX.Views.TaskManager = function(__config){
 
     //@Override
 	this.construct = function(){
-        stage = app.getStage();
-        docker = app.cfind('Docker', 'docker');
+        stage = OS.getStage();
+        docker = OS.cfind('Docker', 'docker');
         list = this.gather('DynamicList')[0];
         tree = this.gather('Tree')[0];
         fps_el = this.el.find('.graph > .fps');
@@ -80,11 +80,11 @@ OGX.Views.TaskManager = function(__config){
     //@Override
 	this.ux = function(__bool){
         if(__bool){
-            app.on(app.SYSTEM.PROCESS.STARTED+' '+app.SYSTEM.PROCESS.KILLED, (__e, __process_id) => {
+            OS.on(OS.SYSTEM.PROCESS.STARTED+' '+OS.SYSTEM.PROCESS.KILLED, (__e, __process_id) => {
                 update();
             });
         }else{
-            app.off(app.SYSTEM.PROCESS.STARTED+' '+app.SYSTEM.PROCESS.KILLED);
+            OS.off(OS.SYSTEM.PROCESS.STARTED+' '+OS.SYSTEM.PROCESS.KILLED);
         }
     };
     
@@ -152,7 +152,7 @@ OGX.Views.TaskManager = function(__config){
     function update(){    
         let sel = list.getSelection();      
         let arr = new OGX.List();
-        const nodes = app.SYSTEM.PROCESS.get();
+        const nodes = OS.SYSTEM.PROCESS.get();
         nodes.forEach(__node => {             
             arr.push({label: nodeToLabel(__node), value:__node.id});        
         });    

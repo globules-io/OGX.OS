@@ -13,9 +13,9 @@ OGX.Views.Sketch = function(){
         board = this.el.find('.board');
         canvas = this.el.find('canvas');
         ctx = canvas[0].getContext('2d');
-        controls = app.cfind('DynamicList', 'sketch_controls');
-        colors = app.cfind('DynamicList', 'sketch_colors');
-        brushes = app.cfind('DynamicList', 'sketch_brushes'); 
+        controls = OS.cfind('DynamicList', 'sketch_controls');
+        colors = OS.cfind('DynamicList', 'sketch_colors');
+        brushes = OS.cfind('DynamicList', 'sketch_brushes'); 
         colors.select('color', '#000000');
         brushes.select('size', 1);
     };
@@ -60,7 +60,7 @@ OGX.Views.Sketch = function(){
                 switch(__data.id){
                     case 'clear':
                     that.addOverlay();
-                    app.addPopup({
+                    OS.addPopup({
                         id:'popup',
                         title:'Clear Artboard?',
                         width:300,
@@ -73,7 +73,7 @@ OGX.Views.Sketch = function(){
 
                     case 'save':
                     that.addOverlay();
-                    app.addPopup({
+                    OS.addPopup({
                         id:'popup',
                         title:'Send Sketch?',
                         width:300,
@@ -123,19 +123,19 @@ OGX.Views.Sketch = function(){
 
     function closePopup(){
         that.removeOverlay(false);
-        app.removePopup('popup', false);
+        OS.removePopup('popup', false);
     }
 
     //to do 
     function saveSketch(){
-        app.removePopup('popup', false);
+        OS.removePopup('popup', false);
         that.removeOverlay(false);
         that.addLoading();
         setTimeout(function(){
             resizeCanvas();
             that.removeLoading(false);
             that.addOverlay(false);
-            app.addPopup({
+            OS.addPopup({
                 id:'popup',
                 title:'Sketch Saved!',
                 width:300,

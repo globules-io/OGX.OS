@@ -15,7 +15,7 @@ OGX.Controllers.DataManager = function(){
         }  
         const pins = this.getPins();
         if(!pins.length){
-            json = app.getJSON('menu_pins');
+            json = OS.getJSON('menu_pins');
             mongogx.setCollection('menu_pins');
             json.forEach(__pin => {
                 mongogx.insert(__pin);

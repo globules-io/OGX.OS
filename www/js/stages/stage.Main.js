@@ -7,7 +7,7 @@ OGX.Stages.Main = function(__obj){
     //@Override
 	this.construct = function(){
         this.updateClock();
-        program_manager = app.cfind('Controller', 'program_manager');
+        program_manager = OS.cfind('Controller', 'program_manager');
     };
 	
     //@Override
@@ -27,7 +27,7 @@ OGX.Stages.Main = function(__obj){
                 //if clock exists in this, remove it
                 let clock = this.find('View', 'main_clock');
                 if(clock){
-                    app.remove('View', clock.id);
+                    OS.remove('View', clock.id);
                 }               
                 //show context on right click
                 if(this.touch.isRightClick(__e)){
@@ -51,17 +51,17 @@ OGX.Stages.Main = function(__obj){
                             },
                             //on list select callback
                             callback: (__item) => {
-                                app.SYSTEM.PROCESS.start(desktop, __item);
+                                OS.SYSTEM.PROCESS.start(desktop, __item);
                             },
                             //set list from cached json
-                            list: app.getJSON('desktop_context')
+                            list: OS.getJSON('desktop_context')
                         });                        
                     }, 0);
                 }
             });
             this.on(this.touch.down, '.icon_menu', (__e) => {
                 __e.stopImmediatePropagation();
-                const win = app.cfind('Window', 'main_menu_win');
+                const win = OS.cfind('Window', 'main_menu_win');
                 if(win.status !== 'WindowClosed'){
                     win.hide(true);
                 }else{
