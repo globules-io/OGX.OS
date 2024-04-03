@@ -32,7 +32,7 @@ OGX.Views.Desktop = function(__config){
     //@Override
 	this.ux = function(__bool){
         if(__bool){     
-            app.on(OGX.Popup.MOVE, (__e, __popup, __pt) => {                
+            OS.on(OGX.Popup.MOVE, (__e, __popup, __pt) => {                
                 popup_in = false;
                 add_flex = false;
                 remove_flex = false;
@@ -111,7 +111,7 @@ OGX.Views.Desktop = function(__config){
                     }
                 }               
             });
-            app.on(OGX.Popup.MOVED, (__e, __popup) => {        
+            OS.on(OGX.Popup.MOVED, (__e, __popup) => {        
                 //need to know if I drop it on top or bottom
                 if(flex && popup_in && cell){  
                     
@@ -171,8 +171,8 @@ OGX.Views.Desktop = function(__config){
                 }
             });
         }else{
-           app.off(OGX.Popup.MOVE);
-           app.off(OGX.Popup.MOVED);
+           OS.off(OGX.Popup.MOVE);
+           OS.off(OGX.Popup.MOVED);
         }
     };
 
@@ -240,7 +240,7 @@ OGX.Views.Desktop = function(__config){
                 if(id === flex.id){
                     return null;
                 }     
-                o.flex = app.cfind('FlexCells', id);  
+                o.flex = OS.cfind('FlexCells', id);  
                 o.row = o.flex.getCellIndex(el.attr('data-cell'));
                 o.rowel = el;
                 return o;        

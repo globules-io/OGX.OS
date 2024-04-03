@@ -6,8 +6,8 @@ OGX.Views.DisplayPreferences = function(__config){
 
     //@Override
 	this.construct = function(){
-        list = app.cfind('DynamicList', 'swatch_list');
-        roulette = app.cfind('Roulette', 'background_mode');
+        list = OS.cfind('DynamicList', 'swatch_list');
+        roulette = OS.cfind('Roulette', 'background_mode');
     };
 	
     //@Override
@@ -27,7 +27,7 @@ OGX.Views.DisplayPreferences = function(__config){
                 this.el.find('.'+__val).removeClass('hidden');
             });
             list.on(OGX.DynamicList.SELECT, (__e, __swatch) => {
-                app.getStage().gather('Views.Desktop')[0].color(__swatch.color);
+                OS.getStage().gather('Views.Desktop')[0].color(__swatch.color);
             });
         }else{
             roulette.off(OGX.Roulette.CHANGE);

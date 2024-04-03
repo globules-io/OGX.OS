@@ -1,9 +1,9 @@
-let app;
+let OS;
 $(document).ready(() => {
     $(document).on(OGX.App.READY, () => {
         $(document).off(OGX.App.READY);        
     });   
-    app = new OGX.App({
+    OS = new OGX.App({
         core: 'OS',
         encrypted: false, 
         disable_context: true,

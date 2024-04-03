@@ -15,7 +15,7 @@ OGX.Views.Login = function(__config){
                 }
             }
         });
-        app.version((__version) => {
+        OS.version((__version) => {
             this.el.find('.version').html('ogx.os version '+__version);
         });
     };
@@ -46,7 +46,7 @@ OGX.Views.Login = function(__config){
     function onLogin(__event){
         $('#login > .center').addClass('hide');
         setTimeout(() => {
-            app.goto('main/desktop');
+            OS.goto('main/desktop');
         }, 300);
     }
 };

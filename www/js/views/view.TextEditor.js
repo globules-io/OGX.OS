@@ -12,7 +12,7 @@ OGX.Views.TextEditor = function(__config){
         this.parent.on(OGX.Resize.RESIZED, (__e) => {
             this.el.find('iframe').removeClass('noevent');
         });
-        popup = app.findPopup(this);
+        popup = OS.findPopup(this);
         tinymce.init({
             selector: this.selector+' textarea.editor',
             plugins: 'image lists',
