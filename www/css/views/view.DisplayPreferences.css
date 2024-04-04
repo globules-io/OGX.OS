@@ -1,9 +1,9 @@
 #display_preferences{
     display: block;
-    padding: 10px;
+    padding: var(--border-size);
 }
 #display_preferences h3{
-    font-size: 16px;
+    font-size: var(--title-size);
 }
 #display_preferences > .preferences{
     display: block;

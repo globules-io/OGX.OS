@@ -30,15 +30,13 @@
     width: 100%;   
 }
 .Browser > .bar > .address > form > input{
-    width: 100%;
-    font-family: Roboto-Light;
-    font-size: 13px;
+    width: 100%;    
 }
 .Browser > .content{
     display: inline-block;   
     width: 100%;
     flex-grow: 1;   
-    padding: 5px;
+    padding: var(--border-size);
 }
 .Browser > .content > iframe{
     display: block;

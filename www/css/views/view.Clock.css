@@ -17,11 +17,11 @@
 }
 .main_clock > .datetime > .time{
     display: block;
-    font-family: Roboto-Light;
+    font-family: var(--font-light);
     font-size: 36px;
 }
 .main_clock > .datetime > .date{
-    font-family: Roboto-Light;
+    font-family: var(--font-light);
     font-size: 13px;
     margin-bottom: 5px;
     color:dodgerblue;

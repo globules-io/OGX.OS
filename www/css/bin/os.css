@@ -1,0 +1,17 @@
+:root {
+    --font-light: Roboto-Light;
+    --font-reg: Roboto-Regular;
+    --font-med: Roboto-Medium;
+    --font-bold: Roboto-Bold;
+    --icon-size: 24px;
+    --popup-icon-size: 20px;
+    --popup-title-size: 13px;
+    --popup-message-size: 17px; 
+    --context-label-size: 13px;
+    --border-size: 5px;
+    --title-size: 16px;
+    --subtitle-size: 13px;
+    --tree-label-size: 14px;
+    --tab-label-size: 13px;
+    --input-size: 13px;
+}

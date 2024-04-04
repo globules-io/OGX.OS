@@ -3,7 +3,7 @@
     flex-direction: column;
     width: 100%;
     height: 100%;
-    padding: 10px;
+    padding: var(--border-size);
 }
 .Calculator > .screen{
     display: inline-flex;
@@ -11,8 +11,8 @@
     width: 100%;
     border: 1px solid #333;
     border-radius: 1px;
-    margin-bottom: 5px;    
-    padding-right: 10px;
+    margin-bottom: var(--border-size); 
+    padding-right: calc(var(--border-size)*2);
     overflow: hidden;
 }
 .Calculator > .screen > *{
@@ -21,13 +21,13 @@
     justify-content: right;
 }
 .Calculator > .screen > .operation{
-    font-family: Roboto-Regular;
+    font-family: var(--font-reg);
     font-size: 12px;
     margin-top: 5px;
     min-height: 15px;
 }
 .Calculator > .screen > .result{
-    font-family: Roboto-Regular;
+    font-family: var(--font-reg);
     font-size: 30px;
     margin-bottom: 5px;
 }

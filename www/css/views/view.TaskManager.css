@@ -6,7 +6,7 @@
 }
 .task_manager .nodes{
     position: relative;
-    padding: 10px;
+    padding: var(--border-size);
 }
 .task_manager .nodes > .tree{
     display: block;
@@ -16,7 +16,7 @@
 }
 .task_manager .nodes .process{
     padding-left: 0px;
-    font-family: Roboto-Light;
+    font-family: var(--font-light);
     font-size: 12px;
     background-image: url('/img/settings.svg');
     background-repeat: no-repeat;
@@ -39,8 +39,8 @@
 }
 .task_manager .graph > .label{
     display: inline-block;
-    font-family: Roboto-Light;
-    font-size: 13px;
+    font-family: var(--font-light);
+    font-size: var(--subtitle-size);
     padding: 5px;
 }
 .task_manager .graph > .level{
@@ -67,7 +67,7 @@
     height: 14px;
 }
 .task_manager .ogx_tree_item_label {
-    font-size: 14px;
+    font-size: var(  --tree-label-size);
 }
 .task_manager .ogx_tree_item_icon {
     background-image: url('/img/settings.svg');

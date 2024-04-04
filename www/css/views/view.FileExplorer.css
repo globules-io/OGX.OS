@@ -3,7 +3,7 @@
     flex-direction: column;
     width: 100%;
     height: 100%;
-    padding: 5px;
+    padding: var(--border-size);
 }
 .FileExplorer > .toolbar{
     padding: 15px 10px 5px 10px;
@@ -63,16 +63,16 @@
     font-size: 16px;
 }
 .FileExplorer .item > .info > .label{
-    font-family: Roboto-Regular;
+    font-family: var(--font-reg);
 }
 .FileExplorer .item > .info > .size{
-    font-family: Roboto-Light;
+    font-family: var(--font-light);
 }
 .FileExplorer .item > .info > .created{
-    font-family: Roboto-Light;
+    font-family: var(--font-light);
 }
 .FileExplorer .item > .info > .modified{
-    font-family: Roboto-Light;  
+    font-family: var(--font-light);
 }
 /*LIST VIEW*/
 .FileExplorer .list .item{
