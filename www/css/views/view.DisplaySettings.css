@@ -1,6 +1,6 @@
 #display_settings{
     display: block;
-    padding: 10px;
+    padding: var(--border-size);
 }
 #display_settings > .settings{
     display: block;

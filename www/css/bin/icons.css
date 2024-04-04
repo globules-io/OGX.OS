@@ -1,7 +1,7 @@
 .icon{
     display: inline-block;
-    width: 24px;
-    height: 24px;
+    width: var(--icon-size);
+    height: var(--icon-size);
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;

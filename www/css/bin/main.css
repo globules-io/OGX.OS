@@ -5,6 +5,10 @@
 .off{
     opacity: 0.3;
 }
+input{
+    font-family: var(--font-light);
+    font-size: var(--input-size);
+}
 /*TOOLBAR SHARED*/
 .toolbar{
     display:flex;
@@ -70,19 +74,19 @@
 }
 .ogx_context_menu_item > .label{
     display: inline-block;
-    font-family: Roboto-Light;
-    font-size: 13px;
+    font-family: var(--font-light);
+    font-size: var(--context-label-size);
     vertical-align: top;
     margin-left: 5px;
     padding-top: 3px;
 }
 .ogx_popup_title {
-    font-family: Roboto-Light;
-    font-size: 13px;
+    font-family: var(--font-light);
+    font-size: var(--popup-title-size);
 }
 .ogx_popup_icon{
-    width: 20px;
-    height: 20px;
+    width: var(--popup-icon-size);
+    height: var(--popup-icon-size);
     top: 8px;
 }
 .ogx_popup_icons {
@@ -90,12 +94,12 @@
     padding-right: 8px;
 }
 .ogx_popup_icons_icon {
-    width: 20px;
-    height: 20px;
+    width: var(--popup-icon-size);
+    height: var(--popup-icon-size);
 }
 .ogx_tabs_tab_label {
-    font-family: Roboto-Light;
-    font-size: 13px;
+    font-family: var(--font-light);
+    font-size: var(--tab-label-size);
 }
 .ogx_docker_item_icon{
     width: 16px !important;
@@ -127,7 +131,7 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    font-family: Roboto-Regular;
-    font-size: 17px; 
+    font-family: var(--font-reg);
+    font-size: var(--popup-message-size);
     padding: 20px;
 }

@@ -6,10 +6,10 @@
 }
 .image_viewer > .bg{
     display: block;
-    width: calc(100% - 10px);
-    height: calc(100% - 10px);
-    top: 5px;
-    left: 5px;
+    width: calc(100% - var(--border-size) * 2);
+    height: calc(100% - var(--border-size) * 2);
+    top: var(--border-size);
+    left: var(--border-size);
     z-index: 100;
     position: absolute;
     background-repeat: repeat;
@@ -19,10 +19,10 @@
 }
 .image_viewer > .image{
     display: block;
-    width: calc(100% - 10px);
-    height: calc(100% - 10px);
-    top: 5px;
-    left: 5px;
+    width: calc(100% - var(--border-size) * 2);
+    height: calc(100% - var(--border-size) * 2);
+    top: var(--border-size);
+    left: var(--border-size);
     z-index: 200;
     position: absolute;
     background-repeat: no-repeat;
