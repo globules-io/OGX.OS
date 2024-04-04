@@ -29,3 +29,8 @@
 .desktop .flex .litebottom{
     border-bottom: 5px solid #EEE;
 }
+.desktop > .files{
+    display: block;
+    width: 100%;
+    height: 100%;;
+}

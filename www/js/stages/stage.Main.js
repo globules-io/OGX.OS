@@ -51,6 +51,10 @@ OGX.Stages.Main = function(__obj){
                             },
                             //on list select callback
                             callback: (__item) => {
+                                if(__item.hasOwnProperty('action')){
+                                    OGX.OSE.exec(__item.action);
+                                    return;
+                                }
                                 OS.SYSTEM.PROCESS.start(desktop, __item);
                             },
                             //set list from cached json

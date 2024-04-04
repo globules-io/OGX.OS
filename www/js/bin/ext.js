@@ -10,6 +10,7 @@ OGX.OS = function(__config){
     this.construct = function(){
         this.SYSTEM.FILE = this.create('Controllers.FileManager', {id : 'file_manager'});
         this.SYSTEM.DATA = this.create('Controllers.DataManager', {id : 'data_manager'});
+        this.SYSTEM.DRIVES = this.SYSTEM.DATA.getDrives();
         program_manager = this.create('Controllers.ProgramManager', {id : 'program_manager'});
     };
 
@@ -17,7 +18,7 @@ OGX.OS = function(__config){
     this.SYSTEM = {};  
 
     /* PROCESS MANAGER */
-    let processes = new OGX.List();    
+    const processes = new OGX.List();    
 
     this.SYSTEM.PROCESS = {
         KILLED: 'processKilled',
@@ -92,6 +93,20 @@ OGX.OS = function(__config){
         o.background = {mode:'swatch', value:'#2d5cb4'};
         return o;
     };
+
+    /* DRIVES */
+    this.SYSTEM.DRIVE = 'C';
+    this.SYSTEM.DRIVES = null;
+
+    /* DESKTOPS */
+    this.SYSTEM.DESKTOP = {};
+    this.SYSTEM.DESKTOP.get = function(__active){
+        typeof __active === 'undefined' ? __active = true : null;
+        if(__active){
+            return OS.gather('Views.Desktop').get({blured:false}, null, 1);
+        }
+        return OS.gather('Views.Desktop');
+    }; 
 };
 
 /* PROGRAM */

@@ -14,6 +14,15 @@
                 "resize": true,
                 "close_on_click_out": true,                
                 "node:OML": ["main_menu"]
+            },
+            "default .files:DynamicList":{
+                "id" : "desktop_files",
+                "mode" : "static",
+                "display" : {
+                    "template" : "File",
+                    "css" : {"bind" : "type"}
+                },
+                "list:OSE" : "{{OS.SYSTEM.DATA.getFiles(OS.SYSTEM.DRIVE, '/desktop');}}"
             }
         }
     }
