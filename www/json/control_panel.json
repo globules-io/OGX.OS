@@ -1,0 +1,8 @@
+[
+    {"label" : "Display Preferences", "app": "DisplayPreferences", "icon": "monitor"},
+    {"label" : "Display Settings", "app": "DisplaySettings", "icon": "monitor"},
+    {"label" : "Hardware", "app": "Hardware", "icon": "settings"},
+    {"label" : "Network", "app": "NetworkSettings", "icon": "settings"},
+    {"label" : "Programs", "app": "ProgramManager", "icon": "settings"},
+    {"label" : "Sounds", "app": "SoundSettings", "icon": "settings"}
+]

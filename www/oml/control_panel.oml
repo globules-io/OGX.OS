@@ -1,0 +1,29 @@
+{   
+           
+    "default:Views.ControlPanel" : {
+        "id" : "#control_panel",
+        "node:OML" : {
+            "default:Flip":{
+                "node:OML":[
+                    {
+                        "default:DynamicList" : {
+                            "id" : "control_panel_list",
+                            "mode" : "hit",
+                            "scroll" : true,
+                            "display" : {
+                                "html" : "<span class=\"icon icon_{{$icon}}\"></span><span class=\"label\">{{$label}}</span>",
+                                "css" : "control_panel_item"
+                            },
+                            "list:OSE" : "{{json control_panel}}"
+                        }
+                    },
+                    {
+                        "default:Html" : {
+                            "html" : "<div class=\"back\"><span class=\"icon icon_left\"></span><span class=\"title\">All Settings</span></div><div class=\"prog\"></div>"
+                        }
+                    }
+                ]
+            }            
+        }
+    }           
+}

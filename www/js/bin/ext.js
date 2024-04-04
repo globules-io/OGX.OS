@@ -24,16 +24,24 @@ OGX.OS = function(__config){
         STARTED: 'processStarted'
     };
 
-    this.SYSTEM.PROCESS.start = function(__desktop, __item, __data){
-        const process = program_manager.genPopup(__desktop, __item, __data);
+    //__target is either false to create popup and start process in popup
+    //or a selector
+    this.SYSTEM.PROCESS.start = function(__parent, __item, __data, __target){
+        typeof __target === 'undefined' ? __target = false : null;
+        let process;
+        if(!__target){
+            process = program_manager.startProcessInPopup(__parent, __item, __data);
+        }else{
+            process = program_manager.startProcessInTarget(__parent, __target, __item, __data);
+        }
         if(!process){
             return;
         }
         processes.push(process);
         OS.el.trigger(OS.SYSTEM.PROCESS.STARTED, process.id);
+        return process;
     };
 
-    //this is popup_id
     this.SYSTEM.PROCESS.stop = function(__process_id){
         //if we pass a whole container instead, kill all its processes
         if(typeof __process_id !== 'string'){            
@@ -49,7 +57,12 @@ OGX.OS = function(__config){
             return;
         }
         let id = process.id;
-        OS.removePopup(process.parent.id, false);
+        //if immediate parent is a popup
+        if(process.parent._NAME_ === 'Popup'){
+            OS.removePopup(process.parent.id, false);
+        }else{
+            process.kill();
+        }
         processes.findDelete('id', id, 1);
         OS.el.trigger(OS.SYSTEM.PROCESS.KILLED, id);
     };    

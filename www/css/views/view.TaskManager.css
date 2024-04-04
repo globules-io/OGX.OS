@@ -58,7 +58,7 @@
     max-height: 50%;
 }
 .task_manager .graph > .memory{
-    border-bottom: 5px solid #282828;
+    border-bottom: 5px solid var(--bg-color);
 }
 
 /* THEME OVERRIDE */

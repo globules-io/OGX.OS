@@ -1,4 +1,5 @@
 :root {
+    --bg-color: #222;
     --font-light: Roboto-Light;
     --font-reg: Roboto-Regular;
     --font-med: Roboto-Medium;
@@ -14,4 +15,6 @@
     --tree-label-size: 14px;
     --tab-label-size: 13px;
     --input-size: 13px;
+    --file-size: 50px;
+    --file-label-size: 13px;
 }
