@@ -23,24 +23,41 @@ OGX.Controllers.ProgramManager = function(){
         });
     };
 
-    this.genPopup = function(__desktop, __item, __data){
+    this.startProcessInTarget = function(__parent, __el, __item, __data){
         typeof __data === 'undefined' ? __data = {} : null;
-        const node = makeProgramNode(__item, __data);  
+        const node = makeProgramNode(__item, __data, __el);  
         if(!node){
             return;
-        }  
-
+        }
         const reg = registered_programs[__item.app];
         
         //test uniqueness       
         if(reg.hasOwnProperty('config') && reg.config.hasOwnProperty('unique') && reg.config.unique){
-            const cls = OGX.OML.getNodeClass(node);
-            //process
-            const instance = OS.gather(cls);
-            if(instance.length){
-                instance[0].reveal();
+            let instance = exists(node);
+            if(instance){
+                instance.reveal();
                 return;
-            }
+            }            
+        }
+        OGX.OML.render(__parent, node, __data);  
+        return __parent.nodes.last();     
+    };
+
+    this.startProcessInPopup = function(__parent, __item, __data){
+        typeof __data === 'undefined' ? __data = {} : null;
+        const node = makeProgramNode(__item, __data);  
+        if(!node){
+            return;
+        }
+        const reg = registered_programs[__item.app];
+        
+        //test uniqueness       
+        if(reg.hasOwnProperty('config') && reg.config.hasOwnProperty('unique') && reg.config.unique){
+            let instance = exists(node);
+            if(instance){
+                instance.reveal();
+                return;
+            }            
         }
 
         let options = {
@@ -68,7 +85,7 @@ OGX.Controllers.ProgramManager = function(){
         }
         options.icon = '/img/'+__item.icon+'.svg';
         options.title = __item.label;
-        const popup = OS.addPopup(options, __desktop);
+        const popup = OS.addPopup(options, __parent);
         const process = popup.children('View')[0];
         let icons = popup.icons();
         icons[icons.length-1].params = process.id;
@@ -98,7 +115,8 @@ OGX.Controllers.ProgramManager = function(){
         __popup.icons(icons);
     };
 
-    function makeProgramNode(__item, __data){
+    function makeProgramNode(__item, __data, __el){
+        typeof __el === 'undefined' ? __el = null : null;
         if(!registered_programs.hasOwnProperty(__item.app)){
             return;
         }
@@ -110,7 +128,10 @@ OGX.Controllers.ProgramManager = function(){
                     n.data = __data;
                     break;
                 }
-            }   
+            } 
+            if(__el){
+                oml = OGX.OML.rename(oml, 'default '+__el);                
+            }             
             return oml;           
         }
         let node = {};
@@ -118,6 +139,19 @@ OGX.Controllers.ProgramManager = function(){
             template: __item.app,
             data: __data
         };
+        if(__el){
+           node = OGX.OML.rename(node, 'default '+__el);
+        }        
         return node;
-    }    
+    }  
+
+    function exists(__node){        
+        const cls = OGX.OML.getNodeClass(__node);
+        //process
+        const instance = OS.gather(cls);
+        if(instance.length){
+            return instance[0];
+        }      
+        return false;
+    }
 };

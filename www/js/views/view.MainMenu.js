@@ -6,7 +6,7 @@ OGX.Views.MainMenu = function(__config){
 
     //@Override
 	this.construct = function(){
-        desktop = OS.getStage().gather('Views.Desktop')[0]; 
+        desktop = this.parent.parent; 
         icon_list = OS.cfind('DynamicList', 'menu_icons');
         program_list = OS.cfind('DynamicList', 'menu_programs');
         program_manager = OS.cfind('Controller', 'program_manager');

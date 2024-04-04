@@ -1,5 +1,5 @@
 [
     {"icon" : "drives", "label" : "Drives", "app": "Drives"},
     {"icon" : "file",  "label" : "Files", "app" : "FileExplorer"},
-    {"icon" : "settings",  "label" : "Settings", "view" : "Settings"}
+    {"icon" : "settings",  "label" : "Settings", "app" : "ControlPanel"}
 ]

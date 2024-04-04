@@ -23,6 +23,13 @@
             "height" : "400[=300]"
         }
     },
+    "ControlPanel" : {
+        "config" : {
+            "group" : "system",
+            "unique" : true
+        },
+        "oml" : "control_panel"
+    },
     "DisplaySettings" : {
         "config" : {
             "group" : "system",

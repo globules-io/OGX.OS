@@ -1,0 +1,57 @@
+#control_panel{
+    padding: var(--border-size);
+}
+#control_panel .ogx_flip_container{
+    transition: transform 0.3s;
+}
+#control_panel .control_panel_item{
+    display: inline-block;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    vertical-align: top;
+}
+#control_panel .ogx_flip_cell {
+    text-align: left;
+    background-color: var(--bg-color);
+}
+#control_panel .ogx_dynamic_list{
+    padding: 10px;
+}
+#control_panel .control_panel_item > .icon{
+    display: block;
+    margin: auto;
+    width: 60px;
+    height: 60px;
+}
+#control_panel .control_panel_item > .label{
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-family: var(--font-light);
+    font-size: var(--file-label-size);
+    max-width: 60px;
+}
+#control_panel .ogx_flip_back{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+#control_panel .ogx_flip_back > .back{
+    display: inline-block;
+    width: 100%;
+}
+#control_panel .ogx_flip_back > .back > *{
+    display: inline-block;
+    vertical-align: top;
+}
+#control_panel .ogx_flip_back > .back > .title{
+    font-family: var(--font-light);
+    font-size: var(--subtitle-size);
+    padding-top: 5px;
+}
+#control_panel .ogx_flip_back > .prog{
+    display: inline-block;
+    width: 100%;
+    flex-grow: 1;
+}
