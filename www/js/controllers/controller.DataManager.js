@@ -5,31 +5,20 @@ OGX.Controllers.DataManager = function(){
 
     //@Override
 	this.construct = function(){
-        initMongo(); 
-        let json;
-        const drives = this.getDrives();
-        if(!drives.length){
-            json = {label : 'System', letter : 'C', size : getStorageSize(), used: 0};
-            mongogx.setCollection('drives');    
-            mongogx.insert(json);            
-        }  
-        const pins = this.getPins();
-        if(!pins.length){
-            json = OS.getJSON('menu_pins');
-            mongogx.setCollection('menu_pins');
-            json.forEach(__pin => {
-                mongogx.insert(__pin);
-            });
-        }        
+        initMongo();     
+        const drives = this.getDrives();        
+        const pins = this.getPins();             
     };
 
     /* DRIVES */
     this.getDrives = function(){
+        mongogx.setDatabase('system');	
         mongogx.setCollection('drives');
         return mongogx.find({});
     };   
 
     this.getPins = function(){
+        mongogx.setDatabase('system');	
         mongogx.setCollection('menu_pins');
         return mongogx.find({});
     };
@@ -41,9 +30,8 @@ OGX.Controllers.DataManager = function(){
     this.getFiles = function(__path, __filter, __limit){
         typeof __limit === 'undefined' ? __limit = 0 : null;
         mongogx.setCollection('files');
-        const reg = new RegExp('^'+__path, 'i');
-        const query = {path:{regex:reg}};
-        typeof __filter !== 'undefined' ? OGX.Data.merge(query, __filter) : null;
+        const query = {path:{$regex:'/^'+__path+'$/i'}};
+        typeof __filter !== 'undefined' ? OGX.Data.merge(query, __filter, true, false, false) : null;
         if(__limit && __limit === 1){
             return mongogx.findOne(query);
         }
@@ -56,11 +44,33 @@ OGX.Controllers.DataManager = function(){
     
     //if folder, must delete sub children too
     this.deleteFile = function(__path, __name){
+        mongogx.setDatabase('system');	
         mongogx.setCollection('files');
+    };
+
+    this.createFile = function(__path, __name){
+        __path = normalizePath(__path);        
+        mongogx.setDatabase('system');	
+        mongogx.setCollection('files');
+        const t = moment().unix();
+        const file = {type:'file', label:__name, path:__path, created:t, modified:t};
+        file._id = mongogx.insert({type:'file', label:__name, path:__path, created:t, modified:t});
+        return file;
+    };
+
+    this.createFolder = function(__path, __name){
+        __path = normalizePath(__path);        
+        mongogx.setDatabase('system');	
+        mongogx.setCollection('files');
+        const t = moment().unix();
+        const folder = {type:'folder', label:__name, path:__path, created:t, modified:t};
+        folder._id = mongogx.insert({type:'folder', label:__name, path:__path, created:t, modified:t});
+        return folder;
     };
 
     this.getTree = function(__path){
         const files = this.getFiles(__path);
+        console.log('TREE FILES', files);
         const root = __path.split('/')[0];
         const tree = {type:'root', label: root, items:[]};
 
@@ -80,13 +90,19 @@ OGX.Controllers.DataManager = function(){
         });
 
         function cycle(__folder){   
-            __folder.items = files.get({path:__folder.path+__folder.label+'/'});        
+            __folder.items = files.get({path:__folder.path+__folder.label+'/'});       
             __folder.items.forEach((__item) => {
                 cycle(__item);
             }); 
         }      
         return tree;
     };
+
+    function normalizePath(__path){
+        !__path.match(/\/$/) ? __path += '/' : null;
+        __path = __path.slice(0,1).toUpperCase()+__path.slice(1);
+        return __path;
+    }
 
     
     //fetch everything from localStorage that is not mongoogx
@@ -144,7 +160,17 @@ OGX.Controllers.DataManager = function(){
         if(!mongogx.findOne({type:'folder', label:'system', path:'C:/'})){      
             const t = moment().unix();
             mongogx.insert({type:'folder', label:'system', path:'C:/', created:t, modified:t});
-            mongogx.insert({type:'folder', label:'desktops', path:'C:/system/', created:t, modified:t});          
-        }        
+            mongogx.insert({type:'folder', label:'desktops', path:'C:/system/', created:t, modified:t});     
+            mongogx.insert({type:'folder', label:'default', path:'C:/system/desktops/', created:t, modified:t});      
+        }  
+
+        //pins
+        mongogx.setCollection('menu_pins');
+        if(!mongogx.findOne({})){   
+            let json = OS.getJSON('menu_pins');            
+            json.forEach(__pin => {
+                mongogx.insert(__pin);
+            });  
+        }    
 	} 	
 };

@@ -1,6 +1,6 @@
 [
-    {"label" : "New Folder", "value" : "folder", "icon": "folder", "action" : "{{OS.SYSTEM.FILE.createFolder('c:/sytem/desktops/'+OS.SYSTEM.DESKTOP.get().id)}}", "type" : "ContextItem"},
-    {"label" : "New File", "value" : "file", "icon": "file",  "action" : "{{OS.SYSTEM.FILE.createFile('c:/sytem/desktops/'+OS.SYSTEM.DESKTOP.get().id)}}", "type" : "ContextItem"},
+    {"label" : "New Folder", "value" : "folder", "icon": "folder", "action" : "{{OS.SYSTEM.FILE.createFolder(OS.SYSTEM.PATH+'desktops/'+OS.SYSTEM.DESKTOP.get().name)}}", "type" : "ContextItem"},
+    {"label" : "New File", "value" : "file", "icon": "file",  "action" : "{{OS.SYSTEM.FILE.createFile(OS.SYSTEM.PATH+'desktops/'+OS.SYSTEM.DESKTOP.get().name)}}", "type" : "ContextItem"},
     {"type" : "ContextLine"},
     {"label" : "Display Settings", "value" : "sdisplay", "app": "DisplaySettings", "icon": "settings", "type" : "ContextItem"},
     {"label" : "Personalize", "value" : "personalize", "app": "DisplayPreferences", "icon": "monitor", "type" : "ContextItem"},

@@ -65,16 +65,21 @@ OGX.Views.Desktop = function(__config){
                             }
                         ]
                     });
+                    flex.el.removeClass('hidden');
                 }else if(remove_flex){
+                    flex.el.addClass('hidden');
                     flex.kill();
                     flex = null;
                 }else{
-                    if(!popup_in){
+                    if(!popup_in){                       
                         if(cell_old){
                             cell_old.flex.el.removeClass('lite');
                             cell_old.rowel.removeClass('litebottom litetop');
                             cell_old = null;
                         } 
+                        if(flex){
+                            flex.el.addClass('hidden');
+                        }
                         return;
                     }
                     //issue is, if not over a cell that I expended here, I need to restore it
@@ -104,6 +109,7 @@ OGX.Views.Desktop = function(__config){
                         }
                     }else{
                         if(cell_old){
+                            flex.el.addClass('hidden');
                             cell_old.flex.el.removeClass('lite');
                             cell_old.rowel.removeClass('litebottom litetop');
                             cell_old = null;

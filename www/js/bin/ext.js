@@ -4,7 +4,6 @@ require('OS', 'Core');
 OGX.OS = function(__config){
     construct(this, 'OS');
     'use strict';   
-    let data_manager;  
     let program_manager;    
 
     this.construct = function(){
@@ -15,7 +14,7 @@ OGX.OS = function(__config){
     };
 
     /* NAME SPACE */
-    this.SYSTEM = {};  
+    this.SYSTEM = {PATH:'C:/system/'};  
 
     /* PROCESS MANAGER */
     const processes = new OGX.List();    
