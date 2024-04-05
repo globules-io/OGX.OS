@@ -23,6 +23,15 @@ OGX.OS = function(__config){
         return __path;
     };
 
+    this.SYSTEM.UTILS.pathToPathFile = function(__path){
+         console.log('pathToPathFile', __path);
+        __path = OS.SYSTEM.UTILS.normalizePath(__path);
+        __path = __path.split('/');
+        __path.pop();
+        let name = __path.pop();
+        return {path:OS.SYSTEM.UTILS.normalizePath(__path.join('/')), name:name};
+    };
+
     /* PROCESS MANAGER */
     const processes = new OGX.List();    
 

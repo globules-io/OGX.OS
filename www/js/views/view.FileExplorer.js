@@ -24,6 +24,15 @@ OGX.Views.FileExplorer = function(__config){
     //@Override
 	this.ux = function(__bool){
         if(__bool){
+            OS.on(OS.SYSTEM.FILE.CREATED, (__e, __file) => {
+                //need parent _id here
+                let o = OS.SYSTEM.UTILS.pathToPathFile(__file.path);
+                let parent = OS.SYSTEM.DATA.getFile(o.path);             
+                tree.addItem(__file, parent._id);                
+            });
+            OS.on(OS.SYSTEM.FILE.DELETED, (__e, __file) => {
+                tree.deleteItem(__file._id);
+            });
             tree.on(OGX.Tree.SELECT, function(__e, __item){
                 tree_item = __item;
                 if(['root', 'folder'].includes(__item.item.type)){
@@ -33,6 +42,8 @@ OGX.Views.FileExplorer = function(__config){
                 }
             });
         }else{
+            OS.off(OS.SYSTEM.FILE.CREATED);
+            OS.off(OS.SYSTEM.FILE.DELETED);
             tree.off(OGX.Tree.SELECT);
         }
     }; 
