@@ -44,6 +44,12 @@ OGX.Controllers.DataManager = function(){
         __path = OS.SYSTEM.UTILS.normalizePath(__path);     
         return this.getFiles(__path, __filter, 1);
     };
+
+    this.getFileById = function(__id){
+        mongogx.setDatabase('system');	
+        mongogx.setCollection('files');
+        return mongogx.findOne({_id:__id});
+    };
     
     //if folder, must delete sub children too
     this.deleteFile = function(__path, __name){

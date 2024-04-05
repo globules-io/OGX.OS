@@ -53,24 +53,67 @@ OGX.Stages.Main = function(__obj){
                                 },
                                 //on list select callback
                                 callback: (__item) => {
-                                    if(__item.hasOwnProperty('action')){
-                                        switch(__item.action){
-                                            case 'createFile':
-                                            OS.SYSTEM.FILE.createFile(OS.SYSTEM.PATH+'desktops/'+OS.SYSTEM.DESKTOP.get().name);
-                                            break;
-
-                                            case 'createFolder':
-                                            OS.SYSTEM.FILE.createFolder(OS.SYSTEM.PATH+'desktops/'+OS.SYSTEM.DESKTOP.get().name);
-                                            break;
-                                        }                                        
+                                    if(__item.hasOwnProperty('action') && OS.SYSTEM.FILE.hasOwnProperty(__item.action)){
+                                        OS.SYSTEM.FILE[__item.action](OS.SYSTEM.PATH+'desktops/'+OS.SYSTEM.DESKTOP.get().name);                                                                         
                                         return;
                                     }
+                                    //not an action, then it's a process to start, could be refactored into action
                                     OS.SYSTEM.PROCESS.start(desktop, __item);
                                 },
                                 //set list from cached json
                                 list: OS.getJSON('desktop_context')
                             });                        
                         }, 0);
+                        return;
+                    }
+                    let file = getFileAtPoint(__e.pageX, __e.pageY);                    
+                    if(file){
+                        __e.preventDefault();
+                        __e = this.event(__e);  
+                        file = OS.SYSTEM.DATA.getFileById(file);
+                        if(file){  
+                            //get compatible processses
+                            const processes = OS.SYSTEM.PROCESS.compatible(file);
+                            //convert process to context menu item                       
+                            let arr = processesToContext(processes);
+                             //get std context
+                            let contx_list = OS.getJSON(file.type+'_context');                                
+                            contx_list = arr.concat(contx_list);                            
+                            setTimeout(() => {  
+                                this.create('ContextMenu', {
+                                    id: 'file_context_list',
+                                    x: __e.pageX,
+                                    y: __e.pageY,
+                                    //overwrite default display to include icons
+                                    display:{
+                                        template: {
+                                            bind: 'type'
+                                        },
+                                        css: {
+                                            bind: 'type', 
+                                            add: 'ogx_context_menu_item'
+                                        }
+                                    },
+                                    //on list select callback                                    
+                                    callback: (__item) => {
+                                        if(__item.hasOwnProperty('action')){   
+                                            switch(__item.action){
+                                                case 'openFile':                                               
+                                                OS.SYSTEM.PROCESS.start(desktop, __item);
+                                                //then open
+                                                break;                                               
+
+                                                case 'deleteFle':
+
+                                                break;
+                                            }                                
+                                            return;
+                                        }
+                                    },                                    
+                                    list: contx_list
+                                }); 
+                            }, 0);
+                        }
                     }
                 }
             });
@@ -122,6 +165,24 @@ OGX.Stages.Main = function(__obj){
             return OS.cfind('View', el.data('ogx-id'));
         }
         return false;
+    }
+
+    function getFileAtPoint(__x, __y){
+        const els = document.elementsFromPoint(__x, __y);    
+        //2nd div always or not file/folder    
+        let el = $(els[1]);
+        if(el.hasClass('ogx_dynamic_list_item') && (el.hasClass('file') || el.hasClass('folder'))){
+            return el.data('ogx-id');
+        }
+        return null;
+    }
+
+    function processesToContext(__arr){
+        let l = [];
+        __arr.forEach((__o) => {   
+            l.push({label : 'Open with '+__o.name, "app": __o.name, "action": "openFile", "icon": "system", "type" : "ContextItem"});
+        });
+        return l;
     }
 
 };

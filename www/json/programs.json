@@ -61,13 +61,13 @@
         "config" : {
             "group" : "media"
         },
-        "ext" : [".jpg", ".png", ".gif"]
+        "ext" : ["jpg", "png", "gif"]
     },
     "MsCode" : {
         "config" : {
             "unique" : true
         },
-        "ext" : [".js", ".css", ".html"]
+        "ext" : ["js", "css", "html"]
     },
     "Sketch" : {
         "config" : {
@@ -86,12 +86,12 @@
     },
     "TextEditor" : {
         "config" : { },
-        "ext" : [".txt"]
+        "ext" : ["txt"]
     },
     "VideoPlayer" : {
         "config" : {
             "group" : "media"
         },
-        "ext" : [".webm", ".mp4"]
+        "ext" : ["webm", "mp4"]
     }
 }
