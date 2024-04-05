@@ -1,6 +1,6 @@
 {
     "name": "@globules-io/ogx.os",
-    "version": "0.0.9",
+    "version": "0.1.0",
     "description": "Web based operating system based on OGX.JS",
     "main": "",
     "scripts": {
@@ -22,6 +22,6 @@
     },
     "homepage": "https://github.com/globules-io/OGX.OS#readme",
     "dependencies": {
-        "@globules-io/ogx.js": "^1.27.1"
+        "@globules-io/ogx.js": "^1.37.2"
     }
 }

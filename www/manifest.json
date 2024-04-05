@@ -3,7 +3,7 @@
     "short_name": "OGX.OS",
     "name": "OGX.OS",
     "description": "OGX.OS",
-    "version": "0.0.9",
+    "version": "0.1.0",
     "background_color": "#282828",
     "theme_color": "#282828",
     "display": "fullscreen",
