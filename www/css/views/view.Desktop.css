@@ -35,3 +35,26 @@
     height: 100%;
     padding: 20px;
 }
+.desktop > .files > .ogx_dynamic_list{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.desktop > .files > .ogx_dynamic_list .ogx_dynamic_list_item{
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+.desktop > .files .file, .desktop > .files .folder{
+    text-align: center;
+}
+.desktop > .files .file > .icon, .desktop > .files .folder > .icon{
+    width: 50px;
+    height: 50px;
+}
+.desktop > .files .file > .info > *{
+    display: none;
+}
+.desktop > .files .file > .info > .label{
+    display: block !important;
+}

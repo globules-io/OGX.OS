@@ -117,7 +117,7 @@ OGX.Stages.Main = function(__obj){
     function getDesktopAtPoint(__x, __y){
         const els = document.elementsFromPoint(__x, __y);
         //2nd div always or not desktop
-        const el = $(els[1]);
+        const el = $(els[2]);
         if(el.hasClass('ogx_uxi') && el.hasClass('desktop')){
             return OS.cfind('View', el.data('ogx-id'));
         }

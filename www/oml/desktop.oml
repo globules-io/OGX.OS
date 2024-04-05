@@ -19,7 +19,7 @@
                 "mode" : "static",
                 "key" : "_id",
                 "display" : {
-                    "template" : "File",
+                    "template" : {"bind" : "{{Helper.getFileTemplate($type)}}"},
                     "css" : {"bind" : "type"}
                 }               
             }
