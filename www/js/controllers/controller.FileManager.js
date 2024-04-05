@@ -12,53 +12,78 @@ OGX.Controllers.FileManager = function(){
     this.DELETED = 'fileDeleted';
    
     this.createFile = function(__path, __name){
+        __path = OS.SYSTEM.UTILS.normalizePath(__path);    
         typeof __name === 'undefined' ? __name = null : null;
         if(!__name){
-            //get all files at this loc, and lookup new file as label to add n
-            let files = OS.SYSTEM.DATA.getFiles(__path, {type:{$eq:'file'}, label:{$regex:'/^new file ?[\d]+?\.txt$/'}});                 
-            if(files.length){
-                files = new OGX.List(files);
-                let i = 1;
-                while(!__name){
-                    if(!files.get({label:'new file ('+i+').txt'}, null, 1)){
-                        __name = 'new file ('+i+').txt';
-                    }
-                    i++;
-                }
-            }else{
-                __name = 'new file.txt';
-            }
+            __name = getAvailableName(__path, 'file');
         }
         //check that path exists, or create it
-        if(!OS.SYSTEM.DATA.getFile(__path, {type:'folder'})){
+        let p = __path.split('/');
+        p.pop();
+        let label = p.pop();
+        p = p.join('/'); 
+        if(!OS.SYSTEM.DATA.getFile(p, {type:'folder', label:label})){     
             createRecursive(__path);
-        }       
+        }    
+
         const file = OS.SYSTEM.DATA.createFile(__path, __name);
+        OGX.Core.el.trigger(OS.SYSTEM.FILE.CREATED, file);
+        return file;
     };
 
     this.deleteFile = function(__path, __name){
-        OS.SYSTEM.DATA.deleteFile(__path, __name);
+        const file = OS.SYSTEM.DATA.deleteFile(__path, __name);
+        OGX.Core.el.trigger(OS.SYSTEM.FILE.DELETED, file);
     };
 
     this.createFolder = function(__path, __name){
+        if(!__name){
+            __name = getAvailableName(__path, 'folder');
+        }
         if(!OS.SYSTEM.DATA.getFile(__path, {type:'folder'})){
             createRecursive(__path);
         }
         const folder = OS.SYSTEM.DATA.createFolder(__path, __name);
+        OGX.Core.el.trigger(OS.SYSTEM.FILE.CREATED, folder);
+        return folder;
     };
 
     this.deleteFolder = function(__path){};
 
+
     function createRecursive(__path){
         __path = __path.split('/');
-        const drive = path.shift();
+        const drive = __path.shift();
         let p = drive+'/';
-        for(let i = 0; i < path.length; i++){
-            if(!OS.SYSTEM.DATA.getFile(p+path[i], {type:'folder'})){
-                console.log('create', p, path[i]);
-                OS.SYSTEM.DATA.createFolder(p, path[i]);
-                p += path[i]+'/';
+        let folder;
+        for(let i = 0; i < __path.length; i++){      
+            if(!OS.SYSTEM.DATA.getFile(p+__path[i], {type:'folder'})){
+                folder = OS.SYSTEM.DATA.createFolder(p, __path[i]);
+                OGX.Core.el.trigger(OS.SYSTEM.FILE.CREATED, folder);                
             }
+            p += __path[i]+'/';
         }
-    }	   
+    }	
+
+    function getAvailableName(__path, __type){
+        let ext = '';
+        let name = false;
+        __type === 'file' ? ext = '\.txt' : null;
+        //get all files at this loc, and lookup new file as label to add n
+        let files = OS.SYSTEM.DATA.getFiles(__path, {type:__type, label:{$regex:'^new '+__type+' ?(\\([\\d]+\\))?'+ext+'$'}});       
+        if(files.length){
+            files = new OGX.List(files);
+            let i = 1;
+            while(!name){         
+                if(!files.get({label:'new '+__type+' ('+i+')'+ext}, null, 1)){
+                    name = 'new '+__type+' ('+i+')'+ext;
+                    break;
+                }
+                i++;
+            }
+        }else{
+            name = 'new '+__type+ext;
+        }
+        return name;
+    }   
 };

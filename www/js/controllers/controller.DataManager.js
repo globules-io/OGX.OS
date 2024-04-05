@@ -28,9 +28,11 @@ OGX.Controllers.DataManager = function(){
     };
 
     this.getFiles = function(__path, __filter, __limit){
+        __path = OS.SYSTEM.UTILS.normalizePath(__path);     
         typeof __limit === 'undefined' ? __limit = 0 : null;
+        mongogx.setDatabase('system');	
         mongogx.setCollection('files');
-        const query = {path:{$regex:'/^'+__path+'$/i'}};
+        const query = {path:{$regex:'^'+__path}};
         typeof __filter !== 'undefined' ? OGX.Data.merge(query, __filter, true, false, false) : null;
         if(__limit && __limit === 1){
             return mongogx.findOne(query);
@@ -39,17 +41,19 @@ OGX.Controllers.DataManager = function(){
     };
 
     this.getFile = function(__path, __filter){
+        __path = OS.SYSTEM.UTILS.normalizePath(__path);     
         return this.getFiles(__path, __filter, 1);
     };
     
     //if folder, must delete sub children too
     this.deleteFile = function(__path, __name){
+        __path = OS.SYSTEM.UTILS.normalizePath(__path);     
         mongogx.setDatabase('system');	
         mongogx.setCollection('files');
     };
 
     this.createFile = function(__path, __name){
-        __path = normalizePath(__path);        
+        __path = OS.SYSTEM.UTILS.normalizePath(__path);        
         mongogx.setDatabase('system');	
         mongogx.setCollection('files');
         const t = moment().unix();
@@ -59,7 +63,7 @@ OGX.Controllers.DataManager = function(){
     };
 
     this.createFolder = function(__path, __name){
-        __path = normalizePath(__path);        
+        __path = OS.SYSTEM.UTILS.normalizePath(__path);        
         mongogx.setDatabase('system');	
         mongogx.setCollection('files');
         const t = moment().unix();
@@ -69,8 +73,8 @@ OGX.Controllers.DataManager = function(){
     };
 
     this.getTree = function(__path){
+        __path = OS.SYSTEM.UTILS.normalizePath(__path);    
         const files = this.getFiles(__path);
-        console.log('TREE FILES', files);
         const root = __path.split('/')[0];
         const tree = {type:'root', label: root, items:[]};
 
@@ -96,14 +100,7 @@ OGX.Controllers.DataManager = function(){
             }); 
         }      
         return tree;
-    };
-
-    function normalizePath(__path){
-        !__path.match(/\/$/) ? __path += '/' : null;
-        __path = __path.slice(0,1).toUpperCase()+__path.slice(1);
-        return __path;
-    }
-
+    };   
     
     //fetch everything from localStorage that is not mongoogx
     //substract to total

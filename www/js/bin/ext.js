@@ -14,7 +14,14 @@ OGX.OS = function(__config){
     };
 
     /* NAME SPACE */
-    this.SYSTEM = {PATH:'C:/system/'};  
+    this.SYSTEM = {PATH:'C:/system/', UTILS:{}};  
+
+    /* UTILS */
+    this.SYSTEM.UTILS.normalizePath = function(__path){
+        !__path.match(/\/$/) ? __path += '/' : null;
+        __path = __path.slice(0,1).toUpperCase()+__path.slice(1);
+        return __path;
+    };
 
     /* PROCESS MANAGER */
     const processes = new OGX.List();    

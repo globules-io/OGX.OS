@@ -54,7 +54,15 @@ OGX.Stages.Main = function(__obj){
                                 //on list select callback
                                 callback: (__item) => {
                                     if(__item.hasOwnProperty('action')){
-                                        OGX.OSE.exec(__item.action);
+                                        switch(__item.action){
+                                            case 'createFile':
+                                            OS.SYSTEM.FILE.createFile(OS.SYSTEM.PATH+'desktops/'+OS.SYSTEM.DESKTOP.get().name);
+                                            break;
+
+                                            case 'createFolder':
+                                            OS.SYSTEM.FILE.createFolder(OS.SYSTEM.PATH+'desktops/'+OS.SYSTEM.DESKTOP.get().name);
+                                            break;
+                                        }                                        
                                         return;
                                     }
                                     OS.SYSTEM.PROCESS.start(desktop, __item);

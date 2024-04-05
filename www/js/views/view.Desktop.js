@@ -13,9 +13,15 @@ OGX.Views.Desktop = function(__config){
     let cell_old = null;
     let cell_idx = null;
     let snapped_programs = new OGX.List();   
+    let path, list;
 
     //@Override
-	this.construct = function(){};
+	this.construct = function(){
+        list = this.gather('DynamicList')[0];
+        path = OS.SYSTEM.PATH+'desktops/'+this.name+'/';
+        list.val(OS.SYSTEM.DATA.getFiles(path));
+        OS.router.lock();
+    };
 	
     //@Override
 	this.onFocus = function(){
@@ -32,6 +38,18 @@ OGX.Views.Desktop = function(__config){
     //@Override
 	this.ux = function(__bool){
         if(__bool){     
+            OS.on(OS.SYSTEM.FILE.CREATED, (__e, __file) => {
+                if(__file.path === path){
+                    //add here
+                    list.insert(__file);
+                }
+            });
+            OS.on(OS.SYSTEM.FILE.DELETED, (__e, __file) => {
+                if(__file.path === path){
+                    //remove here
+                    list.findDelete('_id', __file._id, 1);
+                }
+            });
             OS.on(OGX.Popup.MOVE, (__e, __popup, __pt) => {                
                 popup_in = false;
                 add_flex = false;
@@ -177,8 +195,10 @@ OGX.Views.Desktop = function(__config){
                 }
             });
         }else{
-           OS.off(OGX.Popup.MOVE);
-           OS.off(OGX.Popup.MOVED);
+            OS.off(OS.SYSTEM.FILE.CREATED);
+            OS.off(OS.SYSTEM.FILE.DELETED);
+            OS.off(OGX.Popup.MOVE);
+            OS.off(OGX.Popup.MOVED);
         }
     };
 

@@ -16,13 +16,12 @@
                 "node:OML": ["main_menu"]
             },
             "default .files:DynamicList":{
-                "id" : "desktop_files",
                 "mode" : "static",
+                "key" : "_id",
                 "display" : {
                     "template" : "File",
                     "css" : {"bind" : "type"}
-                },
-                "list:OSE" : "{{OS.SYSTEM.DATA.getFiles(OS.SYSTEM.DRIVE, '/desktop');}}"
+                }               
             }
         }
     }
