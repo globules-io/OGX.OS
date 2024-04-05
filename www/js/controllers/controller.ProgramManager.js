@@ -23,6 +23,16 @@ OGX.Controllers.ProgramManager = function(){
         });
     };
 
+    this.getCompatibleProcesses = function(__ext){
+        const list = [];
+        for(let name in registered_programs){
+            if(registered_programs[name].hasOwnProperty('ext') && registered_programs[name].ext.includes(__ext)){
+                list.push({name: name, config: registered_programs[name]});
+            }
+        };        
+        return list;
+    };
+
     this.startProcessInTarget = function(__parent, __el, __item, __data){
         typeof __data === 'undefined' ? __data = {} : null;
         const node = makeProgramNode(__item, __data, __el);  

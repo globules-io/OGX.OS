@@ -67,7 +67,6 @@ OGX.OS = function(__config){
             OS.removePopup(__process_id.id, false);
             return;
         }
-
         const process = processes.get({id:__process_id}, null, 1);
         if(!process){            
             return;
@@ -81,7 +80,8 @@ OGX.OS = function(__config){
         }
         processes.findDelete('id', id, 1);
         OS.el.trigger(OS.SYSTEM.PROCESS.KILLED, id);
-    };    
+    };  
+
     this.SYSTEM.PROCESS.get = function(__deep){
         typeof __deep === 'undefined' ? __deep = true : null;
         if(!__deep){
@@ -95,8 +95,13 @@ OGX.OS = function(__config){
         return new OGX.List(nodes);
     };
 
+    this.SYSTEM.PROCESS.compatible = function(__file){
+        const ext = __file.label.slice(__file.label.lastIndexOf('.')+1);
+        return program_manager.getCompatibleProcesses(ext);
+    };
+
     /* DISPLAY */
-    this.SYSTEM.DISPLAY = {};
+    this.SYSTEM.DISPLAY = {};    
     this.SYSTEM.DISPLAY.settings = function(){
         let o = {};
         o.hardware = {brand:'Nguyen', model:'@AtWork', driver:{version:'Nguyen XperienceMaxx 0.0.1'}}

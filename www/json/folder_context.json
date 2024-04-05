@@ -1,0 +1,4 @@
+[
+    {"label" : "Open", "icon": "system", "action" : "openFolder", "type" : "ContextItem"},    
+    {"label" : "Delete", "icon": "system", "action" : "deleteFolder", "type" : "ContextItem"}
+]

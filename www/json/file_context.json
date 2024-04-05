@@ -1,0 +1,3 @@
+[
+    {"label" : "Delete", "icon": "system", "action" : "deleteFile", "type" : "ContextItem"}
+]
