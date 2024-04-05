@@ -31,32 +31,47 @@ OGX.Stages.Main = function(__obj){
                 }               
                 //show context on right click
                 if(this.touch.isRightClick(__e)){
-                    __e.preventDefault();
-                    __e = this.event(__e);  
-                    setTimeout(() => {       
-                        const desktop = this.children('Desktop')[0];                 
-                        this.create('ContextMenu', {
-                            id: 'desktop_context_list',
-                            x: __e.pageX,
-                            y: __e.pageY,
-                            //overwrite default display to include icons
-                            display:{
-                                template: {
-                                    bind: 'type'
+                    const desk = getDesktopAtPoint(__e.pageX, __e.pageY);
+                    if(desk){
+                        __e.preventDefault();
+                        __e = this.event(__e);  
+                        setTimeout(() => {       
+                            const desktop = this.children('Desktop')[0];                 
+                            this.create('ContextMenu', {
+                                id: 'desktop_context_list',
+                                x: __e.pageX,
+                                y: __e.pageY,
+                                //overwrite default display to include icons
+                                display:{
+                                    template: {
+                                        bind: 'type'
+                                    },
+                                    css: {
+                                        bind: 'type', 
+                                        add: 'ogx_context_menu_item'
+                                    }
                                 },
-                                css: {
-                                    bind: 'type', 
-                                    add: 'ogx_context_menu_item'
-                                }
-                            },
-                            //on list select callback
-                            callback: (__item) => {
-                                OS.SYSTEM.PROCESS.start(desktop, __item);
-                            },
-                            //set list from cached json
-                            list: OS.getJSON('desktop_context')
-                        });                        
-                    }, 0);
+                                //on list select callback
+                                callback: (__item) => {
+                                    if(__item.hasOwnProperty('action')){
+                                        switch(__item.action){
+                                            case 'createFile':
+                                            OS.SYSTEM.FILE.createFile(OS.SYSTEM.PATH+'desktops/'+OS.SYSTEM.DESKTOP.get().name);
+                                            break;
+
+                                            case 'createFolder':
+                                            OS.SYSTEM.FILE.createFolder(OS.SYSTEM.PATH+'desktops/'+OS.SYSTEM.DESKTOP.get().name);
+                                            break;
+                                        }                                        
+                                        return;
+                                    }
+                                    OS.SYSTEM.PROCESS.start(desktop, __item);
+                                },
+                                //set list from cached json
+                                list: OS.getJSON('desktop_context')
+                            });                        
+                        }, 0);
+                    }
                 }
             });
             this.on(this.touch.down, '.icon_menu', (__e) => {
@@ -98,5 +113,15 @@ OGX.Stages.Main = function(__obj){
     this.updateClock = function(){
         this.el.find('.taskbar > .tray > .clock').html(moment().format('HH:mm'));
     };
+
+    function getDesktopAtPoint(__x, __y){
+        const els = document.elementsFromPoint(__x, __y);
+        //2nd div always or not desktop
+        const el = $(els[2]);
+        if(el.hasClass('ogx_uxi') && el.hasClass('desktop')){
+            return OS.cfind('View', el.data('ogx-id'));
+        }
+        return false;
+    }
 
 };

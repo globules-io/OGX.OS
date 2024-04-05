@@ -1,6 +1,6 @@
 {
     "default:Views.Desktop":{
-        "name": "desktop",
+        "name": "default",
         "template": "Desktop",
         "css" : "desktop",
         "data" : {
@@ -14,6 +14,14 @@
                 "resize": true,
                 "close_on_click_out": true,                
                 "node:OML": ["main_menu"]
+            },
+            "default .files:DynamicList":{
+                "mode" : "static",
+                "key" : "_id",
+                "display" : {
+                    "template" : {"bind" : "{{Helper.getFileTemplate($type)}}"},
+                    "css" : {"bind" : "type"}
+                }               
             }
         }
     }

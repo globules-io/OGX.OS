@@ -4,20 +4,36 @@ require('OS', 'Core');
 OGX.OS = function(__config){
     construct(this, 'OS');
     'use strict';   
-    let data_manager;  
     let program_manager;    
 
     this.construct = function(){
         this.SYSTEM.FILE = this.create('Controllers.FileManager', {id : 'file_manager'});
         this.SYSTEM.DATA = this.create('Controllers.DataManager', {id : 'data_manager'});
+        this.SYSTEM.DRIVES = this.SYSTEM.DATA.getDrives();
         program_manager = this.create('Controllers.ProgramManager', {id : 'program_manager'});
     };
 
     /* NAME SPACE */
-    this.SYSTEM = {};  
+    this.SYSTEM = {PATH:'C:/system/', UTILS:{}};  
+
+    /* UTILS */
+    this.SYSTEM.UTILS.normalizePath = function(__path){
+        !__path.match(/\/$/) ? __path += '/' : null;
+        __path = __path.slice(0,1).toUpperCase()+__path.slice(1);
+        return __path;
+    };
+
+    this.SYSTEM.UTILS.pathToPathFile = function(__path){
+         console.log('pathToPathFile', __path);
+        __path = OS.SYSTEM.UTILS.normalizePath(__path);
+        __path = __path.split('/');
+        __path.pop();
+        let name = __path.pop();
+        return {path:OS.SYSTEM.UTILS.normalizePath(__path.join('/')), name:name};
+    };
 
     /* PROCESS MANAGER */
-    let processes = new OGX.List();    
+    const processes = new OGX.List();    
 
     this.SYSTEM.PROCESS = {
         KILLED: 'processKilled',
@@ -92,6 +108,20 @@ OGX.OS = function(__config){
         o.background = {mode:'swatch', value:'#2d5cb4'};
         return o;
     };
+
+    /* DRIVES */
+    this.SYSTEM.DRIVE = 'C';
+    this.SYSTEM.DRIVES = null;
+
+    /* DESKTOPS */
+    this.SYSTEM.DESKTOP = {};
+    this.SYSTEM.DESKTOP.get = function(__active){
+        typeof __active === 'undefined' ? __active = true : null;
+        if(__active){
+            return OS.gather('Views.Desktop').get({blured:false}, null, 1);
+        }
+        return OS.gather('Views.Desktop');
+    }; 
 };
 
 /* PROGRAM */

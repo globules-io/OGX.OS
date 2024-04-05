@@ -5,31 +5,20 @@ OGX.Controllers.DataManager = function(){
 
     //@Override
 	this.construct = function(){
-        initMongo(); 
-        let json;
-        const drives = this.getDrives();
-        if(!drives.length){
-            json = {label : 'System', letter : 'C', size : getStorageSize(), used: 0};
-            mongogx.setCollection('drives');    
-            mongogx.insert(json);            
-        }  
-        const pins = this.getPins();
-        if(!pins.length){
-            json = OS.getJSON('menu_pins');
-            mongogx.setCollection('menu_pins');
-            json.forEach(__pin => {
-                mongogx.insert(__pin);
-            });
-        }        
+        initMongo();     
+        const drives = this.getDrives();        
+        const pins = this.getPins();             
     };
 
     /* DRIVES */
     this.getDrives = function(){
+        mongogx.setDatabase('system');	
         mongogx.setCollection('drives');
         return mongogx.find({});
     };   
 
     this.getPins = function(){
+        mongogx.setDatabase('system');	
         mongogx.setCollection('menu_pins');
         return mongogx.find({});
     };
@@ -38,25 +27,81 @@ OGX.Controllers.DataManager = function(){
         return this.getTree();
     };
 
-    this.getFiles = function(__drive, __path){
-        return new OGX.List();
+    this.getFiles = function(__path, __filter, __limit){
+        __path = OS.SYSTEM.UTILS.normalizePath(__path);     
+        typeof __limit === 'undefined' ? __limit = 0 : null;
+        mongogx.setDatabase('system');	
+        mongogx.setCollection('files');
+        const query = {path:{$regex:'^'+__path}};
+        typeof __filter !== 'undefined' ? OGX.Data.merge(query, __filter, true, false, false) : null;
+        if(__limit && __limit === 1){
+            return mongogx.findOne(query);
+        }
+        return new OGX.List(mongogx.find(query, __limit));
     };
 
-    this.getTree = function(__drive, __path){
-        //return bogus data for dev
-        const o = {date: moment().format('YYYY-MM-DD HH:mm:ss'), unix: Date.now()};
-        let tree_tmp = {type:'root', label: __drive.letter, items:[
-           {type:'folder', label:'docs', created:o, modified:o, items:[
-                {type:'file', label:'doc.txt', created:o, modified:o,},
-                {type:'folder', label:'tmp', created:o, modified:o,}
-           ]},
-           {type:'folder', label:'images', created:o, modified:o, items:[
-                {type:'file', label:'sea.webm', created:o, modified:o,}
-           ]}
-        ]};
-        return tree_tmp;
+    this.getFile = function(__path, __filter){
+        __path = OS.SYSTEM.UTILS.normalizePath(__path);     
+        return this.getFiles(__path, __filter, 1);
+    };
+    
+    //if folder, must delete sub children too
+    this.deleteFile = function(__path, __name){
+        __path = OS.SYSTEM.UTILS.normalizePath(__path);     
+        mongogx.setDatabase('system');	
+        mongogx.setCollection('files');
     };
 
+    this.createFile = function(__path, __name){
+        __path = OS.SYSTEM.UTILS.normalizePath(__path);        
+        mongogx.setDatabase('system');	
+        mongogx.setCollection('files');
+        const t = moment().unix();
+        const file = {type:'file', label:__name, path:__path, created:t, modified:t};
+        file._id = mongogx.insert({type:'file', label:__name, path:__path, created:t, modified:t});
+        return file;
+    };
+
+    this.createFolder = function(__path, __name){
+        __path = OS.SYSTEM.UTILS.normalizePath(__path);        
+        mongogx.setDatabase('system');	
+        mongogx.setCollection('files');
+        const t = moment().unix();
+        const folder = {type:'folder', label:__name, path:__path, created:t, modified:t};
+        folder._id = mongogx.insert({type:'folder', label:__name, path:__path, created:t, modified:t});
+        return folder;
+    };
+
+    this.getTree = function(__path){
+        __path = OS.SYSTEM.UTILS.normalizePath(__path);    
+        const files = this.getFiles(__path);
+        const root = __path.split('/')[0];
+        const tree = {type:'root', label: root, items:[]};
+
+        //if we want the entire drive, need to add the drive
+        if(__path.length === 1){
+            tree.label = __path+':';
+        }
+
+        //need to sort the path first     
+        files.update({}, (__file) => {__file.depth = __file.path.split('/').length-1;});        
+        files.order('depth', 1);
+        files.get({depth:1}).forEach((__file) => {
+            if(__file.type === 'folder'){
+                cycle(__file);
+            }
+            tree.items.push(__file);
+        });
+
+        function cycle(__folder){   
+            __folder.items = files.get({path:__folder.path+__folder.label+'/'});       
+            __folder.items.forEach((__item) => {
+                cycle(__item);
+            }); 
+        }      
+        return tree;
+    };   
+    
     //fetch everything from localStorage that is not mongoogx
     //substract to total
     function getDriveUse(__letter){        
@@ -95,10 +140,34 @@ OGX.Controllers.DataManager = function(){
         mongogx = new OGX.Mongogx(null, null, options);     
         mongogx.createDatabase('system');
         mongogx.setDatabase('system');	
-        //refactor
         mongogx.createCollection('drives');
         mongogx.createCollection('files');
         mongogx.createCollection('menu_programs');
-        mongogx.createCollection('menu_pins');        
+        mongogx.createCollection('menu_pins');   
+
+        //drives
+        mongogx.setDatabase('system');	
+        mongogx.setCollection('drives');
+        if(!mongogx.findOne({})){
+            mongogx.insert({label: 'SYSTEM', letter:'C', size: getStorageSize(), vendor: {brand: 'Western Sea', model: 'Shark 5M WSS000SM007'}});
+        };
+
+        //sytem folders
+        mongogx.setCollection('files');	
+        if(!mongogx.findOne({type:'folder', label:'system', path:'C:/'})){      
+            const t = moment().unix();
+            mongogx.insert({type:'folder', label:'system', path:'C:/', created:t, modified:t});
+            mongogx.insert({type:'folder', label:'desktops', path:'C:/system/', created:t, modified:t});     
+            mongogx.insert({type:'folder', label:'default', path:'C:/system/desktops/', created:t, modified:t});      
+        }  
+
+        //pins
+        mongogx.setCollection('menu_pins');
+        if(!mongogx.findOne({})){   
+            let json = OS.getJSON('menu_pins');            
+            json.forEach(__pin => {
+                mongogx.insert(__pin);
+            });  
+        }    
 	} 	
 };

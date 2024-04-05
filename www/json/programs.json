@@ -4,7 +4,8 @@
             "width" : "60%[=300]",
             "height" : "70%[=300]",
             "group" : "browser"
-        }
+        },
+        "ext" : [".html", ".htm"]
     },
     "Calculator" : {
         "config" : {
@@ -59,12 +60,14 @@
     "ImageViewer" : {
         "config" : {
             "group" : "media"
-        }
+        },
+        "ext" : [".jpg", ".png", ".gif"]
     },
     "MsCode" : {
         "config" : {
-            "group" : "text"
-        }
+            "unique" : true
+        },
+        "ext" : [".js", ".css", ".html"]
     },
     "Sketch" : {
         "config" : {
@@ -82,13 +85,13 @@
         "oml" : "task_manager"
     },
     "TextEditor" : {
-        "config" : {
-            "group" : "text"
-        }
+        "config" : { },
+        "ext" : [".txt"]
     },
     "VideoPlayer" : {
         "config" : {
             "group" : "media"
-        }
+        },
+        "ext" : [".webm", ".mp4"]
     }
 }

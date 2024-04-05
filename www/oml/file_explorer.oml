@@ -11,6 +11,7 @@
                     {"default:Tree":{
                         "name" : "tree",      
                         "root_label" : "drive",
+                        "key" : "_id",
                         "scroll" : true,          
                         "toggle" : false                        
                     }},

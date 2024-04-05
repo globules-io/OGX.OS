@@ -1,6 +1,6 @@
 [
-    {"label" : "New Folder", "value" : "folder", "icon": "folder", "type" : "ContextItem"},
-    {"label" : "New File", "value" : "file", "icon": "file", "type" : "ContextItem"},
+    {"label" : "New Folder", "value" : "folder", "icon": "folder", "action" : "createFolder", "type" : "ContextItem"},
+    {"label" : "New File", "value" : "file", "icon": "file",  "action" : "createFile", "type" : "ContextItem"},
     {"type" : "ContextLine"},
     {"label" : "Display Settings", "value" : "sdisplay", "app": "DisplaySettings", "icon": "settings", "type" : "ContextItem"},
     {"label" : "Personalize", "value" : "personalize", "app": "DisplayPreferences", "icon": "monitor", "type" : "ContextItem"},
