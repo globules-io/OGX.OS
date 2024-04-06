@@ -44,6 +44,9 @@ OGX.Views.Desktop = function(__config){
                     list.insert(__file);
                 }
             });
+            OS.on(OS.SYSTEM.FILE.RENAMED, (__e, __file) => {
+                list.findUpdate('_id', __file._id, {label: __file.label}, false, 1);
+            });
             OS.on(OS.SYSTEM.FILE.DELETED, (__e, __file) => {
                 if(__file.path === path){
                     //remove here
@@ -137,11 +140,8 @@ OGX.Views.Desktop = function(__config){
             });
             OS.on(OGX.Popup.MOVED, (__e, __popup) => {        
                 //need to know if I drop it on top or bottom
-                if(flex && popup_in && cell){  
-                    
-
+                if(flex && popup_in && cell){                     
                     __popup.detach(); 
-
                     //save and override icons
                     __popup.old_icons = __popup.icons();
                     var icons = [__popup.old_icons[1]];
@@ -149,10 +149,8 @@ OGX.Views.Desktop = function(__config){
                         this.unsnap(__popup);
                     };
                     __popup.icons(icons);
-
                     //need compare with nodes, we always start at 2 cells [100%, 0%];
                     if(cell.flex.nodes.length){
-
                         //has at least 2 cells, so we must add
                         if(cell.flex.nodes.length >= 2){
                             if(cell.drop === 'bottom'){   
@@ -196,6 +194,7 @@ OGX.Views.Desktop = function(__config){
             });
         }else{
             OS.off(OS.SYSTEM.FILE.CREATED);
+            OS.off(OS.SYSTEM.FILE.RENAMED);
             OS.off(OS.SYSTEM.FILE.DELETED);
             OS.off(OGX.Popup.MOVE);
             OS.off(OGX.Popup.MOVED);
@@ -218,20 +217,16 @@ OGX.Views.Desktop = function(__config){
         let ghost = __popup.parent;
         __popup.detach(); 
         ghost.kill();
-
         //remove cell or change display
         if(cell.flex.nodes.length > 2){
             cell.flex.removeCell(cell.row);
-        }else{           
-
+        }else{  
             //depends which
             let size = ['100%', '0%'];
             !cell.row ? size.reverse() : null;
             cell.flex.cellSize(size);            
         }
-
         snapped_programs.findDelete('id', __popup.id);
-
         __popup.icons(__popup.old_icons);
         delete __popup.old_icons;
         __popup.attach(this);        
@@ -239,16 +234,12 @@ OGX.Views.Desktop = function(__config){
         __popup.drag(true);  
         __popup.maximize(true);
         __popup.normalize();  
-        __popup.center(); 
-
-        
-
+        __popup.center();   
         //remove flex if empty
         if(!snapped_programs.length){
             flex.kill();
             flex = null;
-        }  
-        
+        }        
     };
 
     //just return sub_flex, row (it will lite up the bottom)

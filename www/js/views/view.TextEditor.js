@@ -45,7 +45,9 @@ OGX.Views.TextEditor = function(__config){
                 input.click();
             }
         });   
-        
+        if(this.data && this.data.hasOwnProperty('file')){
+            tinymce.activeEditor.setContent(this.data.file.data);
+        }        
     };
 	
     //@Override

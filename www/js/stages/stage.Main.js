@@ -3,6 +3,7 @@ OGX.Stages.Main = function(__obj){
     construct(this, 'Stages.Main');
 	'use strict';
     let clock_intv, program_manager;
+    let context = null;
 
     //@Override
 	this.construct = function(){
@@ -35,9 +36,13 @@ OGX.Stages.Main = function(__obj){
                     if(desk){
                         __e.preventDefault();
                         __e = this.event(__e);  
+                        if(context){
+                            context.parent.remove('ContextMenu', context.id);
+                            context = null;
+                        }
                         setTimeout(() => {       
                             const desktop = this.children('Desktop')[0];                 
-                            this.create('ContextMenu', {
+                            context = this.create('ContextMenu', {
                                 id: 'desktop_context_list',
                                 x: __e.pageX,
                                 y: __e.pageY,
@@ -66,11 +71,11 @@ OGX.Stages.Main = function(__obj){
                         }, 0);
                         return;
                     }
-                    let file = getFileAtPoint(__e.pageX, __e.pageY);                    
-                    if(file){
+                    let o = getFileAtPoint(__e.pageX, __e.pageY);                    
+                    if(o){
                         __e.preventDefault();
                         __e = this.event(__e);  
-                        file = OS.SYSTEM.DATA.getFileById(file);
+                        let file = OS.SYSTEM.DATA.getFileById(o._id);
                         if(file){  
                             //get compatible processses
                             const processes = OS.SYSTEM.PROCESS.compatible(file);
@@ -78,9 +83,13 @@ OGX.Stages.Main = function(__obj){
                             let arr = processesToContext(processes);
                              //get std context
                             let contx_list = OS.getJSON(file.type+'_context');                                
-                            contx_list = arr.concat(contx_list);                            
+                            contx_list = arr.concat(contx_list);    
+                            if(context){
+                                context.parent.remove('ContextMenu', context.id);
+                                context = null;
+                            }                        
                             setTimeout(() => {  
-                                this.create('ContextMenu', {
+                                context = this.create('ContextMenu', {
                                     id: 'file_context_list',
                                     x: __e.pageX,
                                     y: __e.pageY,
@@ -98,13 +107,43 @@ OGX.Stages.Main = function(__obj){
                                     callback: (__item) => {
                                         if(__item.hasOwnProperty('action')){   
                                             switch(__item.action){
-                                                case 'openFile':                                               
-                                                OS.SYSTEM.PROCESS.start(desktop, __item);
-                                                //then open
-                                                break;                                               
+                                                case 'openFile':     
+                                                //start pass file
+                                                //console.log('OPEN', file);
+                                                //need active desktop here
+                                                OS.SYSTEM.PROCESS.start(OS.SYSTEM.DESKTOP.get(), __item, {file:file});                                               
+                                                break;  
 
-                                                case 'deleteFle':
+                                                case 'renameFile':
+                                                //issue, edits multiple cause fileexplorer.                                              
+                                                o.el.addClass('rename').append('<input class="text" name="label" value="'+file.label+'"></input>');
+                                                o.el.children('input')[0].select();
+                                                OGX.Form.bindField({
+                                                    el:'.file[data-ogx-id="'+file._id+'"] input[name="label"]',     
+                                                    submit: true,      
+                                                    submit_cb: (__o) => {
+                                                        if(__o.value.length){                                                        
+                                                            OS.SYSTEM.FILE.renameFile(file, __o.value);
+                                                            OGX.Form.unbindField('.file[data-ogx-id="'+file._id+'"');
+                                                            o.el.removeClass('rename').children('input').remove();   
+                                                        }
+                                                    }
+                                                })
+                                                break;                                             
 
+                                                case 'deleteFile':
+                                                OS.addOverlay();
+                                                OS.addPopup({
+                                                    id: 'confirm',
+                                                    head: 'none',
+                                                    width: 400,
+                                                    height: 140,
+                                                    html: '<span class="popup_message">Are you sure you want to delete '+file.label+'? Please confirm.</span>',
+                                                    buttons: [{label:'YES', callback:null}, {label:'CANCEL', callback:() => {
+                                                        OS.removeOverlay(false);
+                                                        OS.removePopup('confirm', false);
+                                                    }}]
+                                                });
                                                 break;
                                             }                                
                                             return;
@@ -172,7 +211,7 @@ OGX.Stages.Main = function(__obj){
         //2nd div always or not file/folder    
         let el = $(els[1]);
         if(el.hasClass('ogx_dynamic_list_item') && (el.hasClass('file') || el.hasClass('folder'))){
-            return el.data('ogx-id');
+            return {_id:el.data('ogx-id'), el:el};
         }
         return null;
     }

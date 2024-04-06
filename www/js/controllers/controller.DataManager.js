@@ -58,14 +58,29 @@ OGX.Controllers.DataManager = function(){
         mongogx.setCollection('files');
     };
 
-    this.createFile = function(__path, __name){
+    this.createFile = function(__path, __name, __data){
+        typeof __data === 'undefined' ? __data = '' : null;
         __path = OS.SYSTEM.UTILS.normalizePath(__path);        
         mongogx.setDatabase('system');	
         mongogx.setCollection('files');
         const t = moment().unix();
-        const file = {type:'file', label:__name, path:__path, created:t, modified:t};
-        file._id = mongogx.insert({type:'file', label:__name, path:__path, created:t, modified:t});
+        const file = {type:'file', label:__name, path:__path, data:__data, created:t, modified:t};
+        file._id = mongogx.insert(file);
         return file;
+    };
+
+    this.saveFile = function(__file){
+        mongogx.setDatabase('system');	
+        mongogx.setCollection('files');
+        const t = moment().unix();
+        __file.modified = t;
+        mongogx.replaceOne(__file);
+    };
+
+    this.renameFile = function(__file, __name){
+        mongogx.setDatabase('system');	
+        mongogx.setCollection('files');
+        mongogx.updateOne({_id:__file._id}, {label:__name});        
     };
 
     this.createFolder = function(__path, __name){
@@ -74,7 +89,7 @@ OGX.Controllers.DataManager = function(){
         mongogx.setCollection('files');
         const t = moment().unix();
         const folder = {type:'folder', label:__name, path:__path, created:t, modified:t};
-        folder._id = mongogx.insert({type:'folder', label:__name, path:__path, created:t, modified:t});
+        folder._id = mongogx.insert(folder);
         return folder;
     };
 

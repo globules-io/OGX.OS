@@ -67,7 +67,7 @@
         "config" : {
             "unique" : true
         },
-        "ext" : ["js", "css", "html"]
+        "ext" : ["json", "js", "css", "html"]
     },
     "Sketch" : {
         "config" : {

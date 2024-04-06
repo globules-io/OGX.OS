@@ -18,3 +18,19 @@
     --file-size: 50px;
     --file-label-size: 13px;
 }
+.rename > .info > .label{
+    display: none !important;
+}
+.rename > input{
+    display: block;
+    min-width: unset;
+    outline: none;
+    width: 100px;
+    margin: auto;
+    background: none;
+    border: 1px solid #EEE;
+    border-radius: 4px;
+    font-family: var(--font-light);
+    font-size: var(--file-label-size);
+    color: #EEE;
+}
