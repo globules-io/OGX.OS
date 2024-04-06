@@ -157,14 +157,14 @@ OGX.ProgramMenu = function(__config){
     //@Override
     this.construct = function(){
         desk = OS.SYSTEM.DESKTOP.get();
-        list = this.children('DynamicList')[0];
-        //need to reset stacked tree on touch down
+        list = this.children('DynamicList')[0];   
     };
 
     //@Override
     this.ux = function(__bool){
         if(__bool){
-            this.on( OGX.StackedTree.SELECT , (__e, __item) => {
+            this.on( OGX.StackedTree.SELECT , (__e, __item, __stak) => {
+                //I don't know which one
                 switch(__item.action){
                     case 'openFile':
                     this.parent.open(__item);
@@ -178,6 +178,7 @@ OGX.ProgramMenu = function(__config){
                     this.parent.exit();
                     break;
                 }
+                __stak.reset();
             });  
         }else{
            this.off( OGX.StackedTree.SELECT );
