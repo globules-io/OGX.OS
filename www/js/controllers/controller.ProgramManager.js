@@ -93,7 +93,7 @@ OGX.Controllers.ProgramManager = function(){
         if(reg.hasOwnProperty('config')){            
             OGX.Data.merge(options, reg.config, true);
         }
-        options.icon = '/img/'+__item.icon+'.svg';
+        options.icon = __item.icon;
         options.title = __item.label;
         const popup = OS.addPopup(options, __parent);
         const process = popup.children('View')[0];

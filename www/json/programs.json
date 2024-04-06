@@ -27,45 +27,52 @@
     "ControlPanel" : {
         "config" : {
             "group" : "system",
-            "unique" : true
+            "unique" : true,
+            "icon" : "/img/settings.svg"
         },
         "oml" : "control_panel"
     },
     "DisplaySettings" : {
         "config" : {
             "group" : "system",
-            "unique" : true
+            "unique" : true,
+            "icon" : "/img/settings.svg"
         },
         "oml" : "display_settings"
     },
     "DisplayPreferences" : {
         "config" : {
             "group" : "system",
-            "unique" : true
+            "unique" : true,
+            "icon" : "/img/settings.svg"
         },
         "oml" : "display_preferences"
     },
     "Drives" : {
         "config" : {
-            "group" : "system"
+            "group" : "system",
+            "icon" : "/img/drives.svg"
         },
         "oml" : "drives"
     },
     "FileExplorer" : {
         "config" : {
-            "group" : "system"
+            "group" : "system",
+            "icon" : "/img/drives.svg"
         },     
         "oml" : "file_explorer"
     },
     "ImageViewer" : {
         "config" : {
-            "group" : "media"
+            "group" : "media",
+            "icon" : "/img/image.svg"
         },
         "ext" : ["jpg", "png", "gif"]
     },
     "MsCode" : {
         "config" : {
-            "unique" : true
+            "unique" : true,
+            "icon" : "/img/text.svg"
         },
         "ext" : ["json", "js", "css", "html", "txt"]
     },
@@ -73,7 +80,8 @@
         "config" : {
             "unique" : true,
             "width" : "60%[=300]",
-            "height" : "70%[=300]"
+            "height" : "70%[=300]",
+            "icon" : "/img/image.svg"
         },
         "oml" : "sketch"
     },
@@ -85,7 +93,9 @@
         "oml" : "task_manager"
     },
     "TextEditor" : {
-        "config" : { },
+        "config" : {
+            "icon" : "/img/text.svg"
+         },
         "menu" : [                                       
             {"label":"File", "items":[
                 {"label":"Open", "action":"openFile"},
@@ -98,7 +108,8 @@
     },
     "VideoPlayer" : {
         "config" : {
-            "group" : "media"
+            "group" : "media",
+             "icon" : "/img/video.svg"
         },
         "menu" : [                                       
             {"label":"File", "items":[

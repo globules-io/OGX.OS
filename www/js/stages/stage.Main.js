@@ -218,7 +218,8 @@ OGX.Stages.Main = function(__obj){
     function processesToContext(__arr){
         let l = [];
         __arr.forEach((__o) => {   
-            l.push({label : 'Open with '+__o.name, "app": __o.name, "action": "openFile", "icon": "system", "type" : "ContextItem"});
+            //icon is path to img here
+            l.push({label : 'Open with '+__o.name, app: __o.name, action: 'openFile', icon: __o.config.config.icon, type : 'ContextItem'});
         });
         return l;
     }
