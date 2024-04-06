@@ -63,6 +63,14 @@
         "oml" : "file_explorer"
     },
     "ImageViewer" : {
+        "menu" : [                                       
+            {"label":"File", "items":[
+                {"label":"Open", "action":"openFile"},
+                {"label":"Save", "action":"saveFile"},
+                {"label":"Exit", "action":"exit"}
+            ]},
+            {"label":"About"}
+        ],
         "config" : {
             "group" : "media",
             "icon" : "/img/image.svg"
@@ -74,6 +82,14 @@
             "unique" : true,
             "icon" : "/img/text.svg"
         },
+        "menu" : [                                       
+            {"label":"File", "items":[
+                {"label":"Open", "action":"openFile"},
+                {"label":"Save", "action":"saveFile"},
+                {"label":"Exit", "action":"exit"}
+            ]},
+            {"label":"About"}
+        ],
         "ext" : ["json", "js", "css", "html", "txt"]
     },
     "Sketch" : {
@@ -95,7 +111,7 @@
     "TextEditor" : {
         "config" : {
             "icon" : "/img/text.svg"
-         },
+        },
         "menu" : [                                       
             {"label":"File", "items":[
                 {"label":"Open", "action":"openFile"},

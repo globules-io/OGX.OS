@@ -93,7 +93,7 @@ OGX.Controllers.ProgramManager = function(){
         if(reg.hasOwnProperty('config')){            
             OGX.Data.merge(options, reg.config, true);
         }
-        options.icon = __item.icon;
+
         options.title = __item.label;
         const popup = OS.addPopup(options, __parent);
         const process = popup.children('View')[0];
@@ -167,7 +167,7 @@ OGX.Controllers.ProgramManager = function(){
                 if(!__oml[node].hasOwnProperty('node:OML')){
                     __oml[node]['node:OML'] = {};
                 }
-                __oml[node]['node:OML'] = {'default .program_menu:ProgramMenu':{                    
+                __oml[node]['node:OML'] = {'default .os_program_menu:ProgramMenu':{                    
                     css:'os_program_bar',
                     'node:OML': {
                         'default:DynamicList':{
