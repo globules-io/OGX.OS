@@ -7,7 +7,7 @@
     {"label" : "I", "type" : "MenuLetter"},
     {"label" : "Image Viewer", "icon" : "image", "app" : "ImageViewer", "type" : "MenuProgram"},
     {"label" : "M", "type" : "MenuLetter"},
-    {"label" : "Mental Studio Code", "icon" : "text", "app" : "MsCode", "type" : "MenuProgram"},
+    {"label" : "Mental Studio Code", "icon" : "mscode", "app" : "MsCode", "type" : "MenuProgram"},
     {"label" : "S", "type" : "MenuLetter"},
     {"label" : "Sketch", "icon" : "sketch", "app" : "Sketch", "type" : "MenuProgram"},
     {"label" : "T", "type" : "MenuLetter"},

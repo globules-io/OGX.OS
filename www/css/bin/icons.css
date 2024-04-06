@@ -64,6 +64,9 @@
 .icon_sketch{
     background-image: url('/img/sketch.svg');
 }
+.icon_mscode{
+    background-image: url('/img/object.svg');
+}
 .icon_list{
     background-image: url('/img/list.svg');
 }

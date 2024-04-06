@@ -71,6 +71,7 @@ OGX.Controllers.DataManager = function(){
 
     this.saveFile = function(_id, __data){
         __data = __data.replace(/\n|\r/g, '');
+        console.log('SAVE FILE', __data);
         mongogx.setDatabase('system');	
         mongogx.setCollection('files');
         const t = moment().unix();

@@ -117,6 +117,11 @@ input{
     background-position: center;
     background-image: url('/img/bg.jpg');
 }
+/*
+.CodeMirror pre.CodeMirror-line{
+    margin-left: 15px !important;
+}
+*/
 .noevent{
     pointer-events: none;
 }

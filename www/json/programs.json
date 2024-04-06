@@ -80,7 +80,7 @@
     "MsCode" : {
         "config" : {
             "unique" : true,
-            "icon" : "/img/text.svg"
+            "icon" : "/img/object.svg"
         },
         "menu" : [                                       
             {"label":"File", "items":[
