@@ -8,6 +8,7 @@ OGX.Controllers.FileManager = function(){
 
     //Constants
     this.CREATED = 'fileCreated';
+    this.RENAMED = 'fileRenamed';
     this.UPDATED = 'fileUpdated';
     this.DELETED = 'fileDeleted';
    
@@ -34,6 +35,11 @@ OGX.Controllers.FileManager = function(){
     this.deleteFile = function(__path, __name){
         const file = OS.SYSTEM.DATA.deleteFile(__path, __name);
         OGX.Core.el.trigger(OS.SYSTEM.FILE.DELETED, file);
+    };
+
+    this.renameFile = function(__file, __name){
+        OS.SYSTEM.DATA.renameFile(__file, __name);
+        OGX.Core.el.trigger(OS.SYSTEM.FILE.RENAMED, __file);
     };
 
     this.createFolder = function(__path, __name){

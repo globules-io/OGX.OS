@@ -8,6 +8,9 @@ OGX.Views.MsCode = function(__config){
 	this.construct = function(){
         code = CodeMirror(this.el.find('.editor')[0], {mode: 'javascript',  lineNumbers: true, theme: 'base16-dark', scrollbarStyle: 'simple'});
         code.setSize('100%', '100%'); 
+        if(this.data && this.data.hasOwnProperty('file')){
+            code.setValue(this.data.file.data);
+        }  
     };
 	
     //@Override

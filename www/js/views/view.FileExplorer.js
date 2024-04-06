@@ -30,8 +30,13 @@ OGX.Views.FileExplorer = function(__config){
                 let parent = OS.SYSTEM.DATA.getFile(o.path);             
                 tree.addItem(__file, parent._id);                
             });
+            OS.on(OS.SYSTEM.FILE.RENAMED, (__e, __file) => {
+                tree.updateItem(__file._id, __file);
+                list.findUpdate('_id', __file._id, {label:__file.label}, false, 1);
+            });
             OS.on(OS.SYSTEM.FILE.DELETED, (__e, __file) => {
                 tree.deleteItem(__file._id);
+                list.findDelete('_id', __file._id, 1);
             });
             tree.on(OGX.Tree.SELECT, function(__e, __item){
                 tree_item = __item;
@@ -43,6 +48,7 @@ OGX.Views.FileExplorer = function(__config){
             });
         }else{
             OS.off(OS.SYSTEM.FILE.CREATED);
+            OS.off(OS.SYSTEM.FILE.RENAMED);
             OS.off(OS.SYSTEM.FILE.DELETED);
             tree.off(OGX.Tree.SELECT);
         }

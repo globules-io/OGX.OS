@@ -136,6 +136,12 @@ OGX.Program = function(__config){
     'use strict'; 
     this.isProgram = true;
 
-    this.open = function(__file){};
+    this.open = function(__file){};    
     this.close = function(){};
+    
+    this.save = function(){
+        if(this.data && this.data.hasOwnProperty('file')){
+            OS.SYSTEM.DATA.saveFile(this.data.file);
+        }
+    };
 };

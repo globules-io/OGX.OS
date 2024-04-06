@@ -1,3 +1,4 @@
 [
-    {"label" : "Delete", "icon": "system", "action" : "deleteFile", "type" : "ContextItem"}
+    {"label" : "Delete", "icon": "settings", "action" : "deleteFile", "type" : "ContextItem"},
+    {"label" : "Rename", "icon": "settings", "action" : "renameFile", "type" : "ContextItem"}
 ]
