@@ -1,6 +1,6 @@
 {
     "name": "@globules-io/ogx.os",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "description": "Web based operating system based on OGX.JS",
     "main": "",
     "scripts": {
