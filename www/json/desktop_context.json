@@ -1,8 +1,8 @@
 [
-    {"label" : "New Folder", "value" : "folder", "icon": "folder", "action" : "createFolder", "type" : "ContextItem"},
-    {"label" : "New File", "value" : "file", "icon": "file",  "action" : "createFile", "type" : "ContextItem"},
+    {"label" : "New Folder", "value" : "folder", "icon": "/themes/io-globules-ogx/dark/img/folder_empty.svg", "action" : "createFolder", "type" : "ContextItem"},
+    {"label" : "New File", "value" : "file", "icon": "/themes/io-globules-ogx/dark/img/file.svg",  "action" : "createFile", "type" : "ContextItem"},
     {"type" : "ContextLine"},
-    {"label" : "Display Settings", "value" : "sdisplay", "app": "DisplaySettings", "icon": "settings", "type" : "ContextItem"},
-    {"label" : "Personalize", "value" : "personalize", "app": "DisplayPreferences", "icon": "monitor", "type" : "ContextItem"},
-    {"label" : "Task Manager", "value" : "tmanager", "app": "TaskManager", "icon": "tmanager", "type" : "ContextItem"}
+    {"label" : "Display Settings", "value" : "sdisplay", "app": "DisplaySettings", "icon": "/img/settings.svg", "type" : "ContextItem"},
+    {"label" : "Personalize", "value" : "personalize", "app": "DisplayPreferences", "icon": "/img/monitor.svg", "type" : "ContextItem"},
+    {"label" : "Task Manager", "value" : "tmanager", "app": "TaskManager", "icon": "/img/tmanager.svg", "type" : "ContextItem"}
 ]

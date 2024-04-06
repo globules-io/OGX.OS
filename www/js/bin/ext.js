@@ -24,7 +24,6 @@ OGX.OS = function(__config){
     };
 
     this.SYSTEM.UTILS.pathToPathFile = function(__path){
-         console.log('pathToPathFile', __path);
         __path = OS.SYSTEM.UTILS.normalizePath(__path);
         __path = __path.split('/');
         __path.pop();
@@ -134,14 +133,56 @@ require('Program');
 OGX.Program = function(__config){ 
     construct(this, 'Program');
     'use strict'; 
-    this.isProgram = true;
+    this.isProgram = true;  
 
-    this.open = function(__file){};    
+    this.open = function(__file){}; 
     this.close = function(){};
     
-    this.save = function(){
+    this.save = function(){  
         if(this.data && this.data.hasOwnProperty('file')){
-            OS.SYSTEM.DATA.saveFile(this.data.file);
+            OS.SYSTEM.DATA.saveFile(this.data.file._id, this.data.file.data);
         }
     };
+
+    this.exit = function(){
+        OS.SYSTEM.PROCESS.stop(this.id);
+    };
+};
+require('ProgramMenu', 'Uxi', 'Placeholder', 'Touch');
+OGX.ProgramMenu = function(__config){ 
+    construct(this, 'ProgramMenu');
+    'use strict'; 
+    let desk, list;
+
+    //@Override
+    this.construct = function(){
+        desk = OS.SYSTEM.DESKTOP.get();
+        list = this.children('DynamicList')[0];   
+    };
+
+    //@Override
+    this.ux = function(__bool){
+        if(__bool){
+            this.on( OGX.StackedTree.SELECT , (__e, __item, __stak) => {
+                //I don't know which one
+                switch(__item.action){
+                    case 'openFile':
+                    this.parent.open(__item);
+                    break;
+
+                    case 'saveFile':
+                    this.parent.save();
+                    break;
+
+                    case 'exit':
+                    this.parent.exit();
+                    break;
+                }
+                __stak.reset();
+            });  
+        }else{
+           this.off( OGX.StackedTree.SELECT );
+        }
+    };
+
 };

@@ -1,16 +1,17 @@
 .studio_code{
-    display:block;
+    display: flex;
+    flex-direction: column;
     position: relative;
     width: 100%;
     height: 100%;
 }
 .studio_code > .editor{
-    display:block;
+    display: block;
     position: absolute;
-    top: var(--border-size);
+    top: calc(var(--border-size) + 40px);
     left: var(--border-size);
     max-width: calc(100% - var(--border-size) * 2);
     width: calc(100% - var(--border-size) * 2);
-    height: calc(100% - var(--border-size) * 2);
-    max-height: calc(100% - var(--border-size) * 2);   
+    height: calc(100% - var(--border-size) * 2 - 40px);
+    max-height: calc(100% - var(--border-size) * 2 - 40px);   
 }

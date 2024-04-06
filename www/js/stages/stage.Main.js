@@ -109,7 +109,6 @@ OGX.Stages.Main = function(__obj){
                                             switch(__item.action){
                                                 case 'openFile':     
                                                 //start pass file
-                                                //console.log('OPEN', file);
                                                 //need active desktop here
                                                 OS.SYSTEM.PROCESS.start(OS.SYSTEM.DESKTOP.get(), __item, {file:file});                                               
                                                 break;  
@@ -219,7 +218,8 @@ OGX.Stages.Main = function(__obj){
     function processesToContext(__arr){
         let l = [];
         __arr.forEach((__o) => {   
-            l.push({label : 'Open with '+__o.name, "app": __o.name, "action": "openFile", "icon": "system", "type" : "ContextItem"});
+            //icon is path to img here
+            l.push({label : 'Open with '+__o.name, app: __o.name, action: 'openFile', icon: __o.config.config.icon, type : 'ContextItem'});
         });
         return l;
     }
