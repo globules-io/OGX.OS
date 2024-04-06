@@ -97,13 +97,7 @@ OGX.Controllers.DataManager = function(){
         __path = OS.SYSTEM.UTILS.normalizePath(__path);    
         const files = this.getFiles(__path);
         const root = __path.split('/')[0];
-        const tree = {type:'root', label: root, items:[]};
-
-        //if we want the entire drive, need to add the drive
-        if(__path.length === 1){
-            tree.label = __path+':';
-        }
-
+        const tree = {_id:'root', type:'root', label: root, items:[]};        
         //need to sort the path first     
         files.update({}, (__file) => {__file.depth = __file.path.split('/').length-1;});        
         files.order('depth', 1);
