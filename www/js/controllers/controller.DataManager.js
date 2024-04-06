@@ -69,12 +69,12 @@ OGX.Controllers.DataManager = function(){
         return file;
     };
 
-    this.saveFile = function(__file){
+    this.saveFile = function(_id, __data){
+        __data = __data.replace(/\n|\r/g, '');
         mongogx.setDatabase('system');	
         mongogx.setCollection('files');
         const t = moment().unix();
-        __file.modified = t;
-        mongogx.replaceOne(__file);
+        mongogx.update({_id:_id}, {$set:{data:__data, modified:t}});
     };
 
     this.renameFile = function(__file, __name){

@@ -1,0 +1,10 @@
+{  
+    "default:StackedTree":{                                  
+        "key" : "label",
+        "scroll" : false,
+        "display" : {
+            "html" : "<span class\"label\">{{$label}}</span>"
+        }, 
+        "list:OSE" : "{{[&item]}}"
+    }
+}

@@ -40,7 +40,6 @@ OGX.Views.Calculator = function(__config){
                     arr = [0, val];
                 }else{       
                     if(cur.length){           
-                        console.log('concat', arr, cur);
                         arr = arr.concat(cur);
                         arr.push(val); 
                     }else{
@@ -152,7 +151,6 @@ OGX.Views.Calculator = function(__config){
     function calc(){
         let ev = null;        
         try{
-            console.log(arr.slice(0, -1).join(''));
             ev = eval(arr.slice(0, -1).join(''));
         }catch(__err){
             console.log('ERROR', ev);

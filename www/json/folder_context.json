@@ -1,4 +1,4 @@
 [
-    {"label" : "Open", "icon": "system", "action" : "openFolder", "type" : "ContextItem"},    
-    {"label" : "Delete", "icon": "system", "action" : "deleteFolder", "type" : "ContextItem"}
+    {"label" : "Open", "icon": "settings", "action" : "openFolder", "type" : "ContextItem"},    
+    {"label" : "Delete", "icon": "settings", "action" : "deleteFolder", "type" : "ContextItem"}
 ]

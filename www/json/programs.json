@@ -67,7 +67,7 @@
         "config" : {
             "unique" : true
         },
-        "ext" : ["json", "js", "css", "html"]
+        "ext" : ["json", "js", "css", "html", "txt"]
     },
     "Sketch" : {
         "config" : {
@@ -86,12 +86,28 @@
     },
     "TextEditor" : {
         "config" : { },
+        "menu" : [                                       
+            {"label":"File", "items":[
+                {"label":"Open", "action":"openFile"},
+                {"label":"Save", "action":"saveFile"},
+                {"label":"Exit", "action":"exit"}
+            ]},
+            {"label":"About"}
+        ],
         "ext" : ["txt"]
     },
     "VideoPlayer" : {
         "config" : {
             "group" : "media"
         },
+        "menu" : [                                       
+            {"label":"File", "items":[
+                {"label":"Open", "action":"openFile"},
+                {"label":"Save", "action":"saveFile"},
+                {"label":"Exit", "action":"exit"}
+            ]},
+            {"label":"About"}
+        ],
         "ext" : ["webm", "mp4"]
     }
 }

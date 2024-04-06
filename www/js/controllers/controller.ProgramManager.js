@@ -103,7 +103,11 @@ OGX.Controllers.ProgramManager = function(){
         OS.cfind('Docker', 'docker').addItem(popup, {icon: popup.icon()});
         popup.show(true);
         return process;
-    }    
+    }; 
+
+    this.onFileInProgress = function(__process_id, __file){
+        
+    };
 
     function minimizePopup(__popup){
         __popup.hide('fade slide');        
@@ -141,7 +145,8 @@ OGX.Controllers.ProgramManager = function(){
             } 
             if(__el){
                 oml = OGX.OML.rename(oml, 'default '+__el);                
-            }             
+            }  
+            injectMenu(conf, oml);       
             return oml;           
         }
         let node = {};
@@ -151,8 +156,35 @@ OGX.Controllers.ProgramManager = function(){
         };
         if(__el){
            node = OGX.OML.rename(node, 'default '+__el);
-        }        
+        }  
+        injectMenu(conf, node);     
         return node;
+    }  
+
+    function injectMenu(__conf, __oml){
+        if(__conf.hasOwnProperty('menu')){
+            for(let node in __oml){
+                if(!__oml[node].hasOwnProperty('node:OML')){
+                    __oml[node]['node:OML'] = {};
+                }
+                __oml[node]['node:OML'] = {'default .program_menu:ProgramMenu':{                    
+                    css:'os_program_bar',
+                    'node:OML': {
+                        'default:DynamicList':{
+                            key : 'label',
+                            as : 'item',
+                            scroll : false,
+                            display:{
+                                css : 'program_bar_root',
+                                oml : 'program_bar_tree'
+                            },                            
+                            list: __conf.menu
+                        }
+                    }
+                }};
+                break;
+            }
+        }
     }  
 
     function exists(__node){        

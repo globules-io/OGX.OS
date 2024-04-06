@@ -1,14 +1,22 @@
 .text_editor{
-    display: block;
+    display: flex;
+    flex-direction: column;
     width: 100%;
     height: 100%;
     padding: var(--border-size);
     position: relative;
 }
-.text_editor > .editor{
-    display: block;
+.text_editor > .program_menu{
+    display: inline-block;
+    position: relative;
     width: 100%;
-    height: 100%;
+    background-color: #222;
+    height: 40px;
+}
+.text_editor > .editor{
+    display: inline-block;
+    width: 100%;
+    flex-grow: 1;
     position: absolute;
 }
 .text_editor .tox{

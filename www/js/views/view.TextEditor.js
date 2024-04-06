@@ -3,6 +3,9 @@ OGX.Views.TextEditor = function(__config){
     construct(this, 'Views.TextEditor');
 	'use strict'; 
     let popup;
+    let data = '';
+    let editor = null;
+    const that = this;
    
     //@Override
 	this.construct = function(){
@@ -12,42 +15,32 @@ OGX.Views.TextEditor = function(__config){
         this.parent.on(OGX.Resize.RESIZED, (__e) => {
             this.el.find('iframe').removeClass('noevent');
         });
+        let init_content = false;
+        if(this.data && this.data.hasOwnProperty('file')){
+            this.data.file = OGX.Data.clone(this.data.file);      
+            init_content = true;      
+        };  
+
         popup = OS.findPopup(this);
         tinymce.init({
-            selector: this.selector+' textarea.editor',
+            selector: 'textarea.editor',
             plugins: 'image lists',
             menubar:'',
-            toolbar:'undo redo | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | bullist | customimage customvideo customlink customtag',
+            toolbar:'undo redo | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | bullist',
             resize:false,
             skin:'ogx',
             content_css:'dark',            
-            setup:function(ed){
-                ed.on('keyup', onBodyChange);                             
-            },     
-            file_picker_callback: function (cb, value, meta) {
-                image = false;
-                const input = document.createElement('input');
-                input.setAttribute('type', 'file');
-                input.setAttribute('accept', 'image/*');                
-                input.onchange = function(){                   
-                    let file = this.files[0];
-                    const reader = new FileReader();
-                    reader.onload = function(){                       
-                        let id = 'blobid' + (new Date()).getTime();
-                        let blobCache =  tinymce.activeEditor.editorUpload.blobCache;
-                        const base64 = image = reader.result.split(',')[1];   
-                        const blobInfo = blobCache.create(id, file, base64);
-                        blobCache.add(blobInfo);                       
-                        cb(blobInfo.blobUri(), { title: file.name });
-                    };
-                    reader.readAsDataURL(file);
-                };
-                input.click();
+            setup:(ed) => {               
+                ed.on('keyup', onBodyChange);    
+                ed.on('init', ()=>{        
+                    editor = ed;    
+                    if(init_content){ 
+                        ed.setContent(that.data.file.data); 
+                    }
+                });                         
             }
-        });   
-        if(this.data && this.data.hasOwnProperty('file')){
-            tinymce.activeEditor.setContent(this.data.file.data);
-        }        
+        });      
+            
     };
 	
     //@Override
@@ -75,11 +68,16 @@ OGX.Views.TextEditor = function(__config){
     };
 
     this.val = function(__string){
-       
+        if(editor){     
+            if(this.data && this.data.hasOwnProperty('file')){      
+                this.data.file.data = __string;
+            }
+            editor.setContent(__string);
+        }
     };
 
     function onBodyChange(){
-
+        that.data.file.data = editor.getContent();
     }
 };
     

@@ -109,7 +109,6 @@ OGX.Stages.Main = function(__obj){
                                             switch(__item.action){
                                                 case 'openFile':     
                                                 //start pass file
-                                                //console.log('OPEN', file);
                                                 //need active desktop here
                                                 OS.SYSTEM.PROCESS.start(OS.SYSTEM.DESKTOP.get(), __item, {file:file});                                               
                                                 break;  

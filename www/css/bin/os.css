@@ -9,6 +9,7 @@
     --popup-title-size: 13px;
     --popup-message-size: 17px; 
     --context-label-size: 13px;
+    --program-menu-size: 12px;
     --border-size: 5px;
     --title-size: 16px;
     --subtitle-size: 13px;
@@ -33,4 +34,27 @@
     font-family: var(--font-light);
     font-size: var(--file-label-size);
     color: #EEE;
+}
+.os_program_bar{
+    position: absolute;
+}
+.os_program_bar > .ogx_dynamic_list > .ogx_dynamic_list_item{
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 10px;
+    background-color: #222;
+    z-index: 100000;
+}
+.os_program_bar  > .ogx_dynamic_list > .ogx_dynamic_list_item  > .ogx_uxi > .menu{
+    top:20px;
+    left:0px;
+}
+.os_program_bar  > .ogx_dynamic_list > .ogx_dynamic_list_item > .ogx_uxi > .label{
+    padding: 0px 5px;
+    font-size: var(--program-menu-size);
+    font-family: var(--font-light);
+}
+.os_program_bar  > .ogx_dynamic_list > .ogx_dynamic_list_item  > .ogx_uxi > .menu .label{
+    font-size: var(--program-menu-size);
+    font-family: var(--font-light);
 }

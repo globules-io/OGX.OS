@@ -66,16 +66,21 @@
             "Roboto-ThinItalic.ttf"
         ],
         "/json": [
+            "control_panel.json",
             "desktop_context.json",
             "extensions.json",
+            "file_context.json",
+            "folder_context.json",
             "menu_icons.json",
             "menu_pins.json",
+            "menu_programs.json",
             "programs.json",
             "sketch_brushes.json",
             "sketch_colors.json",
             "swatches.json"
         ],
         "/oml": [
+            "control_panel.oml",
             "desktop.oml",
             "display_preferences.oml",
             "display_settings.oml",
@@ -84,6 +89,7 @@
             "login.oml",
             "main_menu.oml",
             "main_stage.oml",
+            "program_bar_tree.oml",
             "sketch.oml",
             "task_manager.oml"
         ],
@@ -109,6 +115,7 @@
             "template.MainMenu.html",
             "template.MenuLetter.html",
             "template.MenuProgram.html",
+            "template.MsCode.html",
             "template.Settings.html",
             "template.Sketch.html",
             "template.SketchBrush.html",
