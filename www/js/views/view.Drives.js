@@ -37,7 +37,6 @@ OGX.Views.Drives = function(__config){
                         view.el.empty();
                         let oml = OS.getOML('file_explorer');
                         OGX.OML.getNodeByName(oml, 'file_explorer').data = {drive: drive, path: drive.letter+':/'};
-                        console.log(oml);
                         view.parse(oml);
                     }else{
                         list.findUpdate('_id', drive._id, {selected:now}, false, 1);
