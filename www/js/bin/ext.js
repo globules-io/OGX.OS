@@ -58,10 +58,11 @@ OGX.OS = function(__config){
     };
 
     this.SYSTEM.PROCESS.stop = function(__process_id){
+        console.log('SYSTEM.PROCESS.stop', __process_id);
         //if we pass a whole container instead, kill all its processes
         if(typeof __process_id !== 'string'){            
             __process_id.gather('View').get({isProgram:true}).forEach((__app) => {
-                OS.SYSTEM.PROCESS.stop(__OS.parent.id);
+                OS.SYSTEM.PROCESS.stop(__app.parent.id);
             });
             OS.removePopup(__process_id.id, false);
             return;
@@ -71,12 +72,14 @@ OGX.OS = function(__config){
             return;
         }
         let id = process.id;
+
         //if immediate parent is a popup
         if(process.parent._NAME_ === 'Popup'){
             OS.removePopup(process.parent.id, false);
         }else{
             process.kill();
         }
+
         processes.findDelete('id', id, 1);
         OS.el.trigger(OS.SYSTEM.PROCESS.KILLED, id);
     };  
