@@ -1,1 +1,1 @@
-{"index":"index.html","env":"dev"}
+{"index":"index.html","env":"dev","prepare_skip":["images"]}
